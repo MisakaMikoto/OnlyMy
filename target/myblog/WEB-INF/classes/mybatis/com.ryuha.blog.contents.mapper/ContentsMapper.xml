@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ryuha.blog.contents.mapper.ContentsMapper">
+    <resultMap id="contentJoinCode" type="contentsVO">
+        <result property="id" column="id"/>
+        <result property="subject" column="subject"/>
+    </resultMap>
+
+    <select id="getContentsList" parameterType="java.lang.String" resultMap="contentJoinCode">
+        SELECT
+          a.id as id,
+	      a.subject as subject
+        FROM contents a
+          LEFT OUTER JOIN code b
+	        ON a.categorycode = b.id
+        WHERE b.name = #{value};
+    </select>
+
+    <select id="getNewestContents" resultType="contentsVO">
+        SELECT
+          subject,
+          content
+        FROM
+          contents
+        ORDER BY
+          id
+        DESC
+          LIMIT 1
+    </select>
+
+    <select id="getContent" parameterType="java.lang.Integer" resultType="contentsVO">
+        SELECT
+          subject,
+          content
+        FROM
+          contents
+        WHERE
+          id = #{value};
+    </select>
+</mapper>
