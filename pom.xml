@@ -195,6 +195,49 @@
                     </descriptorRefs>
                 </configuration>
             </plugin>
+
+            <!-- minify and combine js/css -->
+            <plugin>
+                <groupId>com.samaxes.maven</groupId>
+                <artifactId>minify-maven-plugin</artifactId>
+                <version>1.7.4</version>
+                <executions>
+                    <execution>
+                        <id>default-minify</id>
+                        <phase>package</phase>
+                        <configuration>
+                            <charset>UTF-8</charset>
+                            <cssSourceDir>css</cssSourceDir>
+                            <cssSourceIncludes>
+                                <cssSourceInclude>**</cssSourceInclude>
+                            </cssSourceIncludes>
+                            <cssFinalFile>combined.css</cssFinalFile>
+
+                            <jsSourceDir>js</jsSourceDir>
+                            <jsSourceIncludes>
+                                <jsSourceInclude>**</jsSourceInclude>
+                            </jsSourceIncludes>
+                            <jsFinalFile>combined.js</jsFinalFile>
+                            <jsEngine>CLOSURE</jsEngine>
+                        </configuration>
+                        <goals>
+                            <goal>minify</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- exclude non minified resources-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.6</version>
+                <configuration>
+                    <webXml>src\main\webapp\WEB-INF\web.xml</webXml>
+                    <warSourceExcludes>**/*.css,**/*.js</warSourceExcludes>
+                </configuration>
+            </plugin>
+
         </plugins>
     </build>
 </project>
