@@ -16,24 +16,30 @@
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
-	<!-- common css -->
+	<!-- combine js -->
+	<script type="text/javascript" src="/js/combined.min.js"></script>
+
+	<!-- combine css -->
+	<link rel="stylesheet" type="text/css" href="/css/combined.min.css">
+
+	<!-- common css
 	<link rel="stylesheet" type="text/css" href="/css/component/title.css">
 	<link rel="stylesheet" type="text/css" href="/css/component/category.css">
-	<link rel="stylesheet" type="text/css" href="/css/component/contents.css">
+	<link rel="stylesheet" type="text/css" href="/css/component/contents.css"> -->
 
-	<!-- common request -->
-	<script type="text/javascript" src="/js/common/commonRequest.js"></script>
+	<!-- common request
+	<script type="text/javascript" src="/js/common/commonRequest.js"></script> -->
 
-	<!-- component -->
+	<!-- component
 	<script type="text/javascript" src="/js/component/title.js"></script>
 	<script type="text/javascript" src="/js/component/category.js"></script>
-	<script type="text/javascript" src="/js/component/contents.js"></script>
+	<script type="text/javascript" src="/js/component/contents.js"></script> -->
 
-	<!-- init -->
-	<script type="text/javascript" src="/js/init/mainInitScript.js"></script>
+	<!-- init
+	<script type="text/javascript" src="/js/init/mainInitScript.js"></script> -->
 
-	<!-- util -->
-	<script type="text/javascript" src="/js/util/util.js"></script>
+	<!-- util
+	<script type="text/javascript" src="/js/util/util.js"></script> -->
 
 	<style type="text/css">
 		#left {
