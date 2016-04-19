@@ -1,6 +1,7 @@
 package com.ryuha.blog.title.controller;
 
 import com.ryuha.blog.category.service.CategoryService;
+import com.ryuha.blog.title.model.TitleVO;
 import com.ryuha.blog.title.service.TitleService;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -21,14 +22,8 @@ public class TitleController {
     @Resource(name = "titleService")
     public TitleService titleService;
 
-    @RequestMapping(method = RequestMethod.POST, produces = "text/plain;charset=UTF-8")
-    public @ResponseBody String getName() {
-        JSONObject jsonObject = new JSONObject();
-        try {
-            jsonObject.put("title", this.titleService.getName());
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        return jsonObject.toString();
+    @RequestMapping(method = RequestMethod.GET)
+    public @ResponseBody TitleVO getName() {
+        return this.titleService.getName();
     }
 }

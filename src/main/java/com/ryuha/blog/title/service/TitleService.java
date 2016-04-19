@@ -1,6 +1,7 @@
 package com.ryuha.blog.title.service;
 
 import com.ryuha.blog.title.mapper.TitleMapper;
+import com.ryuha.blog.title.model.TitleVO;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -13,7 +14,7 @@ public class TitleService {
     @Resource(name = "titleMapper")
     private TitleMapper titleMapper;
 
-    public String getName() {
+    public TitleVO getName() {
         return this.titleMapper.getName();
     }
 }

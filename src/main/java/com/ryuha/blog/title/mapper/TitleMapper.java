@@ -1,5 +1,6 @@
 package com.ryuha.blog.title.mapper;
 
+import com.ryuha.blog.title.model.TitleVO;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -8,5 +9,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository(value = "titleMapper")
 public interface TitleMapper {
-    String getName();
+    TitleVO getName();
 }
