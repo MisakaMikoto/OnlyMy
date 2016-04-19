@@ -17,7 +17,7 @@
         WHERE b.name = #{value};
     </select>
 
-    <select id="getNewestContents" resultType="contentsVO">
+    <select id="getNewestContent" resultType="contentsVO">
         SELECT
           subject,
           content

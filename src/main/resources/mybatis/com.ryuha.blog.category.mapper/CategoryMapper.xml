@@ -2,22 +2,23 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.ryuha.blog.category.mapper.CategoryMapper">
-    <select id="getCategoryList" resultType="categoryVO">
-        SELECT
-          id,
-          name
+    <resultMap id="categoryJoinContents" type="categoryVO">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="count" column="count"/>
+    </resultMap>
+
+    <select id="getCategoryList" resultMap="categoryJoinContents">
+        SELECT DISTINCT
+          category.id as id,
+          category.name as name,
+          count(contents.id) as count
         FROM
           category
+          LEFT OUTER JOIN contents
+            ON category.id = contents.categoryCode
         WHERE
           deleted = 1
     </select>
 
-    <select id="getCount" parameterType="java.lang.String" resultType="java.lang.Integer">
-        SELECT
-          count(*)
-        FROM
-          contents
-        WHERE
-          categorycode = #{value}
-    </select>
 </mapper>
