@@ -66,7 +66,7 @@ var Category = function() {
     this.load = function(target) {
         // create commonRequest
         var commonRequest = new CommonRequest();
-        commonRequest.setType('POST');
+        commonRequest.setType('GET');
         commonRequest.setUrl('/category/list');
         commonRequest.setTargetComponentName(CommonRequest.category);
         commonRequest.load(target);

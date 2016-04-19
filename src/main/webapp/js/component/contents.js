@@ -87,17 +87,16 @@ var Contents = function() {
     this.load = function(contentId, target) {
         // create commonRequest
         var commonRequest = new CommonRequest();
-        commonRequest.setType('POST');
-        commonRequest.setUrl('/contents/content');
+        commonRequest.setType('GET');
+        commonRequest.setUrl('/contents/' + contentId);
         commonRequest.setTargetComponentName(CommonRequest.contentList);
-        commonRequest.setData('contentId=' + contentId);
         commonRequest.load(target);
     };
 
     this.loadNewest = function(target) {
         // create commonRequest
         var commonRequest = new CommonRequest();
-        commonRequest.setType('POST');
+        commonRequest.setType('GET');
         commonRequest.setUrl('/contents/newest');
         commonRequest.setTargetComponentName(CommonRequest.contentsViewer);
         commonRequest.load(target);
@@ -107,9 +106,8 @@ var Contents = function() {
         // create commonRequest
         var commonRequest = new CommonRequest();
         commonRequest.setType('POST');
-        commonRequest.setUrl('/contents/list');
+        commonRequest.setUrl('/contents/' + categoryCode);
         commonRequest.setTargetComponentName(CommonRequest.contentList);
-        commonRequest.setData('categoryCode=' + categoryCode);
         commonRequest.load(target);
     };
 };

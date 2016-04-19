@@ -34,7 +34,7 @@ var Title = function() {
     this.load = function(target) {
         // create commonRequest
         var commonRequest = new CommonRequest();
-        commonRequest.setType('POST');
+        commonRequest.setType('GET');
         commonRequest.setUrl('/title');
         commonRequest.setTargetComponentName(CommonRequest.title);
         commonRequest.load(target);

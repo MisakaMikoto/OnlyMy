@@ -32,7 +32,7 @@ var CommonRequest = function() {
         var myself = this;
         var xmlHttpRequest = new XMLHttpRequest();
         xmlHttpRequest.open(_type, _url, true);
-        xmlHttpRequest.setRequestHeader('Content-type', 'application/x-www-form-urlencoded; charset=utf-8');
+        //xmlHttpRequest.setRequestHeader('Content-type', 'application/x-www-form-urlencoded; charset=utf-8');
         xmlHttpRequest.onreadystatechange = function() {
             if(xmlHttpRequest.readyState == 4) {
                 if (xmlHttpRequest.status == 200) {
