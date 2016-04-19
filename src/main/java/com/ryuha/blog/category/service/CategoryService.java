@@ -19,7 +19,4 @@ public class CategoryService {
     public List<CategoryVO> getCategoryList() {
         return this.categoryMapper.getCategoryList();
     }
-    public int getCount(String categoryId) {
-        return this.categoryMapper.getCount(categoryId);
-    }
 }

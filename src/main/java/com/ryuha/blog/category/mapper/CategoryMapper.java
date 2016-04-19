@@ -11,6 +11,4 @@ import java.util.List;
 @Repository(value = "categoryMapper")
 public interface CategoryMapper {
     List<CategoryVO> getCategoryList();
-    int getCount(String categoryCode);
-
 }

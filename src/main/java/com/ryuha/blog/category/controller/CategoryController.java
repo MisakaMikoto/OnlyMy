@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * Created by Misaka on 2016-03-08.
@@ -22,19 +23,8 @@ public class CategoryController {
     @Resource(name = "categoryService")
     public CategoryService categoryService;
 
-    @RequestMapping(value = "/list", produces = "text/plain;charset=UTF-8", method = RequestMethod.POST)
-    public @ResponseBody String loadList() {
-        JSONArray jsonArray = new JSONArray();
-        for(CategoryVO categoryVO : this.categoryService.getCategoryList()) {
-            JSONObject jsonObject = new JSONObject();
-
-            try {
-                jsonObject.put(categoryVO.getName(), this.categoryService.getCount(categoryVO.getId()));
-                jsonArray.put(jsonObject);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-        return jsonArray.toString();
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    public @ResponseBody List<CategoryVO> loadList() {
+        return this.categoryService.getCategoryList();
     }
 }
