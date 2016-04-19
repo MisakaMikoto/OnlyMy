@@ -11,6 +11,6 @@ import java.util.List;
 @Repository(value = "contentsMapper")
 public interface ContentsMapper {
     List<ContentsVO> getContentsList(String categoryCode);
-    ContentsVO getNewestContents();
+    ContentsVO getNewestContent();
     ContentsVO getContent(int contentId);
 }

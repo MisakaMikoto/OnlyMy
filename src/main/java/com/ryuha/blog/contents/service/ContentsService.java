@@ -4,6 +4,9 @@ import com.ryuha.blog.category.mapper.CategoryMapper;
 import com.ryuha.blog.category.model.CategoryVO;
 import com.ryuha.blog.contents.mapper.ContentsMapper;
 import com.ryuha.blog.contents.model.ContentsVO;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -21,8 +24,8 @@ public class ContentsService {
         return this.contentsMapper.getContentsList(categoryCode);
     }
 
-    public ContentsVO getNewestContents() {
-        return this.contentsMapper.getNewestContents();
+    public ContentsVO getNewestContent() {
+        return this.contentsMapper.getNewestContent();
     }
 
     public ContentsVO getContent(int contentId) {
