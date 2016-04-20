@@ -1,7 +1,6 @@
 var CommonRequest = function() {
     var _type = '';
     var _url = '';
-    var _targetComponentName = '';
     var _data = '';
 
     this.setType = function(type) {
@@ -12,14 +11,6 @@ var CommonRequest = function() {
         _url = url;
     };
 
-    this.setTargetComponentName = function(setTargetComponentName) {
-        _targetComponentName = setTargetComponentName;
-    };
-
-    this.getTargetComponentName = function() {
-        return _targetComponentName;
-    };
-
     this.setData = function(data) {
         _data = data;
     };
@@ -28,7 +19,7 @@ var CommonRequest = function() {
       return _data;
     };
 
-    this.load = function(targetLayout) {
+    this.load = function(targetLayout, prototype) {
         var myself = this;
         var xmlHttpRequest = new XMLHttpRequest();
         xmlHttpRequest.open(_type, _url, true);
@@ -36,23 +27,7 @@ var CommonRequest = function() {
         xmlHttpRequest.onreadystatechange = function() {
             if(xmlHttpRequest.readyState == 4) {
                 if (xmlHttpRequest.status == 200) {
-                    var component = null;
-
-                    if(CommonRequest.title == myself.getTargetComponentName()) {
-                        component = new Title();
-                    }
-
-                    if(CommonRequest.category == myself.getTargetComponentName()) {
-                        component = new Category();
-                    }
-
-                    if(CommonRequest.contentList == myself.getTargetComponentName()) {
-                        component = new Contents();
-                    }
-
-                    if(CommonRequest.contentsViewer == myself.getTargetComponentName()) {
-                        component = new Contents();
-                    }
+                    var component = Object.create(prototype);
                     component.create(JSON.parse(xmlHttpRequest.responseText), targetLayout);
                 }
             }
@@ -66,8 +41,3 @@ var CommonRequest = function() {
         }
     };
 };
-
-CommonRequest.title = 'title';
-CommonRequest.category = 'category';
-CommonRequest.contentList = 'contentList';
-CommonRequest.contentsViewer = 'contentsViewer';

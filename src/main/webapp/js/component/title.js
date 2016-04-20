@@ -1,10 +1,13 @@
 /**
  * Created by Misaka on 2016-03-16.
  */
-var Title = function() {
+var Title = (function() {
+    function Title() {
+    };
+
     var _navigation = '';
 
-    this.setNavigation = function(navigation) {
+    Title.prototype.setNavigation = function(navigation) {
         _navigation = navigation;
     };
 
@@ -12,7 +15,7 @@ var Title = function() {
         return _navigation;
     };
 
-    this.create = function(titleNameJSON, target) {
+    Title.prototype.create = function(titleNameJSON, target) {
         // set and make ul
         this.setNavigation(document.createElement('NAV'));
 
@@ -22,7 +25,7 @@ var Title = function() {
         var containerDiv = document.createElement('DIV');
         containerDiv.setAttribute('class', 'container');
         var containerH2 = document.createElement('H2');
-        var containerH2TextNode = document.createTextNode(titleNameJSON.title);
+        var containerH2TextNode = document.createTextNode(titleNameJSON.name);
         containerH2.appendChild(containerH2TextNode);
         containerDiv.appendChild(containerH2);
         nav.appendChild(containerDiv);
@@ -31,12 +34,12 @@ var Title = function() {
         target.insertBefore(nav, window.document.body.firstChild);
     };
 
-    this.load = function(target) {
+    Title.prototype.load = function(target) {
         // create commonRequest
         var commonRequest = new CommonRequest();
         commonRequest.setType('GET');
         commonRequest.setUrl('/title');
-        commonRequest.setTargetComponentName(CommonRequest.title);
-        commonRequest.load(target);
+        commonRequest.load(target, Title.prototype);
     };
-}
+    return Title;
+}());

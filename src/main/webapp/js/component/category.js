@@ -1,11 +1,14 @@
 /**
  * Created by Misaka on 2016-03-14.
  */
-var Category = function() {
+var Category = (function() {
+    function Category() {
+    };
+
     var _ul = '';
     var _liList = [];
 
-    this.setUl = function(ul) {
+    Category.prototype.setUl = function(ul) {
         _ul = ul
     };
 
@@ -13,7 +16,7 @@ var Category = function() {
         return _ul;
     };
 
-    this.setLiList = function(liList) {
+    Category.prototype.setLiList = function(liList) {
         _liList = liList;
     };
 
@@ -21,7 +24,7 @@ var Category = function() {
         return _liList;
     };
 
-    this.create = function(categoryListJSON, target) {
+    Category.prototype.create = function(categoryListJSON, target) {
         // set and make ul
         this.setUl(document.createElement('UL'));
 
@@ -35,15 +38,15 @@ var Category = function() {
             var li = getLiList();
             li.setAttribute('class', 'list-group-item');
 
-            var key = Util.getJSONKeys(categoryListJSON[i]);
+            var key = Util.getJSONKeys();
 
             var nameSpan = document.createElement('SPAN');
             var a = document.createElement('a');
             a.setAttribute('href', '#');
             a.addEventListener('click', function() {
-                drawContentsList(this.innerHTML.toLowerCase(), document.getElementById('center'));
+                drawContentsList(categoryListJSON[i].id.toLowerCase(), document.getElementById('center'));
             });
-            var aTextNode = document.createTextNode(key);
+            var aTextNode = document.createTextNode(categoryListJSON[i].name);
             a.appendChild(aTextNode);
 
             nameSpan.appendChild(a);
@@ -51,7 +54,7 @@ var Category = function() {
 
             var countSpan = document.createElement('SPAN');
             countSpan.setAttribute('class', 'label label-default label-pill pull-xs-right');
-            var countSpanTextNode = document.createTextNode(categoryListJSON[i][key]);
+            var countSpanTextNode = document.createTextNode(categoryListJSON[i].count);
             countSpan.appendChild(countSpanTextNode);
             li.appendChild(countSpan);
 
@@ -63,17 +66,17 @@ var Category = function() {
         target.appendChild(ul);
     };
 
-    this.load = function(target) {
+    Category.prototype.load = function(target) {
         // create commonRequest
         var commonRequest = new CommonRequest();
         commonRequest.setType('GET');
         commonRequest.setUrl('/category/list');
-        commonRequest.setTargetComponentName(CommonRequest.category);
-        commonRequest.load(target);
+        commonRequest.load(target, Category.prototype);
     };
 
     function drawContentsList(categoryCode, target) {
         var contents = new Contents();
         contents.loadList(categoryCode, target);
     };
-};
+    return Category;
+}());
