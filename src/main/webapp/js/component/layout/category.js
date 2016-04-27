@@ -67,11 +67,11 @@ var Category = (function() {
     };
 
     Category.prototype.load = function(target) {
-        // create commonRequest
-        var commonRequest = new CommonRequest();
-        commonRequest.setType('GET');
-        commonRequest.setUrl('/category/list');
-        commonRequest.load(target, Category.prototype);
+        // create commonLayoutRequest
+        var commonLayoutRequest = new CommonLayoutRequest();
+        commonLayoutRequest.setType('GET');
+        commonLayoutRequest.setUrl('/category/list');
+        commonLayoutRequest.load(target, Category.prototype);
     };
 
     function drawContentsList(categoryCode, target) {

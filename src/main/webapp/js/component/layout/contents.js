@@ -85,27 +85,27 @@ var Contents = (function() {
     };
 
     Contents.prototype.load = function(contentId, target) {
-        // create commonRequest
-        var commonRequest = new CommonRequest();
-        commonRequest.setType('GET');
-        commonRequest.setUrl('/contents/' + contentId);
-        commonRequest.load(target, Contents.prototype);
+        // create commonLayoutRequest
+        var commonLayoutRequest = new CommonLayoutRequest();
+        commonLayoutRequest.setType('GET');
+        commonLayoutRequest.setUrl('/contents/' + contentId);
+        commonLayoutRequest.load(target, Contents.prototype);
     };
 
     Contents.prototype.loadNewest = function(target) {
-        // create commonRequest
-        var commonRequest = new CommonRequest();
-        commonRequest.setType('GET');
-        commonRequest.setUrl('/contents/newest');
-        commonRequest.load(target, Contents.prototype);
+        // create commonLayoutRequest
+        var commonLayoutRequest = new CommonLayoutRequest();
+        commonLayoutRequest.setType('GET');
+        commonLayoutRequest.setUrl('/contents/newest');
+        commonLayoutRequest.load(target, Contents.prototype);
     };
 
     Contents.prototype.loadList = function(categoryCode, target) {
-        // create commonRequest
-        var commonRequest = new CommonRequest();
-        commonRequest.setType('POST');
-        commonRequest.setUrl('/contents/' + categoryCode);
-        commonRequest.load(target, Contents.prototype);
+        // create commonLayoutRequest
+        var commonLayoutRequest = new CommonLayoutRequest();
+        commonLayoutRequest.setType('POST');
+        commonLayoutRequest.setUrl('/contents/' + categoryCode);
+        commonLayoutRequest.load(target, Contents.prototype);
     };
     return Contents;
 }());
