@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jdbc="http://www.springframework.org/schema/jdbc"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/jdbc
+       http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">
 
        <jdbc:embedded-database id="dataSource"/>
        <!-- 일반적인 MyBatis-Spring 사용시에는 SqlSessionFactoryBean 혹은 상응하는 SqlSessionFactory 를 직접 사용할일은 없을것이다. 대신 세션 팩토리는 MapperFactoryBeans나 다른 DAO들(SqlSessionDaoSupport을 상속받은)에게 인젝트 될것이다. -->
