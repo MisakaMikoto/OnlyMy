@@ -3,7 +3,7 @@ var CommonLayoutRequest = (function() {
     };
 
     var _type = '';
-    var _url = '';
+    var _uri = '';
 
     CommonLayoutRequest.prototype = {
         setType: function(type) {
@@ -14,17 +14,17 @@ var CommonLayoutRequest = (function() {
             return _type;
         },
 
-        setUrl: function(url) {
-            _url = url;
+        setUri: function(uri) {
+            _uri = uri;
         },
 
-        getUrl: function() {
-            return _url;
+        getUri: function() {
+            return _uri;
         },
 
         load: function(targetLayout, prototype) {
             var xmlHttpRequest = new XMLHttpRequest();
-            xmlHttpRequest.open(this.getType(), this.getUrl(), true);
+            xmlHttpRequest.open(this.getType(), this.getUri(), true);
             xmlHttpRequest.setRequestHeader('Content-type', 'application/x-www-form-urlencoded; charset=utf-8');
             xmlHttpRequest.onreadystatechange = function() {
                 if(xmlHttpRequest.readyState == 4) {

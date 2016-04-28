@@ -6,7 +6,7 @@ var CommonOAuthRequest = (function() {
     };
 
     var _type = '';
-    var _url = '';
+    var _uri = '';
     var _parameter = '';
 
     CommonOAuthRequest.prototype = {
@@ -18,12 +18,12 @@ var CommonOAuthRequest = (function() {
             return _type;
         },
 
-        setUrl: function(url) {
-            _url = url;
+        setUri: function(uri) {
+            _uri = uri;
         },
 
-        getUrl: function() {
-            return _url;
+        getUri: function() {
+            return _uri;
         },
 
         setParameter: function(parameter) {
@@ -34,19 +34,27 @@ var CommonOAuthRequest = (function() {
             return _parameter;
         },
 
-        load: function(targetLayout, prototype) {
+        load: function(prototype, target) {
             var xmlHttpRequest = new XMLHttpRequest();
 
             if(this.getType() == 'GET') {
-                this.setUrl(this.getUrl() + '?' + this.getParameter());
+                this.setUri(this.getUri() + '?' + this.getParameter());
             }
-            xmlHttpRequest.open(this.getType(), this.getUrl(), true);
+
+            xmlHttpRequest.open(this.getType(), this.getUri(), true);
             xmlHttpRequest.setRequestHeader('Content-type', 'application/x-www-form-urlencoded; charset=utf-8');
             xmlHttpRequest.onreadystatechange = function() {
                 if(xmlHttpRequest.readyState == 4) {
                     if (xmlHttpRequest.status == 200) {
                         var component = Object.create(prototype);
-                        component.view(xmlHttpRequest.responseText, targetLayout);
+
+                        if(target != null || typeof target !== 'undefined') {
+                            component.view(xmlHttpRequest.responseText, target);
+
+                        } else {
+                            var component = Object.create(prototype);
+                            component.view(xmlHttpRequest.responseText);
+                        }
                     }
                 }
             }
