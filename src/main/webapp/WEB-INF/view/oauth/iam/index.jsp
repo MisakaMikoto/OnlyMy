@@ -14,10 +14,13 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 
   <!-- common layout request -->
-  <script type="text/javascript" src="/js/common/layout/commonLayoutRequest.js"></script>
+  <script type="text/javascript" src="/js/common/layout/layoutRequest.js"></script>
 
   <!-- common oauth request -->
-  <script type="text/javascript" src="/js/common/oauth/commonOAuthRequest.js"></script>
+  <script type="text/javascript" src="/js/common/oauth/oauthRequest.js"></script>
+
+  <!-- common oauth request -->
+  <script type="text/javascript" src="/js/common/request/commonRequest.js"></script>
 
   <!-- oauth -->
   <script type="text/javascript" src="/js/common/oauth/oauthComponent.js"></script>
@@ -117,24 +120,28 @@
     function receiveTokenInfo() {
         var accessToken = document.getElementById('accessToken').value;
 
-        // create commonOAuthRequest
-        var commonOAuthRequest = new CommonOAuthRequest();
-        commonOAuthRequest.setType('POST');
-        commonOAuthRequest.setUri('/iamOAuth/receive/tokenInfo');
-        commonOAuthRequest.setParameter('accessToken=' + accessToken);
-        commonOAuthRequest.load(OAuthComponent.prototype, document.getElementById('tokenInfo'));
+        // extends
+        var commonExtends = new CommonExtends();
+        var oauthRequest = commonExtends.doExtends(new OAuthRequest(), CommonRequest.prototype);
+
+        oauthRequest.prototype.setType('POST');
+        oauthRequest.prototype.setUri('/iamOAuth/receive/tokenInfo');
+        oauthRequest.prototype.setParameter('accessToken=' + accessToken);
+        oauthRequest.load(OAuthComponent.prototype, document.getElementById('tokenInfo'));
 
     };
 
     function receiveRefreshToken() {
         var refreshToken = document.getElementById('refreshToken').value;
 
-        // create commonOAuthRequest
-        var commonOAuthRequest = new CommonOAuthRequest();
-        commonOAuthRequest.setType('POST');
-        commonOAuthRequest.setUri('/iamOAuth/receive/refreshToken');
-        commonOAuthRequest.setParameter('client_id=' + '${client_id}' + '&refresh_token=' + refreshToken);
-        commonOAuthRequest.load(OAuthComponent.prototype, document.getElementById('againRefreshToken'));
+        // extends
+        var commonExtends = new CommonExtends();
+        var oauthRequest = commonExtends.doExtends(new OAuthRequest(), CommonRequest.prototype);
+
+        oauthRequest.prototype.setType('POST');
+        oauthRequest.prototype.setUri('/iamOAuth/receive/refreshToken');
+        oauthRequest.prototype.setParameter('client_id=' + '${client_id}' + '&refresh_token=' + refreshToken);
+        oauthRequest.load(OAuthComponent.prototype, document.getElementById('againRefreshToken'));
     };
 
     $(document).ready(function() {

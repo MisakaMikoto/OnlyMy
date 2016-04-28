@@ -28,7 +28,9 @@
 	<link rel="stylesheet" type="text/css" href="/css/component/layout/contents.css">
 
 	<!-- common request -->
-	<script type="text/javascript" src="/js/common/layout/commonLayoutRequest.js"></script>
+	<script type="text/javascript" src="/js/common/request/commonRequest.js"></script>
+	<! -- layout request -->
+	<script type="text/javascript" src="/js/common/layout/layoutRequest.js"></script>
 
 	<!-- component -->
 	<script type="text/javascript" src="/js/component/layout/title.js"></script>
@@ -63,7 +65,8 @@
 
 	<script type="text/javascript">
 		$(document).ready(function() {
-			MainInitScript.init(window.document.body, document.getElementById("left"), document.getElementById("center"));
+			var mainInitScript = new MainInitScript();
+			mainInitScript.init(window.document.body, document.getElementById("left"), document.getElementById("center"));
 		});
 	</script>
 </head>
