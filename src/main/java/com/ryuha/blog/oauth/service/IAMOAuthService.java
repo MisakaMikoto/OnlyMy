@@ -1,7 +1,6 @@
 package com.ryuha.blog.oauth.service;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import org.apache.commons.codec.binary.Base64;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
@@ -26,6 +25,35 @@ public class IAMOAuthService {
         try {
             URL url = new URL("http://52.79.164.208:8080/oauth/access_token");
             String urlParameters = "client_id=" + clientId + "&grant_type=authorization_code&client_secret=" + clientSecret +"&code=" + code;
+            responseString = this.httpURLConnectionHandler(POST, url, urlParameters);
+
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        return responseString;
+    }
+
+    public String getTokenResource(String clientId, String clientSecret, String decodedUsername, String decodedPassword, String scope) {
+        String responseString = null;
+
+        try {
+            URL url = new URL("http://52.79.164.208:8080/oauth/access_token");
+            String urlParameters = "client_id=" + clientId + "&grant_type=password&client_secret=" + clientSecret + "&username=" + decodedUsername +
+                    "&password=" + decodedPassword + "&scope=" + scope;
+            responseString = this.httpURLConnectionHandler(POST, url, urlParameters);
+
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        return responseString;
+    }
+
+    public String getTokenClient(String clientId, String clientSecret, String scope) {
+        String responseString = null;
+
+        try {
+            URL url = new URL("http://52.79.164.208:8080/oauth/access_token");
+            String urlParameters = "client_id=" + clientId + "&grant_type=client_credentials&client_secret=" + clientSecret + "&scope=" + scope;
             responseString = this.httpURLConnectionHandler(POST, url, urlParameters);
 
         } catch (MalformedURLException e) {
@@ -115,29 +143,8 @@ public class IAMOAuthService {
         return response.toString();
     }
 
-    public String createJSONString(String parameterString) {
-        JSONObject jsonObject = new JSONObject();
-        String[] queryArray = parameterString.split("&");
-
-        for(int i = 0; i < queryArray.length; i++) {
-            // if value null, value is 'null'
-            String key = queryArray[i].split("=")[0];
-            String value;
-
-            if(queryArray[i].split("=").length > 1){
-                value = queryArray[i].split("=")[1];
-
-            } else {
-                value = "";
-            }
-
-            try {
-                jsonObject.put(key, value);
-
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-        return jsonObject.toString();
+    public String decodeBase64(String encodedString) {
+        String decodedString = new String(Base64.decodeBase64(encodedString.getBytes()));
+        return decodedString;
     }
 }
