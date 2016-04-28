@@ -55,7 +55,7 @@
         emptyInput();
         // authorization object extends OAuthComponent
         var commonExtends = new CommonExtends();
-        var authorization = commonExtends.doExtends(new Authorization(), OAuthComponent.prototype);
+        var authorization = commonExtends.doExtends(new IAMAuthorization(), OAuthComponent.prototype);
 
         authorization.setClientId('${client_id}');
         authorization.setResponseType('code');

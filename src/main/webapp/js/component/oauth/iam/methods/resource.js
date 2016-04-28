@@ -56,7 +56,7 @@ var IAMResource = (function() {
             commonOAuthRequest.setUri('/iamOAuth/receive/resource/token');
             commonOAuthRequest.setParameter('client_id=' + this.getClientId() + '&username=' + this.getUserName() +
                                             '&password=' + this.getUserPassword() + '&scope=' + this.getScope());
-            commonOAuthRequest.load(Resource.prototype);
+            commonOAuthRequest.load(IAMResource.prototype);
         }
     };
 

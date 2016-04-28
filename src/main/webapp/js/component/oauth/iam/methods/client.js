@@ -37,7 +37,7 @@ var IAMClient = (function() {
             commonOAuthRequest.setType('POST');
             commonOAuthRequest.setUri('/iamOAuth/receive/client/token');
             commonOAuthRequest.setParameter('client_id=' + this.getClientId() + '&scope=' + this.getScope());
-            commonOAuthRequest.load(Client.prototype);
+            commonOAuthRequest.load(IAMClient.prototype);
         }
     };
 
