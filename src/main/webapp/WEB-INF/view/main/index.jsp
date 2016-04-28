@@ -16,30 +16,33 @@
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
-	<!-- combine js -->
-	<script type="text/javascript" src="/js/combined.min.js"></script>
+	<!-- combine js
+	<script type="text/javascript" src="/js/combined.min.js"></script> -->
 
-	<!-- combine css -->
-	<link rel="stylesheet" type="text/css" href="/css/combined.min.css">
+	<!-- combine css
+	<link rel="stylesheet" type="text/css" href="/css/combined.min.css"> -->
 
-	<!-- common css
-	<link rel="stylesheet" type="text/css" href="/css/component/title.css">
-	<link rel="stylesheet" type="text/css" href="/css/component/category.css">
-	<link rel="stylesheet" type="text/css" href="/css/component/contents.css"> -->
+	<!-- common css -->
+	<link rel="stylesheet" type="text/css" href="/css/component/layout/title.css">
+	<link rel="stylesheet" type="text/css" href="/css/component/layout/category.css">
+	<link rel="stylesheet" type="text/css" href="/css/component/layout/contents.css">
 
-	<!-- common request
-	<script type="text/javascript" src="/js/common/commonRequest.js"></script> -->
+	<!-- common request -->
+	<script type="text/javascript" src="/js/common/layout/commonLayoutRequest.js"></script>
 
-	<!-- component
-	<script type="text/javascript" src="/js/component/title.js"></script>
-	<script type="text/javascript" src="/js/component/category.js"></script>
-	<script type="text/javascript" src="/js/component/contents.js"></script> -->
+	<!-- component -->
+	<script type="text/javascript" src="/js/component/layout/title.js"></script>
+	<script type="text/javascript" src="/js/component/layout/category.js"></script>
+	<script type="text/javascript" src="/js/component/layout/contents.js"></script>
 
-	<!-- init
-	<script type="text/javascript" src="/js/init/mainInitScript.js"></script> -->
+	<!-- init -->
+	<script type="text/javascript" src="/js/init/mainInitScript.js"></script>
 
-	<!-- util
-	<script type="text/javascript" src="/js/util/util.js"></script> -->
+	<!-- util -->
+	<script type="text/javascript" src="/js/util/util.js"></script>
+
+	<!-- extends -->
+	<script type="text/javascript" src="/js/common/inherit/commonExtends.js"></script>
 
 	<style type="text/css">
 		#left {
@@ -60,8 +63,7 @@
 
 	<script type="text/javascript">
 		$(document).ready(function() {
-			var mainInitScript = new MainInitScript();
-			mainInitScript.init(window.document.body, document.getElementById("left"), document.getElementById("center"));
+			MainInitScript.init(window.document.body, document.getElementById("left"), document.getElementById("center"));
 		});
 	</script>
 </head>
