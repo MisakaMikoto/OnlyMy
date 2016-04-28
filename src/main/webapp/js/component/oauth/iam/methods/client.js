@@ -27,7 +27,6 @@ var Client = (function() {
 
         view: function(clientToken) {
             var clientTokenJSON = JSON.parse(clientToken);
-
             document.getElementById('accessToken').value = clientTokenJSON.access_token;
             document.getElementById('refreshToken').value = clientTokenJSON.refresh_token;
         },

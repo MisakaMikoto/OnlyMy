@@ -45,7 +45,6 @@ var Resource = (function() {
 
         view: function(resourceToken) {
             var resourceTokenJSON = JSON.parse(resourceToken);
-
             document.getElementById('accessToken').value = resourceTokenJSON.access_token;
             document.getElementById('refreshToken').value = resourceTokenJSON.refresh_token;
         },

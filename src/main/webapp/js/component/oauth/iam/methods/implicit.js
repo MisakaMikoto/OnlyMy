@@ -59,7 +59,6 @@ var Implicit = (function() {
 
         view: function(implicitToken) {
             var implicitTokenJSON = JSON.parse(implicitToken);
-
             document.getElementById('accessToken').value = implicitTokenJSON.access_token;
             document.getElementById('refreshToken').value = implicitTokenJSON.refresh_token;
         }
