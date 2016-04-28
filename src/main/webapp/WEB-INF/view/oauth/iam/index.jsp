@@ -145,7 +145,7 @@
     };
 
     $(document).ready(function() {
-        // authorization andimplicitToken are returned index.jsp page.
+        // authorization and implicit are returned index.jsp page.
         // but resource and client's view funcion processed commonOAuthRequest's load function.
         var authorizationToken = '${authorizationToken}';
         var implicitToken = '${implicitToken}';
