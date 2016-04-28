@@ -88,7 +88,7 @@ var Contents = (function() {
         // create commonLayoutRequest
         var commonLayoutRequest = new CommonLayoutRequest();
         commonLayoutRequest.setType('GET');
-        commonLayoutRequest.setUrl('/contents/' + contentId);
+        commonLayoutRequest.setUri('/contents/' + contentId);
         commonLayoutRequest.load(target, Contents.prototype);
     };
 
@@ -96,7 +96,7 @@ var Contents = (function() {
         // create commonLayoutRequest
         var commonLayoutRequest = new CommonLayoutRequest();
         commonLayoutRequest.setType('GET');
-        commonLayoutRequest.setUrl('/contents/newest');
+        commonLayoutRequest.setUri('/contents/newest');
         commonLayoutRequest.load(target, Contents.prototype);
     };
 
@@ -104,7 +104,7 @@ var Contents = (function() {
         // create commonLayoutRequest
         var commonLayoutRequest = new CommonLayoutRequest();
         commonLayoutRequest.setType('POST');
-        commonLayoutRequest.setUrl('/contents/' + categoryCode);
+        commonLayoutRequest.setUri('/contents/' + categoryCode);
         commonLayoutRequest.load(target, Contents.prototype);
     };
     return Contents;

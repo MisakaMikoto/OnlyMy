@@ -70,7 +70,7 @@ var Category = (function() {
         // create commonLayoutRequest
         var commonLayoutRequest = new CommonLayoutRequest();
         commonLayoutRequest.setType('GET');
-        commonLayoutRequest.setUrl('/category/list');
+        commonLayoutRequest.setUri('/category/list');
         commonLayoutRequest.load(target, Category.prototype);
     };
 

@@ -38,7 +38,7 @@ var Title = (function() {
         // create commonLayoutRequest
         var commonLayoutRequest = new CommonLayoutRequest();
         commonLayoutRequest.setType('GET');
-        commonLayoutRequest.setUrl('/title');
+        commonLayoutRequest.setUri('/title');
         commonLayoutRequest.load(target, Title.prototype);
     };
     return Title;
