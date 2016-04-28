@@ -1,8 +1,8 @@
 /**
  * Created by Misaka on 2016-04-27.
  */
-var Resource = (function() {
-    function Resource() {
+var IAMResource = (function() {
+    function IAMResource() {
     };
 
     var _client_id = '';
@@ -10,7 +10,7 @@ var Resource = (function() {
     var _userPassword = '';
     var _scope = '';
 
-    Resource.prototype = {
+    IAMResource.prototype = {
         setClientId: function(client_id) {
             _client_id = client_id;
         },
@@ -60,5 +60,5 @@ var Resource = (function() {
         }
     };
 
-    return Resource;
+    return IAMResource;
 })();

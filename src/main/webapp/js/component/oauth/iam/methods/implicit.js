@@ -1,8 +1,8 @@
 /**
  * Created by Misaka on 2016-04-27.
  */
-var Implicit = (function() {
-    function Implicit() {
+var IAMImplicit = (function() {
+    function IAMImplicit() {
     };
 
     var _client_id = '';
@@ -11,7 +11,7 @@ var Implicit = (function() {
     var _scope = '';
     var _state = '';
 
-    Implicit.prototype = {
+    IAMImplicit.prototype = {
         setClientId: function(client_id) {
             _client_id = client_id;
         },
@@ -64,5 +64,5 @@ var Implicit = (function() {
         }
     };
 
-    return Implicit;
+    return IAMImplicit;
 })();

@@ -1,8 +1,8 @@
 /**
  * Created by Misaka on 2016-04-27.
  */
-var Authorization = (function() {
-    function Authorization() {
+var IAMAuthorization = (function() {
+    function IAMAuthorization() {
     };
 
     var _client_id = '';
@@ -11,7 +11,7 @@ var Authorization = (function() {
     var _scope = '';
     var _state = '';
 
-    Authorization.prototype = {
+    IAMAuthorization.prototype = {
         setClientId: function(client_id) {
             _client_id = client_id;
         },
@@ -64,5 +64,5 @@ var Authorization = (function() {
         }
     };
 
-    return Authorization;
+    return IAMAuthorization;
 })();

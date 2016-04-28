@@ -1,14 +1,14 @@
 /**
  * Created by Misaka on 2016-04-27.
  */
-var Client = (function() {
-    function Client() {
+var IAMClient = (function() {
+    function IAMClient() {
     };
 
     var _client_id = '';
     var _scope = '';
 
-    Client.prototype = {
+    IAMClient.prototype = {
         setClientId: function(client_id) {
             _client_id = client_id;
         },
@@ -41,5 +41,5 @@ var Client = (function() {
         }
     };
 
-    return Client;
+    return IAMClient;
 })();

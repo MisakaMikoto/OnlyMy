@@ -71,7 +71,7 @@
         emptyInput();
         // authorization object extends OAuthComponent
         var commonExtends = new CommonExtends();
-        var implicit = commonExtends.doExtends(new Implicit(), OAuthComponent.prototype);
+        var implicit = commonExtends.doExtends(new IAMImplicit(), OAuthComponent.prototype);
 
         implicit.setClientId('${client_id}');
         implicit.setResponseType('code');
@@ -89,10 +89,7 @@
           alert('need userName and userPassword');
 
         } else {
-          // authorization object extends OAuthComponent
-          var commonExtends = new CommonExtends();
-          var resource = commonExtends.doExtends(new Resource(), OAuthComponent.prototype);
-
+          var resource = new IAMResource();
           // base64 encode userName and userPassword
           var base64 = new Base64();
           var userName = base64.encode(document.getElementById('userName').value);
@@ -101,7 +98,6 @@
           emptyInput();
 
           resource.setClientId('${client_id}');
-          // controllers request mapping uri
           resource.setScope('read');
           resource.setUserName(userName);
           resource.setUserPassword(userPassword)
@@ -111,12 +107,9 @@
 
     function useClient() {
         emptyInput();
-        // authorization object extends OAuthComponent
-        var commonExtends = new CommonExtends();
-        var client = commonExtends.doExtends(new Client(), OAuthComponent.prototype);
+        var client = new IAMClient();
 
         client.setClientId('${client_id}');
-        // controllers request mapping uri
         client.setScope('read');
         client.callRest();
     };
@@ -151,11 +144,11 @@
         var implicitToken = '${implicitToken}';
 
         if(authorizationToken.length > 0) {
-            var authorization = new Authorization();
+            var authorization = new IAMAuthorization();
             authorization.view(authorizationToken);
 
         } else if(implicitToken.length > 0) {
-            var implicit = new Implicit();
+            var implicit = new IAMImplicit();
             implicit.view(implicitToken);
 
         } else {
