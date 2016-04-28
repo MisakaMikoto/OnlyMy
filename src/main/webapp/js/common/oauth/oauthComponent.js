@@ -28,6 +28,8 @@ var OAuthComponent = (function() {
     return OAuthComponent;
 })();
 
+OAuthComponent.FACEBOOK_SERVER = 'https://graph.facebook.com/';
+
 OAuthComponent.MANAGEMENT_SERVER = 'http://52.79.164.208:8080';
 OAuthComponent.ACCESS_TOKEN = '/oauth/access_token';
 OAuthComponent.AUTHORIZE = '/oauth/authorize';

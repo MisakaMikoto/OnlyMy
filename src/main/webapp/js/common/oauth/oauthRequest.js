@@ -1,47 +1,19 @@
 /**
  * Created by Misaka on 2016-04-27.
  */
-var CommonOAuthRequest = (function() {
-    function CommonOAuthRequest() {
+var OAuthRequest = (function() {
+    function OAuthRequest() {
     };
 
-    var _type = '';
-    var _uri = '';
-    var _parameter = '';
-
-    CommonOAuthRequest.prototype = {
-        setType: function(type) {
-            _type = type;
-        },
-
-        getType: function() {
-            return _type;
-        },
-
-        setUri: function(uri) {
-            _uri = uri;
-        },
-
-        getUri: function() {
-            return _uri;
-        },
-
-        setParameter: function(parameter) {
-            _parameter = parameter;
-        },
-
-        getParameter: function() {
-            return _parameter;
-        },
-
+    OAuthRequest.prototype = {
         load: function(prototype, target) {
             var xmlHttpRequest = new XMLHttpRequest();
 
-            if(this.getType() == 'GET') {
-                this.setUri(this.getUri() + '?' + this.getParameter());
+            if(this.prototype.getType() == 'GET') {
+                this.setUri(this.prototype.getUri() + '?' + this.prototype.getParameter());
             }
 
-            xmlHttpRequest.open(this.getType(), this.getUri(), true);
+            xmlHttpRequest.open(this.prototype.getType(), this.prototype.getUri(), true);
             xmlHttpRequest.setRequestHeader('Content-type', 'application/x-www-form-urlencoded; charset=utf-8');
             xmlHttpRequest.onreadystatechange = function() {
                 if(xmlHttpRequest.readyState == 4) {
@@ -59,13 +31,13 @@ var CommonOAuthRequest = (function() {
                 }
             }
 
-            if(this.getType() == 'POST' && this.getParameter() != null && this.getParameter().length > 0) {
-                xmlHttpRequest.send(this.getParameter());
+            if(this.prototype.getType() == 'POST' && this.prototype.getParameter() != null && this.prototype.getParameter().length > 0) {
+                xmlHttpRequest.send(this.prototype.getParameter());
 
             } else {
                 xmlHttpRequest.send();
             }
         }
     };
-    return CommonOAuthRequest;
+    return OAuthRequest;
 }());
