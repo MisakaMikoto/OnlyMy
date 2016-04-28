@@ -3,7 +3,6 @@
  */
 var Authorization = (function() {
     function Authorization() {
-        Authorization.prototype.constructor = this;
     };
 
     var _client_id = '';
