@@ -32,12 +32,14 @@ var IAMClient = (function() {
         },
 
         callRest: function() {
-            // create commonOAuthRequest
-            var commonOAuthRequest = new CommonOAuthRequest();
-            commonOAuthRequest.setType('POST');
-            commonOAuthRequest.setUri('/iamOAuth/receive/client/token');
-            commonOAuthRequest.setParameter('client_id=' + this.getClientId() + '&scope=' + this.getScope());
-            commonOAuthRequest.load(IAMClient.prototype);
+            // extends
+            var commonExtends = new CommonExtends();
+            var oauthRequest = commonExtends.doExtends(new OAuthRequest(), CommonRequest.prototype);
+
+            oauthRequest.prototype.setType('POST');
+            oauthRequest.prototype.setUri('/iamOAuth/receive/client/token');
+            oauthRequest.prototype.setParameter('client_id=' + this.getClientId() + '&scope=' + this.getScope());
+            oauthRequest.load(IAMClient.prototype);
         }
     };
 
