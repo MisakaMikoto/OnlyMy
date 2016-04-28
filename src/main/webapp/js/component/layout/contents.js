@@ -85,27 +85,33 @@ var Contents = (function() {
     };
 
     Contents.prototype.load = function(contentId, target) {
-        // create commonLayoutRequest
-        var commonLayoutRequest = new CommonLayoutRequest();
-        commonLayoutRequest.setType('GET');
-        commonLayoutRequest.setUri('/contents/' + contentId);
-        commonLayoutRequest.load(target, Contents.prototype);
+        // extends
+        var commonExtends = new CommonExtends();
+        var layoutRequest = commonExtends.doExtends(new LayoutRequest(), CommonRequest.prototype);
+
+        layoutRequest.prototype.setType('GET');
+        layoutRequest.prototype.setUri('/contents/' + contentId);
+        layoutRequest.load(target, Contents.prototype);
     };
 
     Contents.prototype.loadNewest = function(target) {
-        // create commonLayoutRequest
-        var commonLayoutRequest = new CommonLayoutRequest();
-        commonLayoutRequest.setType('GET');
-        commonLayoutRequest.setUri('/contents/newest');
-        commonLayoutRequest.load(target, Contents.prototype);
+        // extends
+        var commonExtends = new CommonExtends();
+        var layoutRequest = commonExtends.doExtends(new LayoutRequest(), CommonRequest.prototype);
+
+        layoutRequest.prototype.setType('GET');
+        layoutRequest.prototype.setUri('/contents/newest');
+        layoutRequest.load(target, Contents.prototype);
     };
 
     Contents.prototype.loadList = function(categoryCode, target) {
-        // create commonLayoutRequest
-        var commonLayoutRequest = new CommonLayoutRequest();
-        commonLayoutRequest.setType('POST');
-        commonLayoutRequest.setUri('/contents/' + categoryCode);
-        commonLayoutRequest.load(target, Contents.prototype);
+        // extends
+        var commonExtends = new CommonExtends();
+        var layoutRequest = commonExtends.doExtends(new LayoutRequest(), CommonRequest.prototype);
+
+        layoutRequest.prototype.setType('POST');
+        layoutRequest.prototype.setUri('/contents/' + categoryCode);
+        layoutRequest.load(target, Contents.prototype);
     };
     return Contents;
 }());

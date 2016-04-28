@@ -35,11 +35,13 @@ var Title = (function() {
     };
 
     Title.prototype.load = function(target) {
-        // create commonLayoutRequest
-        var commonLayoutRequest = new CommonLayoutRequest();
-        commonLayoutRequest.setType('GET');
-        commonLayoutRequest.setUri('/title');
-        commonLayoutRequest.load(target, Title.prototype);
+        // extends
+        var commonExtends = new CommonExtends();
+        var layoutRequest = commonExtends.doExtends(new LayoutRequest(), CommonRequest.prototype);
+
+        layoutRequest.prototype.setType('GET');
+        layoutRequest.prototype.setUri('/title');
+        layoutRequest.load(target, Title.prototype);
     };
     return Title;
 }());

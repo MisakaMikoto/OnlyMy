@@ -67,11 +67,13 @@ var Category = (function() {
     };
 
     Category.prototype.load = function(target) {
-        // create commonLayoutRequest
-        var commonLayoutRequest = new CommonLayoutRequest();
-        commonLayoutRequest.setType('GET');
-        commonLayoutRequest.setUri('/category/list');
-        commonLayoutRequest.load(target, Category.prototype);
+        // extends
+        var commonExtends = new CommonExtends();
+        var layoutRequest = commonExtends.doExtends(new LayoutRequest(), CommonRequest.prototype);
+
+        layoutRequest.prototype.setType('GET');
+        layoutRequest.prototype.setUri('/category/list');
+        layoutRequest.load(target, Category.prototype);
     };
 
     function drawContentsList(categoryCode, target) {
