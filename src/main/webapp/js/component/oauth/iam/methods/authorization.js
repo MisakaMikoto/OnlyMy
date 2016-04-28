@@ -58,8 +58,10 @@ var Authorization = (function() {
                 '&redirect_uri=' + this.getRedirectUri() + '&scope=' + this.getScope() + '&state=' + this.getState());
         },
 
-        view: function(authorizationTokenJSON, target) {
-            target.value = authorizationTokenJSON.access_token;
+        view: function(authorizationToken) {
+            var authorizationTokenJSON = JSON.parse(authorizationToken);
+            document.getElementById('accessToken').value = authorizationTokenJSON.access_token;
+            document.getElementById('refreshToken').value = authorizationTokenJSON.refresh_token;
         }
     };
 

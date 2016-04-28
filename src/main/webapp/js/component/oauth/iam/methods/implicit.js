@@ -57,8 +57,11 @@ var Implicit = (function() {
                 '&redirect_uri=' + this.getRedirectUri() + '&scope=' + this.getScope() + '&state=' + this.getState());
         },
 
-        view: function(tokenJSON, target) {
-            target.value = tokenJSON.code;
+        view: function(implicitToken) {
+            var implicitTokenJSON = JSON.parse(implicitToken);
+
+            document.getElementById('accessToken').value = implicitTokenJSON.access_token;
+            document.getElementById('refreshToken').value = implicitTokenJSON.refresh_token;
         }
     };
 
