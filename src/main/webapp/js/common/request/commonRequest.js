@@ -32,6 +32,31 @@ var CommonRequest = (function() {
 
         getParameter: function() {
             return _parameter;
+        },
+
+        load: function(callback) {
+            var xmlHttpRequest = new XMLHttpRequest();
+
+            if(this.getType() == 'GET') {
+                this.setUri(this.getUri() + '?' + this.getParameter());
+            }
+
+            xmlHttpRequest.open(this.getType(), this.getUri(), true);
+            xmlHttpRequest.setRequestHeader('Content-type', 'application/x-www-form-urlencoded; charset=utf-8');
+            xmlHttpRequest.onreadystatechange = function() {
+                if(xmlHttpRequest.readyState == 4) {
+                    if (xmlHttpRequest.status == 200) {
+                        callback(xmlHttpRequest.responseText);
+                    }
+                }
+            }
+
+            if(this.getType() == 'POST' && this.getParameter() != null && this.getParameter().length > 0) {
+                xmlHttpRequest.send(this.getParameter());
+
+            } else {
+                xmlHttpRequest.send();
+            }
         }
     };
 
