@@ -52,8 +52,8 @@ var IAMAuthorization = (function() {
             return _state;
         },
 
-        createUrl: function() {
-            this.prototype.setUrl(OAuthComponent.MANAGEMENT_SERVER + OAuthComponent.AUTHORIZE + '?client_id=' + this.getClientId() + '&response_type=' + this.getResponseType() +
+        createUri: function() {
+            this.prototype.setUri(OAuthComponent.MANAGEMENT_SERVER + OAuthComponent.AUTHORIZE + '?client_id=' + this.getClientId() + '&response_type=' + this.getResponseType() +
                 '&redirect_uri=' + this.getRedirectUri() + '&scope=' + this.getScope() + '&state=' + this.getState());
         },
 

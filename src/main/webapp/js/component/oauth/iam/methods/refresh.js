@@ -25,17 +25,12 @@ var IAMRefresh = (function() {
             return _refresh_token;
         },
 
-        view: function(responseText) {
-            document.getElementById('againRefreshToken').value = responseText;
+        createParameter: function() {
+            return 'client_id=' + this.getClientId() + '&refresh_token=' + this.getRefreshToken();
         },
 
-        callRest: function() {
-            var commonRequest = new CommonRequest();
-
-            commonRequest.setType('POST');
-            commonRequest.setUri('/iamOAuth/receive/refreshToken');
-            commonRequest.setParameter('client_id=' + this.getClientId() + '&refresh_token=' + this.getRefreshToken());
-            commonRequest.load(this.view);
+        view: function(responseText) {
+            document.getElementById('againRefreshToken').value = responseText;
         }
     };
 

@@ -43,20 +43,15 @@ var IAMResource = (function() {
             return _scope;
         },
 
+        createParameter: function() {
+            return 'client_id=' + this.getClientId() + '&username=' + this.getUserName() +
+                '&password=' + this.getUserPassword() + '&scope=' + this.getScope();
+        },
+
         view: function(resourceToken) {
             var resourceTokenJSON = JSON.parse(resourceToken);
             document.getElementById('accessToken').value = resourceTokenJSON.access_token;
             document.getElementById('refreshToken').value = resourceTokenJSON.refresh_token;
-        },
-
-        callRest: function() {
-            var commonRequest = new CommonRequest();
-
-            commonRequest.setType('POST');
-            commonRequest.setUri('/iamOAuth/receive/resource/token');
-            commonRequest.setParameter('client_id=' + this.getClientId() + '&username=' + this.getUserName() +
-                                            '&password=' + this.getUserPassword() + '&scope=' + this.getScope());
-            commonRequest.load(this.view);
         }
     };
 

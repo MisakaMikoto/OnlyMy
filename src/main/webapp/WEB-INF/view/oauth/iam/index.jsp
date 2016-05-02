@@ -13,7 +13,7 @@
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 
-    <!-- common oauth request -->
+    <!-- common request -->
     <script type="text/javascript" src="/js/common/request/commonRequest.js"></script>
 
     <!-- oauth -->
@@ -66,7 +66,7 @@
             authorization.setRedirectUri('http://localhost:8080/iamOAuth/receive/authorization/code');
             authorization.setScope('read');
             authorization.setState('');
-            authorization.createUrl();
+            authorization.createUri();
             authorization.prototype.verify();
         };
 
@@ -82,7 +82,7 @@
             implicit.setRedirectUri('http://localhost:8080/iamOAuth/receive/implicit/code');
             implicit.setScope('read');
             implicit.setState('');
-            implicit.createUrl();
+            implicit.createUri();
             implicit.prototype.verify();
         };
 
@@ -92,7 +92,9 @@
                 alert('need userName and userPassword');
 
             } else {
-                var resource = new IAMResource();
+                // extends
+                var commonExtends = new CommonExtends();
+                var resource = commonExtends.doExtends(new IAMResource(), OAuthComponent.prototype);
                 // base64 encode userName and userPassword
                 var base64 = new Base64();
                 var userName = base64.encode(document.getElementById('userName').value);
@@ -103,41 +105,67 @@
                 resource.setClientId('${client_id}');
                 resource.setScope('read');
                 resource.setUserName(userName);
-                resource.setUserPassword(userPassword)
-                resource.callRest();
+                resource.setUserPassword(userPassword);
+                var parameter = resource.createParameter();
+
+                resource.prototype.setType('POST');
+                resource.prototype.setUri('/iamOAuth/receive/resource/token');
+                resource.prototype.setParameter(parameter);
+                resource.prototype.callRest(resource.view);
             }
         };
 
         function useClient() {
             emptyInput();
-            var client = new IAMClient();
+
+            // extends
+            var commonExtends = new CommonExtends();
+            var client = commonExtends.doExtends(new IAMClient(), OAuthComponent.prototype);
 
             client.setClientId('${client_id}');
             client.setScope('read');
-            client.callRest();
-        }
-        ;
+            var parameter = client.createParameter();
+
+            client.prototype.setType('POST');
+            client.prototype.setUri('/iamOAuth/receive/client/token');
+            client.prototype.setParameter(parameter);
+            client.prototype.callRest(client.view);
+        };
 
         function receiveTokenInfo() {
             var access_token = document.getElementById('accessToken').value;
 
-            var information = new IAMInformation();
+            // extends
+            var commonExtends = new CommonExtends();
+            var information = commonExtends.doExtends(new IAMInformation(), OAuthComponent.prototype);
+
             information.setAccessToken(access_token);
-            information.callRest();
+            var parameter = information.createParameter();
+
+            information.prototype.setType('POST');
+            information.prototype.setUri('/iamOAuth/receive/tokenInfo');
+            information.prototype.setParameter(parameter);
+            information.prototype.callRest(information.view);
+
         };
 
         function receiveRefreshToken() {
             var client_id = '${client_id}';
             var refresh_token = document.getElementById('refreshToken').value;
 
-            var refresh = new IAMRefresh();
+            // extends
+            var commonExtends = new CommonExtends();
+            var refresh = commonExtends.doExtends(new IAMRefresh(), OAuthComponent.prototype);
+
             refresh.setClientId(client_id);
             refresh.setRefreshToken(refresh_token);
-            refresh.callRest();
-        };
+            var parameter = refresh.createParameter();
 
-        function tyk() {
-            window.loca
+            refresh.prototype.setType('POST');
+            refresh.prototype.setUri('/iamOAuth/receive/refreshToken');
+            refresh.prototype.setParameter(parameter);
+            refresh.prototype.callRest(refresh.view);
+
         };
 
         $(document).ready(function () {
@@ -195,10 +223,5 @@
     againRefreshToken : <input type="text" id="againRefreshToken">
 </div>
 
-</br>
-
-<div>
-    <button id="tyk" onClick="javascript: tyk()">tyk</button>
-</div>
 </body>
 </html>

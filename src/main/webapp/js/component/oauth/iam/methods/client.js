@@ -25,19 +25,14 @@ var IAMClient = (function() {
             return _scope;
         },
 
+        createParameter: function() {
+            return 'client_id=' + this.getClientId() + '&scope=' + this.getScope();
+        },
+
         view: function(clientToken) {
             var clientTokenJSON = JSON.parse(clientToken);
             document.getElementById('accessToken').value = clientTokenJSON.access_token;
             document.getElementById('refreshToken').value = clientTokenJSON.refresh_token;
-        },
-
-        callRest: function() {
-            var commonRequest = new CommonRequest();
-
-            commonRequest.setType('POST');
-            commonRequest.setUri('/iamOAuth/receive/client/token');
-            commonRequest.setParameter('client_id=' + this.getClientId() + '&scope=' + this.getScope());
-            commonRequest.load(this.view);
         }
     };
 

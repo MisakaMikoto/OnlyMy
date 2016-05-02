@@ -5,23 +5,46 @@ var OAuthComponent = (function() {
     function OAuthComponent() {
     };
 
-    var _url = '';
+    var _uri = '';
+    var _type = '';
+    var _parameter = '';
 
     OAuthComponent.prototype = {
-        setUrl: function(url) {
-            _url = url;
+        setUri: function(uri) {
+            _uri = uri;
         },
 
-        getUrl: function() {
-            return _url;
+        getUri: function() {
+            return _uri;
+        },
+
+        setType: function(type) {
+            _type = type;
+        },
+
+        getType: function() {
+            return _type;
+        },
+
+        setParameter: function(parameter) {
+            _parameter = parameter;
+        },
+
+        getParameter: function() {
+            return _parameter;
         },
 
         verify: function() {
-            window.open(this.getUrl(), '_self');
+            window.open(this.getUri(), '_self');
         },
 
-        view: function(tokenInfo, target) {
-            target.value = tokenInfo;
+        callRest: function(callback) {
+            var commonRequest = new CommonRequest();
+
+            commonRequest.setType(this.getType());
+            commonRequest.setUri(this.getUri());
+            commonRequest.setParameter(this.getParameter());
+            commonRequest.load(callback);
         }
     };
 
