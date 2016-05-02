@@ -110,8 +110,8 @@ public class IAMOAuthController {
     }
 
     @RequestMapping(value = "/receive/tokenInfo", method = RequestMethod.POST)
-    public @ResponseBody String receiveTokenInfo(@RequestParam String accessToken) {
-        String tokenInfo = iamOAuthService.getTokenInfo(accessToken);
+    public @ResponseBody String receiveTokenInfo(@RequestParam String access_token) {
+        String tokenInfo = iamOAuthService.getTokenInfo(access_token);
         return tokenInfo;
     }
 
