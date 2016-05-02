@@ -50,15 +50,13 @@ var IAMResource = (function() {
         },
 
         callRest: function() {
-            // extends
-            var commonExtends = new CommonExtends();
-            var oauthRequest = commonExtends.doExtends(new OAuthRequest(), CommonRequest.prototype);
+            var commonRequest = new CommonRequest();
 
-            oauthRequest.prototype.setType('POST');
-            oauthRequest.prototype.setUri('/iamOAuth/receive/resource/token');
-            oauthRequest.prototype.setParameter('client_id=' + this.getClientId() + '&username=' + this.getUserName() +
+            commonRequest.setType('POST');
+            commonRequest.setUri('/iamOAuth/receive/resource/token');
+            commonRequest.setParameter('client_id=' + this.getClientId() + '&username=' + this.getUserName() +
                                             '&password=' + this.getUserPassword() + '&scope=' + this.getScope());
-            oauthRequest.load(IAMResource.prototype);
+            commonRequest.load(this.view);
         }
     };
 
