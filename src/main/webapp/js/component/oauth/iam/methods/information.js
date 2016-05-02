@@ -20,13 +20,13 @@ var IAMInformation = (function() {
             document.getElementById('tokenInfo').value = responseText;
         },
 
-        callRest: function(callback) {
+        callRest: function() {
             var commonRequest = new CommonRequest();
 
             commonRequest.setType('POST');
             commonRequest.setUri('/iamOAuth/receive/tokenInfo');
             commonRequest.setParameter('access_token=' + this.getAccessToken());
-            commonRequest.load(callback);
+            commonRequest.load(this.view);
         }
     };
 

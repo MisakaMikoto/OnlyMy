@@ -46,7 +46,12 @@ var CommonRequest = (function() {
             xmlHttpRequest.onreadystatechange = function() {
                 if(xmlHttpRequest.readyState == 4) {
                     if (xmlHttpRequest.status == 200) {
-                        callback(xmlHttpRequest.responseText);
+                        if(callback == null || typeof callback === 'function') {
+                            callback(xmlHttpRequest.responseText);
+
+                        } else {
+                            console.log('callback is not function!!');
+                        }
                     }
                 }
             }

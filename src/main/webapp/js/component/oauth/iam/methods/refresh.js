@@ -29,13 +29,13 @@ var IAMRefresh = (function() {
             document.getElementById('againRefreshToken').value = responseText;
         },
 
-        callRest: function(callback) {
+        callRest: function() {
             var commonRequest = new CommonRequest();
 
             commonRequest.setType('POST');
             commonRequest.setUri('/iamOAuth/receive/refreshToken');
             commonRequest.setParameter('client_id=' + this.getClientId() + '&refresh_token=' + this.getRefreshToken());
-            commonRequest.load(callback);
+            commonRequest.load(this.view);
         }
     };
 

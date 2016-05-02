@@ -52,8 +52,7 @@
                 inputNodes[i].value = '';
                 inputNodes[i].innerHTML = '';
             }
-        }
-        ;
+        };
 
         function useAuthorization() {
             emptyInput();
@@ -69,8 +68,7 @@
             authorization.setState('');
             authorization.createUrl();
             authorization.prototype.verify();
-        }
-        ;
+        };
 
         function useImplicit() {
             emptyInput();
@@ -86,8 +84,7 @@
             implicit.setState('');
             implicit.createUrl();
             implicit.prototype.verify();
-        }
-        ;
+        };
 
         function useResource() {
             // validate
@@ -109,8 +106,7 @@
                 resource.setUserPassword(userPassword)
                 resource.callRest();
             }
-        }
-        ;
+        };
 
         function useClient() {
             emptyInput();
@@ -127,9 +123,8 @@
 
             var information = new IAMInformation();
             information.setAccessToken(access_token);
-            information.callRest(information.view);
-        }
-        ;
+            information.callRest();
+        };
 
         function receiveRefreshToken() {
             var client_id = '${client_id}';
@@ -138,9 +133,12 @@
             var refresh = new IAMRefresh();
             refresh.setClientId(client_id);
             refresh.setRefreshToken(refresh_token);
-            refresh.callRest(refresh.view);
-        }
-        ;
+            refresh.callRest();
+        };
+
+        function tyk() {
+            window.loca
+        };
 
         $(document).ready(function () {
             // authorization and implicit are returned index.jsp page.
@@ -195,6 +193,12 @@
 <div>
     tokenInfo : <input type="text" id="tokenInfo">
     againRefreshToken : <input type="text" id="againRefreshToken">
+</div>
+
+</br>
+
+<div>
+    <button id="tyk" onClick="javascript: tyk()">tyk</button>
 </div>
 </body>
 </html>
