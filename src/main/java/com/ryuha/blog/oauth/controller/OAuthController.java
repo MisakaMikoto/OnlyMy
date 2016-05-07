@@ -16,9 +16,12 @@ import java.util.Map;
 /**
  * Created by Misaka on 2016-04-22.
  */
-@Controller(value = "iamOAuthController")
-@RequestMapping("/iamOAuth")
-public class IAMOAuthController {
+@Controller(value = "oauthController")
+@RequestMapping("/oauth")
+public class OAuthController {
+    /**
+     * The Iam o auth service.
+     */
     @Resource(name = "iamOAuthService")
     public IAMOAuthService iamOAuthService;
 
@@ -45,11 +48,16 @@ public class IAMOAuthController {
     /**
      * Create authorize popup model and view.
      *
+     * @param uri the uri
      * @return the model and view
      */
-    @RequestMapping(value = "/popup/authorization", method = RequestMethod.GET)
-    public String createAuthorizePopup() {
-        return "oauth/iam/popup/authorize";
+    @RequestMapping(value = "/popup/authorization", method = RequestMethod.POST)
+    public ModelAndView createAuthorizePopup(@RequestParam String uri) {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("uri", uri);
+        modelAndView.setViewName("oauth/iam/popup/authorize");
+
+        return modelAndView;
     }
 
     /**
@@ -62,7 +70,7 @@ public class IAMOAuthController {
     @RequestMapping(value = "/receive/authorization/code", method = RequestMethod.GET)
     public RedirectView receiveAuthorizationCode(@RequestParam String code, RedirectAttributes redirectAttributes) {
         RedirectView redirectView = new RedirectView();
-        redirectView.setUrl("/iamOAuth/receive/token");
+        redirectView.setUrl("/oauth/receive/token");
 
         redirectAttributes.addFlashAttribute("type", "authorization");
         redirectAttributes.addFlashAttribute("code", code);
@@ -82,7 +90,7 @@ public class IAMOAuthController {
     @RequestMapping(value = "/receive/implicit/code", method = RequestMethod.GET)
     public RedirectView receiveImplicitGrantFlowToken(@RequestParam String code, RedirectAttributes redirectAttributes) {
         RedirectView redirectView = new RedirectView();
-        redirectView.setUrl("/iamOAuth/receive/token");
+        redirectView.setUrl("/oauth/receive/token");
 
         redirectAttributes.addFlashAttribute("type", "implicit");
         redirectAttributes.addFlashAttribute("code", code);

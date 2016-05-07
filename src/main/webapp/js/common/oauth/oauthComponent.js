@@ -35,6 +35,26 @@ var OAuthComponent = (function() {
         },
 
         verify: function() {
+            var form = document.form;
+            var width = '600';
+            var height = '400';
+
+            var wTop = window.screenTop ? window.screenTop : window.screenY;
+            var wLeft = window.screenLeft ? window.screenLeft : window.screenX;
+
+            var top = wTop + (window.innerHeight / 2) - (height / 2);
+            var left = wLeft + (window.innerWidth / 2) - (width / 2);
+
+            var popUri = '/oauth/popup/authorization';
+            var popOption = 'width=' + width + ',height=' + height + ',top=' + top + ',left=' + left;
+
+            window.open('','Authorize',popOption);
+
+            form.target = 'Authorize';
+            form.action = popUri;
+            form.method = "post";
+            form.uri.value = this.getUri();
+            form.submit();
         },
 
         callRest: function(callback) {

@@ -72,6 +72,8 @@
         function initCenterLayoutConfiguration(thisElement, isResource) {
             emptyData();
 
+            var targetMethod = '';
+            // select view
             if(thisElement.getAttribute('class').indexOf('active') == -1) {
                 var aNodes = document.getElementById('methodList').getElementsByTagName('a');
 
@@ -82,14 +84,19 @@
                     }
                 };
                 thisElement.setAttribute('class', 'list-group-item active');
+                targetMethod = thisElement.getAttribute('id');
             }
 
+            // resource view
             if(isResource) {
-                document.getElementById('resource').style.display = '';
+                document.getElementById('user').style.display = '';
 
             } else {
-                document.getElementById('resource').style.display = 'none';
+                document.getElementById('user').style.display = 'none';
             }
+
+            // button event handler setting
+            document.getElementById('verifyButton').setAttribute('onClick', 'call' + targetMethod + '()');
         };
 
         function emptyData() {
@@ -107,53 +114,37 @@
 
         };
 
-        function authorizePopup(){
-            var width = '600';
-            var height = '400';
-
-            var wTop = window.screenTop ? window.screenTop : window.screenY;
-            var wLeft = window.screenLeft ? window.screenLeft : window.screenX;
-
-            var top = wTop + (window.innerHeight / 2) - (height / 2);
-            var left = wLeft + (window.innerWidth / 2) - (width / 2);
-
-            var popUri = '/iamOAuth/popup/authorization';
-            var popOption = 'width=' + width + ',height=' + height + ',top=' + top + ',left=' + left;
-
-            window.open(popUri,'Authorize',popOption);
-        };
-
-        function callAuthorization() {
+        function callIAMAuthorization() {
             // authorization object extends OAuthComponent
             var commonExtends = new CommonExtends();
             var authorization = commonExtends.doExtends(new IAMAuthorization(), OAuthComponent.prototype);
 
             authorization.setClientId('${client_id}');
-            authorization.setResponseType('${code}');
+            authorization.setResponseType('code');
             // controllers request mapping uri
-            authorization.setRedirectUri('http://localhost:8080/iamOAuth/receive/authorization/code');
+            authorization.setRedirectUri('http://localhost:8080/oauth/receive/authorization/code');
             authorization.setScope('read');
             authorization.setState('');
             authorization.createUri();
-            authorization.prototype.verify(IAMAuthorization.name);
+            authorization.prototype.verify();
         };
 
-        function callImplicit() {
+        function callIAMImplicit() {
             // authorization object extends OAuthComponent
             var commonExtends = new CommonExtends();
             var implicit = commonExtends.doExtends(new IAMImplicit(), OAuthComponent.prototype);
 
             implicit.setClientId('${client_id}');
-            implicit.setResponseType('${code}');
+            implicit.setResponseType('code');
             // controllers request mapping uri
-            implicit.setRedirectUri('http://localhost:8080/iamOAuth/receive/implicit/code');
+            implicit.setRedirectUri('http://localhost:8080/oauth/receive/implicit/code');
             implicit.setScope('read');
             implicit.setState('');
             implicit.createUri();
-            implicit.prototype.verify(IAMImplicit.name);
+            implicit.prototype.verify();
         };
 
-        function callResource() {
+        function callIAMResource() {
             // validate
             if (document.getElementById('userName').value.length == 0 || document.getElementById('userPassword').value.length == 0) {
                 alert('need userName and userPassword');
@@ -174,13 +165,13 @@
                 var parameter = resource.createParameter();
 
                 resource.prototype.setType('POST');
-                resource.prototype.setUri('/iamOAuth/receive/resource/token');
+                resource.prototype.setUri('/oauth/receive/resource/token');
                 resource.prototype.setParameter(parameter);
                 resource.prototype.callRest(resource.view);
             }
         };
 
-        function callClient() {
+        function callIAMClient() {
             // extends
             var commonExtends = new CommonExtends();
             var client = commonExtends.doExtends(new IAMClient(), OAuthComponent.prototype);
@@ -190,7 +181,7 @@
             var parameter = client.createParameter();
 
             client.prototype.setType('POST');
-            client.prototype.setUri('/iamOAuth/receive/client/token');
+            client.prototype.setUri('/oauth/receive/client/token');
             client.prototype.setParameter(parameter);
             client.prototype.callRest(client.view);
         };
@@ -206,7 +197,7 @@
             var parameter = information.createParameter();
 
             information.prototype.setType('POST');
-            information.prototype.setUri('/iamOAuth/receive/tokenInfo');
+            information.prototype.setUri('/oauth/receive/tokenInfo');
             information.prototype.setParameter(parameter);
             information.prototype.callRest(information.view);
 
@@ -225,7 +216,7 @@
             var parameter = refresh.createParameter();
 
             refresh.prototype.setType('POST');
-            refresh.prototype.setUri('/iamOAuth/receive/refreshToken');
+            refresh.prototype.setUri('/oauth/receive/refreshToken');
             refresh.prototype.setParameter(parameter);
             refresh.prototype.callRest(refresh.view);
 
@@ -304,7 +295,7 @@
                     <input type="text" class="form-control" id="refreshToken" disabled>
                 </div>
             </div>
-            <button class="btn btn-default" id="verifyButton" onClick="authorizePopup()"> GET </button>
+            <button class="btn btn-default" id="verifyButton" onClick="javascript: callIAMAuthorization()"> GET </button>
         </div>
 
         <div id="tokenInformation" style="height: 150px; margin-top: 20px;">
@@ -328,8 +319,12 @@
         </div>
     </div>
 </div>
-</body>
-<br>
+
+<div>
+    <form name="form">
+        <input type=text id="uri" name="uri"><br>
+    </form>
+</div>
 
 </body>
 </html>
