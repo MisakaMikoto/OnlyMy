@@ -8,6 +8,7 @@ var CommonRequest = (function() {
     var _type = '';
     var _uri = '';
     var _parameter = '';
+    var _header = [];
 
     CommonRequest.prototype = {
         setType: function(type) {
@@ -34,15 +35,32 @@ var CommonRequest = (function() {
             return _parameter;
         },
 
+        addHeader: function(header) {
+            var headerJSON = JSON.parse(header);
+            _header.push(headerJSON);
+        },
+
+        getHeader: function() {
+            return _header;
+        },
+
         load: function(callback) {
             var xmlHttpRequest = new XMLHttpRequest();
 
+            // type and uri setting
             if(this.getType() == 'GET') {
-                this.setUri(this.getUri() + '?' + this.getParameter());
+                this.setUri((this.getParameter() != '' && this.getParameter().length > 0) ? this.getUri() + '?' + this.getParameter() : this.getUri());
             }
 
             xmlHttpRequest.open(this.getType(), this.getUri(), true);
             xmlHttpRequest.setRequestHeader('Content-type', 'application/x-www-form-urlencoded; charset=utf-8');
+            // header setting
+            if(this.getHeader() != '' && this.getHeader().length > 0) {
+                for(var i in this.getHeader()) {
+                    var key = Util.getJSONKeys(this.getHeader()[i]);
+                    xmlHttpRequest.setRequestHeader(key, this.getHeader()[i][key]);
+                }
+            }
             xmlHttpRequest.onreadystatechange = function() {
                 if(xmlHttpRequest.readyState == 4) {
                     if (xmlHttpRequest.status == 200) {

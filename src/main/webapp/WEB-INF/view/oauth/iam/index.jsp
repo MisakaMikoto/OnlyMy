@@ -10,6 +10,26 @@
 
 <html>
 <head>
+    <style type="text/css">
+        #left {
+            float: left;
+            width: 19%;
+            height: 100%;
+            margin: 0px 10px 0px 0px;
+            padding-left: 10px;
+        }
+
+        #center {
+            display: inline-block;
+            width: 79%;
+            height: 100%;
+            margin: 0px 0px 10px 0px;
+        }
+    </style>
+    <!-- bootstrap -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 
@@ -43,50 +63,97 @@
     <!-- base64 -->
     <script type="text/javascript" src="/js/common/encryption/base64.js"></script>
 
+    <!-- util -->
+    <script type="text/javascript" src="/js/util/util.js"></script>
+
     <title>IAM OAuth 2.0</title>
 
     <script type="text/javascript">
-        function emptyInput() {
+        function initCenterLayoutConfiguration(thisElement, isResource) {
+            emptyData();
+
+            if(thisElement.getAttribute('class').indexOf('active') == -1) {
+                var aNodes = document.getElementById('methodList').getElementsByTagName('a');
+
+                for(var i = 0; i < aNodes.length; i++) {
+                    if(aNodes[i].getAttribute('class').indexOf('active') > -1) {
+                        aNodes[i].setAttribute('class', 'list-group-item');
+                        break;
+                    }
+                };
+                thisElement.setAttribute('class', 'list-group-item active');
+            }
+
+            if(isResource) {
+                document.getElementById('resource').style.display = '';
+
+            } else {
+                document.getElementById('resource').style.display = 'none';
+            }
+        };
+
+        function emptyData() {
             var inputNodes = document.getElementsByTagName('input');
             for (var i = 0; i < inputNodes.length; i++) {
                 inputNodes[i].value = '';
                 inputNodes[i].innerHTML = '';
             }
+
+            var textAreaNodes = document.getElementsByTagName('textarea');
+            for (var i = 0; i < textAreaNodes.length; i++) {
+                textAreaNodes[i].value = '';
+                textAreaNodes[i].innerHTML = '';
+            }
+
         };
 
-        function useAuthorization() {
-            emptyInput();
+        function authorizePopup(){
+            var width = '600';
+            var height = '400';
+
+            var wTop = window.screenTop ? window.screenTop : window.screenY;
+            var wLeft = window.screenLeft ? window.screenLeft : window.screenX;
+
+            var top = wTop + (window.innerHeight / 2) - (height / 2);
+            var left = wLeft + (window.innerWidth / 2) - (width / 2);
+
+            var popUri = '/iamOAuth/popup/authorization';
+            var popOption = 'width=' + width + ',height=' + height + ',top=' + top + ',left=' + left;
+
+            window.open(popUri,'Authorize',popOption);
+        };
+
+        function callAuthorization() {
             // authorization object extends OAuthComponent
             var commonExtends = new CommonExtends();
             var authorization = commonExtends.doExtends(new IAMAuthorization(), OAuthComponent.prototype);
 
             authorization.setClientId('${client_id}');
-            authorization.setResponseType('code');
+            authorization.setResponseType('${code}');
             // controllers request mapping uri
             authorization.setRedirectUri('http://localhost:8080/iamOAuth/receive/authorization/code');
             authorization.setScope('read');
             authorization.setState('');
             authorization.createUri();
-            authorization.prototype.verify();
+            authorization.prototype.verify(IAMAuthorization.name);
         };
 
-        function useImplicit() {
-            emptyInput();
+        function callImplicit() {
             // authorization object extends OAuthComponent
             var commonExtends = new CommonExtends();
             var implicit = commonExtends.doExtends(new IAMImplicit(), OAuthComponent.prototype);
 
             implicit.setClientId('${client_id}');
-            implicit.setResponseType('code');
+            implicit.setResponseType('${code}');
             // controllers request mapping uri
             implicit.setRedirectUri('http://localhost:8080/iamOAuth/receive/implicit/code');
             implicit.setScope('read');
             implicit.setState('');
             implicit.createUri();
-            implicit.prototype.verify();
+            implicit.prototype.verify(IAMImplicit.name);
         };
 
-        function useResource() {
+        function callResource() {
             // validate
             if (document.getElementById('userName').value.length == 0 || document.getElementById('userPassword').value.length == 0) {
                 alert('need userName and userPassword');
@@ -99,8 +166,6 @@
                 var base64 = new Base64();
                 var userName = base64.encode(document.getElementById('userName').value);
                 var userPassword = base64.encode(document.getElementById('userPassword').value);
-
-                emptyInput();
 
                 resource.setClientId('${client_id}');
                 resource.setScope('read');
@@ -115,9 +180,7 @@
             }
         };
 
-        function useClient() {
-            emptyInput();
-
+        function callClient() {
             // extends
             var commonExtends = new CommonExtends();
             var client = commonExtends.doExtends(new IAMClient(), OAuthComponent.prototype);
@@ -132,7 +195,7 @@
             client.prototype.callRest(client.view);
         };
 
-        function receiveTokenInfo() {
+        function callTokenInfo() {
             var access_token = document.getElementById('accessToken').value;
 
             // extends
@@ -149,7 +212,7 @@
 
         };
 
-        function receiveRefreshToken() {
+        function callRefreshToken() {
             var client_id = '${client_id}';
             var refresh_token = document.getElementById('refreshToken').value;
 
@@ -165,6 +228,10 @@
             refresh.prototype.setUri('/iamOAuth/receive/refreshToken');
             refresh.prototype.setParameter(parameter);
             refresh.prototype.callRest(refresh.view);
+
+        };
+
+        function redirect(type) {
 
         };
 
@@ -190,38 +257,79 @@
 
     </script>
 </head>
+<body>
+<body>
+<div id="container">
+    <div id="top">
+        <nav class="navbar navbar-default navbar-fixed-top" style="position: relative; width: 100%;">
+            <H2 style="padding-left: 30px;"> IAM Sample </H2>
+        </nav>
+    </div>
+    <div id="left">
+        <div class="list-group" id="methodList" style="margin-top: 20px;">
+            <a href="#" onClick="javascript: initCenterLayoutConfiguration(this, false)" class="list-group-item active" id="IAMAuthorization">Authorization Code</a>
+            <a href="#" onClick="javascript: initCenterLayoutConfiguration(this, false)" class="list-group-item" id="IAMImplicit">Implicit Grant Flow</a>
+            <a href="#" onClick="javascript: initCenterLayoutConfiguration(this, true)" class="list-group-item" id="IAMResource">Resource Owner Password Credentials Flow</a>
+            <a href="#" onClick="javascript: initCenterLayoutConfiguration(this, false)" class="list-group-item" id="IAMClient">Client Credentials Grant Flow</a>
+        </div>
+    </div>
+    <div id="center">
+        <div id="user" style="height: 50px; display: none">
+            <div class="form-group has-success has-feedback">
+                <label class="col-sm-1 control-label" for="userName">User Name</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="userName">
+                </div>
+            </div>
+
+            <div class="form-group has-success has-feedback">
+                <label class="col-sm-1 control-label" for="userPassword">User Password</label>
+                <div class="col-sm-4">
+                    <input type="password" class="form-control" id="userPassword">
+                </div>
+            </div>
+        </div>
+
+        <div id="verify" style="height: 50px; margin-top: 20px;">
+            <div class="form-group has-success has-feedback">
+                <label class="col-sm-1 control-label" for="accessToken">Access Token</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="accessToken" disabled>
+                </div>
+            </div>
+
+            <div class="form-group has-success has-feedback">
+                <label class="col-sm-1 control-label" for="refreshToken">Refresh Token</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="refreshToken" disabled>
+                </div>
+            </div>
+            <button class="btn btn-default" id="verifyButton" onClick="authorizePopup()"> GET </button>
+        </div>
+
+        <div id="tokenInformation" style="height: 150px; margin-top: 20px;">
+            <div class="form-group has-success has-feedback">
+                <label class="col-sm-1 control-label" for="tokenInfo">Token Information</label>
+                <div class="col-sm-4">
+                    <textarea class="form-control" row="15" id="tokenInfo" style="height: 150px;" disabled></textarea>
+                </div>
+            </div>
+            <button class="btn btn-default" onClick="javascript: callTokenInfo()"> GET </button>
+        </div>
+
+        <div id="refreshTokenAgain" style="height: 150px; margin-top: 20px;">
+            <div class="form-group has-success has-feedback">
+                <label class="col-sm-1 control-label" for="againRefreshToken">Refresh Token</label>
+                <div class="col-sm-4">
+                    <textarea class="form-control" row="15" id="againRefreshToken" style="height: 150px" disabled></textarea>
+                </div>
+            </div>
+            <button class="btn btn-default" onClick="javascript: callRefreshToken()"> GET </button>
+        </div>
+    </div>
+</div>
+</body>
 <br>
-
-<div>
-    <button id="authorization" onClick="javascript: useAuthorization()">Authorization Code</button>
-    <button id="implicit" onClick="javascript: useImplicit()">Implicit Grant Flow</button>
-    <button id="resource" onClick="javascript: useResource()">Resource Owner Password Credentials Flow</button>
-    <button id="client" onClick="javascript: useClient()">Client Credentials Grant Flow</button>
-</div>
-
-</br>
-
-<div>
-    userName : <input type="text" id="userName">
-    userPassword: <input type="text" id="userPassword">
-</div>
-
-</br>
-
-<div>
-    accessToken : <input type="text" id="accessToken">
-    refreshToken : <input type="text" id="refreshToken">
-
-    <button id="info" onClick="javascript: receiveTokenInfo()">Token Info</button>
-    <button id="refresh" onClick="javascript: receiveRefreshToken()">Token Refresh</button>
-</div>
-
-</br>
-
-<div>
-    tokenInfo : <input type="text" id="tokenInfo">
-    againRefreshToken : <input type="text" id="againRefreshToken">
-</div>
 
 </body>
 </html>

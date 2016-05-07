@@ -16,7 +16,6 @@ import java.util.Map;
 /**
  * Created by Misaka on 2016-04-22.
  */
-
 @Controller(value = "iamOAuthController")
 @RequestMapping("/iamOAuth")
 public class IAMOAuthController {
@@ -29,6 +28,11 @@ public class IAMOAuthController {
     @Value("#{conf['iam.client_secret']}")
     private String clientSecret;
 
+    /**
+     * Load model and view.
+     *
+     * @return the model and view
+     */
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView load() {
         ModelAndView modelAndView = new ModelAndView();
@@ -38,7 +42,23 @@ public class IAMOAuthController {
         return modelAndView;
     }
 
-    // 1. Authorization Code
+    /**
+     * Create authorize popup model and view.
+     *
+     * @return the model and view
+     */
+    @RequestMapping(value = "/popup/authorization", method = RequestMethod.GET)
+    public String createAuthorizePopup() {
+        return "oauth/iam/popup/authorize";
+    }
+
+    /**
+     * Receive authorization code redirect view.
+     *
+     * @param code               the code
+     * @param redirectAttributes the redirect attributes
+     * @return the redirect view
+     */
     @RequestMapping(value = "/receive/authorization/code", method = RequestMethod.GET)
     public RedirectView receiveAuthorizationCode(@RequestParam String code, RedirectAttributes redirectAttributes) {
         RedirectView redirectView = new RedirectView();
@@ -51,7 +71,14 @@ public class IAMOAuthController {
         return redirectView;
     }
 
-    // 2. Implicit Grant Flow
+
+    /**
+     * Receive implicit grant flow token redirect view.
+     *
+     * @param code               the code
+     * @param redirectAttributes the redirect attributes
+     * @return the redirect view
+     */
     @RequestMapping(value = "/receive/implicit/code", method = RequestMethod.GET)
     public RedirectView receiveImplicitGrantFlowToken(@RequestParam String code, RedirectAttributes redirectAttributes) {
         RedirectView redirectView = new RedirectView();
@@ -64,7 +91,16 @@ public class IAMOAuthController {
         return redirectView;
     }
 
-    // 3. Resource Owner Password Credentials Flow
+
+    /**
+     * Receive resource owner password credentials flow token string.
+     *
+     * @param client_id the client id
+     * @param username  the username
+     * @param password  the password
+     * @param scope     the scope
+     * @return the string
+     */
     @RequestMapping(value = "/receive/resource/token", method = RequestMethod.POST)
     public @ResponseBody String receiveResourceOwnerPasswordCredentialsFlowToken(@RequestParam String client_id, @RequestParam String username,
                                                             @RequestParam String password, @RequestParam String scope) {
@@ -76,14 +112,27 @@ public class IAMOAuthController {
         return token;
     }
 
-    // 4. Client Credentials Grant Flow
+
+    /**
+     * Receive client credentials grant flow token string.
+     *
+     * @param client_id the client id
+     * @param scope     the scope
+     * @return the string
+     */
     @RequestMapping(value = "/receive/client/token", method = RequestMethod.POST)
     public @ResponseBody String receiveClientCredentialsGrantFlowToken(@RequestParam String client_id, @RequestParam String scope) {
         String token = iamOAuthService.getTokenClient(client_id, clientSecret, scope);
         return token;
     }
 
-    // receive Token
+
+    /**
+     * Receive token model and view.
+     *
+     * @param request the request
+     * @return the model and view
+     */
     @RequestMapping(value = "/receive/token", method = RequestMethod.GET)
     public ModelAndView receiveToken(HttpServletRequest request) {
         // redirectAttributes get Data from RequestContextUtils
@@ -109,12 +158,27 @@ public class IAMOAuthController {
         return modelAndView;
     }
 
+
+    /**
+     * Receive token info string.
+     *
+     * @param access_token the access token
+     * @return the string
+     */
     @RequestMapping(value = "/receive/tokenInfo", method = RequestMethod.POST)
     public @ResponseBody String receiveTokenInfo(@RequestParam String access_token) {
         String tokenInfo = iamOAuthService.getTokenInfo(access_token);
         return tokenInfo;
     }
 
+
+    /**
+     * Receive refresh token string.
+     *
+     * @param client_id     the client id
+     * @param refresh_token the refresh token
+     * @return the string
+     */
     @RequestMapping(value = "/receive/refreshToken", method = RequestMethod.POST)
     public @ResponseBody String receiveRefreshToken(@RequestParam String client_id, @RequestParam String refresh_token) {
         String refreshToken = iamOAuthService.getRefreshToken(client_id, clientSecret, refresh_token);

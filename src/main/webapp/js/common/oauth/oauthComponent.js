@@ -35,7 +35,6 @@ var OAuthComponent = (function() {
         },
 
         verify: function() {
-            window.open(this.getUri(), '_self');
         },
 
         callRest: function(callback) {

@@ -31,8 +31,8 @@ public class FacebookOAuthController {
         return null;
     }
 
-    @RequestMapping(value = "/facebook/getAccessToken", method = RequestMethod.POST)
-    public @ResponseBody JSONObject getFacebookAccessTocken(@RequestParam String appId, @RequestParam String secret) {
+    @RequestMapping(value = "/receive/token", method = RequestMethod.POST)
+    public @ResponseBody JSONObject receiveToken(@RequestParam String appId, @RequestParam String secret) {
         FacebookOAuthService facebookOAuthService = FacebookOAuthService.getInstance();
         return facebookOAuthService.getAccessToken(appId, secret);
     }
