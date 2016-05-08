@@ -25,13 +25,34 @@
             height: 100%;
             margin: 0px 0px 10px 0px;
         }
+
+        #user {
+            height: 50px;
+            display: none;
+        }
+
+        #verify {
+            height: 50px;
+            margin-top: 20px;
+        }
+
+        #tokenInformation {
+            height: 150px;
+            margin-top: 20px;
+        }
+
+        #refreshTokenAgain {
+            height: 150px;
+            margin-top: 20px;
+        }
     </style>
-    <!-- bootstrap -->
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+    <!-- bootstrap -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
     <!-- common request -->
     <script type="text/javascript" src="/js/common/request/commonRequest.js"></script>
@@ -222,10 +243,6 @@
 
         };
 
-        function redirect(type) {
-
-        };
-
         $(document).ready(function () {
             // authorization and implicit are returned index.jsp page.
             // but resource and client's view funcion processed commonOAuthRequest's load function.
@@ -249,7 +266,6 @@
     </script>
 </head>
 <body>
-<body>
 <div id="container">
     <div id="top">
         <nav class="navbar navbar-default navbar-fixed-top" style="position: relative; width: 100%;">
@@ -265,7 +281,7 @@
         </div>
     </div>
     <div id="center">
-        <div id="user" style="height: 50px; display: none">
+        <div id="user">
             <div class="form-group has-success has-feedback">
                 <label class="col-sm-1 control-label" for="userName">User Name</label>
                 <div class="col-sm-4">
@@ -281,7 +297,7 @@
             </div>
         </div>
 
-        <div id="verify" style="height: 50px; margin-top: 20px;">
+        <div id="verify" style="">
             <div class="form-group has-success has-feedback">
                 <label class="col-sm-1 control-label" for="accessToken">Access Token</label>
                 <div class="col-sm-4">
@@ -298,7 +314,7 @@
             <button class="btn btn-default" id="verifyButton" onClick="javascript: callIAMAuthorization()"> GET </button>
         </div>
 
-        <div id="tokenInformation" style="height: 150px; margin-top: 20px;">
+        <div id="tokenInformation">
             <div class="form-group has-success has-feedback">
                 <label class="col-sm-1 control-label" for="tokenInfo">Token Information</label>
                 <div class="col-sm-4">
@@ -308,7 +324,7 @@
             <button class="btn btn-default" onClick="javascript: callTokenInfo()"> GET </button>
         </div>
 
-        <div id="refreshTokenAgain" style="height: 150px; margin-top: 20px;">
+        <div id="refreshTokenAgain">
             <div class="form-group has-success has-feedback">
                 <label class="col-sm-1 control-label" for="againRefreshToken">Refresh Token</label>
                 <div class="col-sm-4">
