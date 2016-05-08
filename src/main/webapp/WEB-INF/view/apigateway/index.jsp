@@ -86,7 +86,7 @@
         };
 
         function view(responseText) {
-            console.log(responseText);
+            document.getElementById('callResult').value = responseText;
         };
     </script>
 </head>
