@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 /**
  * Created by Misaka on 2016-05-02.
  */
-@Service(value = "tykService")
-public class TYKService {
+@Service(value = "apiGatewayService")
+public class APIGatewayService {
+
 }
