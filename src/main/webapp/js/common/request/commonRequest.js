@@ -35,8 +35,8 @@ var CommonRequest = (function() {
             return _parameter;
         },
 
-        addHeader: function(header) {
-            var headerJSON = JSON.parse(header);
+        addHeader: function(key, value) {
+            var headerJSON = JSON.parse('{\"' + key + '\" :\"' + value + '\"}');
             _header.push(headerJSON);
         },
 
@@ -65,7 +65,7 @@ var CommonRequest = (function() {
                 if(xmlHttpRequest.readyState == 4) {
                     if (xmlHttpRequest.status == 200) {
                         if(callback == null || typeof callback === 'function') {
-                            callback(xmlHttpRequest.responseText);
+                            callback(xmlHttpRequest);
 
                         } else {
                             console.log('callback is not function!!');

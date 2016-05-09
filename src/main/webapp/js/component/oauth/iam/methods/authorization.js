@@ -57,8 +57,10 @@ var IAMAuthorization = (function() {
                 '&redirect_uri=' + this.getRedirectUri() + '&scope=' + this.getScope() + '&state=' + this.getState());
         },
 
-        view: function(authorizationToken) {
+        view: function(xmlHttpRequest) {
+            var authorizationToken = xmlHttpRequest.responseText;
             var authorizationTokenJSON = JSON.parse(authorizationToken);
+
             document.getElementById('accessToken').value = authorizationTokenJSON.access_token;
             document.getElementById('refreshToken').value = authorizationTokenJSON.refresh_token;
         }

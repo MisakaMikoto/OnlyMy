@@ -48,8 +48,10 @@ var IAMResource = (function() {
                 '&password=' + this.getUserPassword() + '&scope=' + this.getScope();
         },
 
-        view: function(resourceToken) {
+        view: function(xmlHttpRequest) {
+            var resourceToken = xmlHttpRequest.responseText;
             var resourceTokenJSON = JSON.parse(resourceToken);
+
             document.getElementById('accessToken').value = resourceTokenJSON.access_token;
             document.getElementById('refreshToken').value = resourceTokenJSON.refresh_token;
         }

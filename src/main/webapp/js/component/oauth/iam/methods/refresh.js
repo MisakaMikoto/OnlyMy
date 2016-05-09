@@ -29,7 +29,8 @@ var IAMRefresh = (function() {
             return 'client_id=' + this.getClientId() + '&refresh_token=' + this.getRefreshToken();
         },
 
-        view: function(responseText) {
+        view: function(xmlHttpRequest) {
+            var responseText = xmlHttpRequest.responseText;
             document.getElementById('againRefreshToken').value = responseText;
         }
     };

@@ -29,8 +29,10 @@ var IAMClient = (function() {
             return 'client_id=' + this.getClientId() + '&scope=' + this.getScope();
         },
 
-        view: function(clientToken) {
+        view: function(xmlHttpRequest) {
+            var clientToken = xmlHttpRequest.responseText;
             var clientTokenJSON = JSON.parse(clientToken);
+
             document.getElementById('accessToken').value = clientTokenJSON.access_token;
             document.getElementById('refreshToken').value = clientTokenJSON.refresh_token;
         }

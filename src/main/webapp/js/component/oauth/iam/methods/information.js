@@ -16,7 +16,8 @@ var IAMInformation = (function() {
             return _access_token;
         },
 
-        view: function(responseText) {
+        view: function(xmlHttpRequest) {
+            var responseText = xmlHttpRequest.responseText;
             document.getElementById('tokenInfo').value = responseText;
         },
 
