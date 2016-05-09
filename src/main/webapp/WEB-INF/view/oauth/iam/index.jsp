@@ -28,7 +28,6 @@
 
         #user {
             height: 50px;
-            display: none;
         }
 
         #verify {
@@ -281,7 +280,7 @@
         </div>
     </div>
     <div id="center">
-        <div id="user">
+        <div id="user" style="display: none">
             <div class="form-group has-success has-feedback">
                 <label class="col-sm-1 control-label" for="userName">User Name</label>
                 <div class="col-sm-4">
@@ -297,7 +296,7 @@
             </div>
         </div>
 
-        <div id="verify" style="">
+        <div id="verify">
             <div class="form-group has-success has-feedback">
                 <label class="col-sm-1 control-label" for="accessToken">Access Token</label>
                 <div class="col-sm-4">
