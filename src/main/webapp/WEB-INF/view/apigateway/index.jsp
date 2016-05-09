@@ -22,7 +22,7 @@
         #center {
             display: inline-block;
             width: 79%;
-            height: 800px;
+            height: 500px;
             margin: 0px 0px 10px 0px;
         }
 
@@ -52,41 +52,85 @@
     <!-- common request -->
     <script type="text/javascript" src="/js/common/request/commonRequest.js"></script>
 
+    <!-- apigatewayComponent -->
+    <script type="text/javascript" src="/js/common/apigateway/apigatewayComponent.js"></script>
+
+    <!-- extends -->
+    <script type="text/javascript" src="/js/common/inherit/commonExtends.js"></script>
+
+    <!-- common request -->
+    <script type="text/javascript" src="/js/common/request/commonRequest.js"></script>
+
+    <!-- util -->
+    <script type="text/javascript" src="/js/util/util.js"></script>
+
     <script type="text/javascript">
-        function callURI() {
+        function clean() {
+            $('#result').find('input').each(function() {
+                $(this).val('');
+            });
+
+            $('#result').find('textarea').each(function() {
+                $(this).val('');
+            });
+        };
+
+        function callURI(type) {
             var uri = document.getElementById('uri').value;
 
-            var commonRequest = new CommonRequest();
-            commonRequest.setType();
-            commonRequest.setUri(uri);
+            if(uri != null && uri.length > 0) {
+                // extends
+                var commonExtends = new CommonExtends();
+                var apigatewayComponent = commonExtends.doExtends(new ApigatewayComponent(), CommonRequest.prototype);
 
-            var headers = $('#header').find('[id^="list_"]');
-            for(var i = 0; i < headers.length; i++) {
-                var key = $(this).find('[name="key"]').val();
-                var value = $(this).find('[name="value"]').val();
+                apigatewayComponent.prototype.setType(type);
+                apigatewayComponent.prototype.setUri('/apiGateway/call/' + type.toLowerCase());
+                apigatewayComponent.prototype.setParameter('uri=' + uri);
 
-                var header = '{' + key + ":" + value + '}';
-                commonRequest.addHeader(header);
+                $('#header').find('[id^="list_"]').each(function () {
+                    var key = $(this).find('[name="key"]').val();
+                    var value = $(this).find('[name="value"]').val();
 
+                    if (key.length > 0 && value.length > 0) {
+                        apigatewayComponent.prototype.addHeader(key, value);
+                    }
+
+                });
+                apigatewayComponent.callRest(view)
+
+            } else {
+                alert('write uri');
             }
-            commonRequest.load(view);
         };
 
         function addHeader() {
-            var list = $('[id^="list_"]').last();
-            var clone = list.clone();
+            if($('[id^="list_"]').length < 8) {
+                var list = $('[id^="list_"]').last();
+                var clone = list.clone();
 
-            var id = clone.attr('id');
-            var name = id.split('_')[0];
-            var count = Number(id.split('_')[1]);
-            clone.attr('id', name + '_' + (count + 1));
+                var id = clone.attr('id');
+                var name = id.split('_')[0];
+                var count = Number(id.split('_')[1]);
 
-            list.find('button').remove();
-            list.after(clone);
+                clone.attr('id', name + '_' + (count + 1));
+                clone.find('[name="key"]').val('');
+                clone.find('[name="value"]').val('');
+
+                list.find('button').remove();
+                list.after(clone);
+
+            } else {
+                alert('dont add more');
+            }
         };
 
-        function view(responseText) {
-            document.getElementById('callResult').value = responseText;
+        function view(xmlHttpRequest) {
+            var responseText = xmlHttpRequest.responseText;
+            var responseTextJSON = JSON.parse(responseText);
+
+            document.getElementById('status').value = responseTextJSON.responseCode;
+            document.getElementById('responseText').value = responseTextJSON.responseText;
+            document.getElementById('responseHeader').value = responseTextJSON.responseHeaders;
         };
     </script>
 </head>
@@ -111,7 +155,8 @@
                 </div>
             </div>
 
-            <button class="btn btn-default" onClick="javascript: callURI()"> CALL </button>
+            <button class="btn btn-default" onClick="javascript: callURI('GET')"> CALL(GET) </button>
+            <button class="btn btn-default" onClick="javascript: callURI('POST')"> CALL(POST) </button>
         </div>
 
         <div id="header">
@@ -135,10 +180,29 @@
         </div>
 
         <div id="result">
-            <div class="form-group has-success has-feedback">
-                <label class="col-sm-1 control-label" for="callResult"> Call Result </label>
-                <div class="col-sm-4">
-                    <textarea class="form-control" row="15" id="callResult" style="height: 150px;" disabled></textarea>
+            <div id="responseStatus" style="height: 50px;">
+                <div class="form-group has-success has-feedback" style="height: 25px;">
+                    <label class="col-sm-1 control-label" for="status"> RESPONSE STATUS </label>
+                    <div class="col-sm-2">
+                        <input type="text" class="form-control" id="status" disabled>
+                    </div>
+                    <button class="btn btn-default" onClick="javascript: clean()"> RESPONSE CLEAN </button>
+                </div>
+            </div>
+
+            <div id="responseDetail">
+                <div class="form-group has-success has-feedback">
+                    <label class="col-sm-1 control-label" for="responseText"> RESPONSE TEXT </label>
+                    <div class="col-sm-4">
+                        <textarea class="form-control" row="15" id="responseText" style="height: 150px;" disabled></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group has-success has-feedback">
+                    <label class="col-sm-1 control-label" for="responseHeader"> RESPONSE HEADERS </label>
+                    <div class="col-sm-4">
+                        <textarea class="form-control" row="15" id="responseHeader" style="height: 150px;" disabled></textarea>
+                    </div>
                 </div>
             </div>
         </div>
