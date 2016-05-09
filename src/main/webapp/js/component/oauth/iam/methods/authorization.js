@@ -57,12 +57,15 @@ var IAMAuthorization = (function() {
                 '&redirect_uri=' + this.getRedirectUri() + '&scope=' + this.getScope() + '&state=' + this.getState());
         },
 
-        view: function(xmlHttpRequest) {
-            var authorizationToken = xmlHttpRequest.responseText;
+        view: function(authorizationToken) {
             var authorizationTokenJSON = JSON.parse(authorizationToken);
 
-            document.getElementById('accessToken').value = authorizationTokenJSON.access_token;
-            document.getElementById('refreshToken').value = authorizationTokenJSON.refresh_token;
+            var parent = window.opener;
+            parent.document.getElementById('accessToken').value = authorizationTokenJSON.access_token;
+            parent.document.getElementById('refreshToken').value = authorizationTokenJSON.refresh_token;
+
+            window.opener = self;
+            window.close();
         }
     };
 
