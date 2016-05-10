@@ -1,6 +1,8 @@
 package com.ryuha.blog.oauth.controller;
 
 import com.ryuha.blog.oauth.service.IAMOAuthService;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -72,33 +74,32 @@ public class OAuthController {
         RedirectView redirectView = new RedirectView();
         redirectView.setUrl("/oauth/receive/token");
 
-        redirectAttributes.addFlashAttribute("type", "authorization");
         redirectAttributes.addFlashAttribute("code", code);
         redirectAttributes.addFlashAttribute("client_id", clientId);
 
         return redirectView;
     }
-
 
     /**
-     * Receive implicit grant flow token redirect view.
+     * Receive implicit grant flow token model and view.
      *
-     * @param code               the code
-     * @param redirectAttributes the redirect attributes
-     * @return the redirect view
+     * @param request the request
+     * @return the model and view
      */
-    @RequestMapping(value = "/receive/implicit/code", method = RequestMethod.GET)
-    public RedirectView receiveImplicitGrantFlowToken(@RequestParam String code, RedirectAttributes redirectAttributes) {
-        RedirectView redirectView = new RedirectView();
-        redirectView.setUrl("/oauth/receive/token");
+    @RequestMapping(value = "/receive/implicit/token", method = RequestMethod.GET)
+    public ModelAndView receiveImplicitGrantFlowToken(@RequestParam String access_token) {
+        JSONObject token = new JSONObject();
+        try {
+            token.put("access_token", access_token);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("implicitToken", token);
+        modelAndView.setViewName("oauth/iam/index");
 
-        redirectAttributes.addFlashAttribute("type", "implicit");
-        redirectAttributes.addFlashAttribute("code", code);
-        redirectAttributes.addFlashAttribute("client_id", clientId);
-
-        return redirectView;
+        return modelAndView;
     }
-
 
     /**
      * Receive resource owner password credentials flow token string.
@@ -145,22 +146,12 @@ public class OAuthController {
     public ModelAndView receiveToken(HttpServletRequest request) {
         // redirectAttributes get Data from RequestContextUtils
         Map<String, ?> flashMap = RequestContextUtils.getInputFlashMap(request);
-        String type = flashMap.get("type").toString();
         String code = flashMap.get("code").toString();
         String client_id = flashMap.get("client_id").toString();
         String token = iamOAuthService.getToken(code, client_id, clientSecret);
 
         ModelAndView modelAndView = new ModelAndView();
-        if("authorization".equals(type)) {
-            modelAndView.addObject("authorizationToken", token);
-
-        } else if("implicit".equals(type)) {
-            modelAndView.addObject("implicitToken", token);
-
-        } else {
-            // otherwise...
-            ;
-        }
+        modelAndView.addObject("authorizationToken", token);
         modelAndView.setViewName("oauth/iam/index");
 
         return modelAndView;

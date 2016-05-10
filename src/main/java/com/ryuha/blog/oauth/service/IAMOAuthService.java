@@ -1,6 +1,7 @@
 package com.ryuha.blog.oauth.service;
 
 import org.apache.commons.codec.binary.Base64;
+import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
@@ -19,6 +20,14 @@ public class IAMOAuthService {
     public static final String GET = "GET";
     public static final String POST = "POST";
 
+    /**
+     * Gets token.
+     *
+     * @param code         the code
+     * @param clientId     the client id
+     * @param clientSecret the client secret
+     * @return the token
+     */
     public String getToken(String code, String clientId, String clientSecret) {
         String responseString = null;
 
@@ -33,6 +42,16 @@ public class IAMOAuthService {
         return responseString;
     }
 
+    /**
+     * Gets token resource.
+     *
+     * @param clientId        the client id
+     * @param clientSecret    the client secret
+     * @param decodedUsername the decoded username
+     * @param decodedPassword the decoded password
+     * @param scope           the scope
+     * @return the token resource
+     */
     public String getTokenResource(String clientId, String clientSecret, String decodedUsername, String decodedPassword, String scope) {
         String responseString = null;
 
@@ -48,6 +67,14 @@ public class IAMOAuthService {
         return responseString;
     }
 
+    /**
+     * Gets token client.
+     *
+     * @param clientId     the client id
+     * @param clientSecret the client secret
+     * @param scope        the scope
+     * @return the token client
+     */
     public String getTokenClient(String clientId, String clientSecret, String scope) {
         String responseString = null;
 
@@ -62,6 +89,14 @@ public class IAMOAuthService {
         return responseString;
     }
 
+    /**
+     * Gets refresh token.
+     *
+     * @param clientId     the client id
+     * @param clientSecret the client secret
+     * @param refreshToken the refresh token
+     * @return the refresh token
+     */
     public String getRefreshToken(String clientId, String clientSecret, String refreshToken) {
         String responseString = null;
 
@@ -76,6 +111,12 @@ public class IAMOAuthService {
         return responseString;
     }
 
+    /**
+     * Gets token info.
+     *
+     * @param accessToken the access token
+     * @return the token info
+     */
     public String getTokenInfo(String accessToken) {
         String responseString = null;
 
@@ -89,6 +130,14 @@ public class IAMOAuthService {
         return responseString;
     }
 
+    /**
+     * Http url connection handler string.
+     *
+     * @param method        the method
+     * @param url           the url
+     * @param urlParameters the url parameters
+     * @return the string
+     */
     public String httpURLConnectionHandler(String method, URL url, String urlParameters) {
         StringBuffer response = null;
         BufferedReader in = null;
@@ -143,6 +192,12 @@ public class IAMOAuthService {
         return response.toString();
     }
 
+    /**
+     * Decode base 64 string.
+     *
+     * @param encodedString the encoded string
+     * @return the string
+     */
     public String decodeBase64(String encodedString) {
         String decodedString = new String(Base64.decodeBase64(encodedString.getBytes()));
         return decodedString;
