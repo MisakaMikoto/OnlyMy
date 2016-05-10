@@ -37,7 +37,7 @@ var OAuthComponent = (function() {
         verify: function() {
             var form = document.form;
             var width = '600';
-            var height = '400';
+            var height = '600';
 
             var wTop = window.screenTop ? window.screenTop : window.screenY;
             var wLeft = window.screenLeft ? window.screenLeft : window.screenX;
