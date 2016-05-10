@@ -142,6 +142,7 @@
             authorization.setClientId('${client_id}');
             authorization.setResponseType('code');
             // controllers request mapping uri
+//            authorization.setRedirectUri('http://uengine.cloud.tyk.io/IAMAuthorization/');
             authorization.setRedirectUri('http://localhost:8080/oauth/receive/authorization/code');
             authorization.setScope('read');
             authorization.setState('');
@@ -155,9 +156,10 @@
             var implicit = commonExtends.doExtends(new IAMImplicit(), OAuthComponent.prototype);
 
             implicit.setClientId('${client_id}');
-            implicit.setResponseType('code');
+            implicit.setResponseType('token');
             // controllers request mapping uri
-            implicit.setRedirectUri('http://localhost:8080/oauth/receive/implicit/code');
+//            implicit.setRedirectUri('http://uengine.cloud.tyk.io/iamimplicit/');
+            implicit.setRedirectUri('http://localhost:8080/oauth/receive/implicit/token');
             implicit.setScope('read');
             implicit.setState('');
             implicit.createUri();
@@ -243,21 +245,21 @@
         };
 
         $(document).ready(function () {
-            // authorization and implicit are returned index.jsp page.
-            // but resource and client's view funcion processed commonOAuthRequest's load function.
+            // authorization and implicit are redirect index.jsp page.
+            // but resource and client's view function processed OAuthComponent callRest function.
             var authorizationToken = '${authorizationToken}';
             var implicitToken = '${implicitToken}';
 
-            if (authorizationToken.length > 0) {
+            if (authorizationToken != null && typeof authorizationToken !== 'undefined' && authorizationToken.length > 0) {
                 var authorization = new IAMAuthorization();
                 authorization.view(authorizationToken);
 
-            } else if (implicitToken.length > 0) {
+            } else if (implicitToken != null && typeof implicitToken !== 'undefined' && implicitToken.length > 0) {
                 var implicit = new IAMImplicit();
                 implicit.view(implicitToken);
 
             } else {
-                // otherwise...
+                // another if...
                 ;
             }
         });
