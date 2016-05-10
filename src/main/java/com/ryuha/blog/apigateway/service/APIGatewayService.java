@@ -20,6 +20,14 @@ public class APIGatewayService {
     public static final String GET = "GET";
     public static final String POST = "POST";
 
+    /**
+     * Call json object.
+     *
+     * @param type      the type
+     * @param uri       the uri
+     * @param parameter the parameter
+     * @return the json object
+     */
     public JSONObject call(String type, String uri, String parameter) {
         String urlParameters;
         JSONObject jsonObject = null;
@@ -41,6 +49,14 @@ public class APIGatewayService {
         return jsonObject;
     }
 
+    /**
+     * Http url connection handler json object.
+     *
+     * @param method        the method
+     * @param url           the url
+     * @param urlParameters the url parameters
+     * @return the json object
+     */
     public JSONObject httpURLConnectionHandler(String method, URL url, String urlParameters) {
         StringBuffer responseText = null;
         BufferedReader in = null;
@@ -106,6 +122,12 @@ public class APIGatewayService {
         }
     }
 
+    /**
+     * Parse uri string.
+     *
+     * @param queryString the query string
+     * @return the string
+     */
     public String parseUri(String queryString) {
         String uri = null;
         if(queryString.indexOf("&") > -1) {
@@ -121,6 +143,12 @@ public class APIGatewayService {
         return uri;
     }
 
+    /**
+     * Parse parameter string.
+     *
+     * @param queryString the query string
+     * @return the string
+     */
     public String parseParameter(String queryString) {
         StringBuffer parameter = null;
         if(queryString.indexOf("&") > -1) {

@@ -20,11 +20,23 @@ public class APIGatewayController {
     @Resource(name = "apiGatewayService")
     APIGatewayService apiGatewayService;
 
+
+    /**
+     * Load string.
+     *
+     * @return the string
+     */
     @RequestMapping(method = RequestMethod.GET)
     public String load() {
         return "apigateway/index";
     }
 
+    /**
+     * Call get string.
+     *
+     * @param request the request
+     * @return the string
+     */
     @RequestMapping(value = "/call/get", method = RequestMethod.GET)
     public @ResponseBody String callGet(HttpServletRequest request) {
         String queryString = request.getQueryString();
@@ -37,6 +49,12 @@ public class APIGatewayController {
         return response.toString();
     }
 
+    /**
+     * Call post string.
+     *
+     * @param queryString the query string
+     * @return the string
+     */
     @RequestMapping(value = "/call/post", method = RequestMethod.POST)
     public @ResponseBody String callPost(@RequestBody String queryString) {
         String uri = null;
