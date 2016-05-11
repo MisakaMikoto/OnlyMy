@@ -59,9 +59,6 @@
     <!-- oauth -->
     <script type="text/javascript" src="/js/common/oauth/oauthComponent.js"></script>
 
-    <!-- extends -->
-    <script type="text/javascript" src="/js/common/inherit/commonExtends.js"></script>
-
     <!-- authorization -->
     <script type="text/javascript" src="/js/component/oauth/iam/methods/authorization.js"></script>
 
@@ -131,39 +128,32 @@
                 textAreaNodes[i].value = '';
                 textAreaNodes[i].innerHTML = '';
             }
-
         };
 
         function callIAMAuthorization() {
-            // authorization object extends OAuthComponent
-            var commonExtends = new CommonExtends();
-            var authorization = commonExtends.doExtends(new IAMAuthorization(), OAuthComponent.prototype);
-
-            authorization.setClientId('${client_id}');
-            authorization.setResponseType('code');
+            var authorization = new IAMAuthorization();
+            authorization.clientId = '${client_id}';
+            authorization.responseType = 'code';
             // controllers request mapping uri
-//            authorization.setRedirectUri('http://uengine.cloud.tyk.io/IAMAuthorization/');
-            authorization.setRedirectUri('http://localhost:8080/oauth/receive/authorization/code');
-            authorization.setScope('read');
-            authorization.setState('');
+//            authorization.redirectUri = 'http://uengine.cloud.tyk.io/IAMAuthorization/';
+            authorization.redirectUri = 'http://localhost:8080/oauth/receive/authorization/code';
+            authorization.scope = 'read';
+            authorization.state = '';
             authorization.createUri();
-            authorization.prototype.verify();
+            authorization.verify();
         };
 
         function callIAMImplicit() {
-            // authorization object extends OAuthComponent
-            var commonExtends = new CommonExtends();
-            var implicit = commonExtends.doExtends(new IAMImplicit(), OAuthComponent.prototype);
-
-            implicit.setClientId('${client_id}');
-            implicit.setResponseType('token');
+            var implicit = new IAMImplicit();
+            implicit.clientId = '${client_id}';
+            implicit.responseType = 'token';
             // controllers request mapping uri
-//            implicit.setRedirectUri('http://uengine.cloud.tyk.io/iamimplicit/');
-            implicit.setRedirectUri('http://localhost:8080/oauth/receive/implicit/token');
-            implicit.setScope('read');
-            implicit.setState('');
+//            implicit.redirectUri = 'http://uengine.cloud.tyk.io/iamimplicit/';
+            implicit.redirectUri = 'http://localhost:8080/oauth/receive/implicit/token';
+            implicit.scope = 'read';
+            implicit.state = '';
             implicit.createUri();
-            implicit.prototype.verify();
+            implicit.verify();
         };
 
         function callIAMResource() {
@@ -172,76 +162,55 @@
                 alert('need userName and userPassword');
 
             } else {
-                // extends
-                var commonExtends = new CommonExtends();
-                var resource = commonExtends.doExtends(new IAMResource(), OAuthComponent.prototype);
                 // base64 encode userName and userPassword
                 var base64 = new Base64();
                 var userName = base64.encode(document.getElementById('userName').value);
                 var userPassword = base64.encode(document.getElementById('userPassword').value);
 
-                resource.setClientId('${client_id}');
-                resource.setScope('read');
-                resource.setUserName(userName);
-                resource.setUserPassword(userPassword);
-                var parameter = resource.createParameter();
-
-                resource.prototype.setType('POST');
-                resource.prototype.setUri('/oauth/receive/resource/token');
-                resource.prototype.setParameter(parameter);
-                resource.prototype.callRest(resource.view);
+                var resource = new IAMResource();
+                resource.type = 'POST';
+                resource.uri = '/oauth/receive/resource/token';
+                resource.clientId = '${client_id}';
+                resource.scope = 'read';
+                resource.userName = userName;
+                resource.userPassword = userPassword;
+                resource.parameter = resource.createParameter();
+                resource.callRest(resource.view);
             }
         };
 
         function callIAMClient() {
-            // extends
-            var commonExtends = new CommonExtends();
-            var client = commonExtends.doExtends(new IAMClient(), OAuthComponent.prototype);
-
-            client.setClientId('${client_id}');
-            client.setScope('read');
-            var parameter = client.createParameter();
-
-            client.prototype.setType('POST');
-            client.prototype.setUri('/oauth/receive/client/token');
-            client.prototype.setParameter(parameter);
-            client.prototype.callRest(client.view);
+            var client = new IAMClient();
+            client.type = 'POST';
+            client.uri = '/oauth/receive/client/token';
+            client.clientId = '${client_id}';
+            client.scope = 'read';
+            client.parameter = client.createParameter();
+            client.callRest(client.view);
         };
 
         function callTokenInfo() {
             var access_token = document.getElementById('accessToken').value;
 
-            // extends
-            var commonExtends = new CommonExtends();
-            var information = commonExtends.doExtends(new IAMInformation(), OAuthComponent.prototype);
-
-            information.setAccessToken(access_token);
-            var parameter = information.createParameter();
-
-            information.prototype.setType('POST');
-            information.prototype.setUri('/oauth/receive/tokenInfo');
-            information.prototype.setParameter(parameter);
-            information.prototype.callRest(information.view);
-
+            var information = new IAMInformation();
+            information.type = 'POST';
+            information.uri = '/oauth/receive/tokenInfo';
+            information.accessToken = access_token;
+            information.parameter = information.createParameter();
+            information.callRest(information.view);
         };
 
         function callRefreshToken() {
             var client_id = '${client_id}';
             var refresh_token = document.getElementById('refreshToken').value;
 
-            // extends
-            var commonExtends = new CommonExtends();
-            var refresh = commonExtends.doExtends(new IAMRefresh(), OAuthComponent.prototype);
-
-            refresh.setClientId(client_id);
-            refresh.setRefreshToken(refresh_token);
-            var parameter = refresh.createParameter();
-
-            refresh.prototype.setType('POST');
-            refresh.prototype.setUri('/oauth/receive/refreshToken');
-            refresh.prototype.setParameter(parameter);
-            refresh.prototype.callRest(refresh.view);
-
+            var refresh = new IAMRefresh();
+            refresh.type = 'POST';
+            refresh.uri = '/oauth/receive/refreshToken';
+            refresh.clientId = client_id;
+            refresh.refreshToken = refresh_token;
+            refresh.parameter = refresh.createParameter();
+            refresh.callRest(refresh.view);
         };
 
         $(document).ready(function () {

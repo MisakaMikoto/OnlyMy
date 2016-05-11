@@ -1,61 +1,56 @@
 /**
  * Created by Misaka on 2016-04-27.
  */
-var IAMResource = (function() {
-    function IAMResource() {
-    };
+class IAMResource extends OAuthComponent {
+    constructor() {
+        super();
+        this._client_id = '';
+        this._userName = '';
+        this._userPassword = '';
+        this._scope = '';
+    }
 
-    var _client_id = '';
-    var _userName = '';
-    var _userPassword = '';
-    var _scope = '';
+    set clientId(client_id) {
+        this._client_id = client_id;
+    }
 
-    IAMResource.prototype = {
-        setClientId: function(client_id) {
-            _client_id = client_id;
-        },
+    get clientId() {
+        return this._client_id;
+    }
 
-        getClientId: function() {
-            return _client_id;
-        },
+    set userName(userName) {
+        this._userName = userName;
+    }
 
-        setUserName: function(userName) {
-            _userName = userName;
-        },
+    get userName() {
+        return this._userName;
+    }
 
-        getUserName: function() {
-            return _userName;
-        },
+    set userPassword(userPassword) {
+        this._userPassword = userPassword
+    }
 
-        setUserPassword: function(userPassword) {
-            _userPassword = userPassword
-        },
+    get userPassword() {
+        return this._userPassword;
+    }
 
-        getUserPassword: function() {
-            return _userPassword;
-        },
+    set scope(scope) {
+        this._scope = scope;
+    }
 
-        setScope: function(scope) {
-            _scope = scope;
-        },
+    get scope() {
+        return this._scope;
+    }
 
-        getScope: function() {
-            return _scope;
-        },
+    createParameter() {
+        return 'client_id=' + this.clientId + '&username=' + this.userName + '&password=' + this.userPassword + '&scope=' + this.scope;
+    }
 
-        createParameter: function() {
-            return 'client_id=' + this.getClientId() + '&username=' + this.getUserName() +
-                '&password=' + this.getUserPassword() + '&scope=' + this.getScope();
-        },
+    view(xmlHttpRequest) {
+        var resourceToken = xmlHttpRequest.responseText;
+        var resourceTokenJSON = JSON.parse(resourceToken);
 
-        view: function(xmlHttpRequest) {
-            var resourceToken = xmlHttpRequest.responseText;
-            var resourceTokenJSON = JSON.parse(resourceToken);
-
-            document.getElementById('accessToken').value = resourceTokenJSON.access_token;
-            document.getElementById('refreshToken').value = resourceTokenJSON.refresh_token;
-        }
-    };
-
-    return IAMResource;
-})();
+        document.getElementById('accessToken').value = resourceTokenJSON.access_token;
+        document.getElementById('refreshToken').value = resourceTokenJSON.refresh_token;
+    }
+}

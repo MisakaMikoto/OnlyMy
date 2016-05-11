@@ -1,39 +1,35 @@
 /**
  * Created by Misaka on 2016-05-02.
  */
-var IAMRefresh = (function() {
-    function IAMRefresh() {
-    };
+class IAMRefresh extends OAuthComponent{
+    constructor() {
+        super();
+        this._client_id = '';
+        this._refresh_token = '';
+    }
 
-    var _client_id = '';
-    var _refresh_token = '';
+    set clientId(client_id) {
+        this._client_id = client_id;
+    }
 
-    IAMRefresh.prototype = {
-        setClientId: function(client_id) {
-            _client_id = client_id;
-        },
+    get clientId() {
+        return this._client_id;
+    }
 
-        getClientId: function() {
-            return _client_id;
-        },
+    set refreshToken(refresh_token) {
+        this._refresh_token = refresh_token;
+    }
 
-        setRefreshToken: function(refresh_token) {
-            _refresh_token = refresh_token;
-        },
+    get refreshToken() {
+        return this._refresh_token;
+    }
 
-        getRefreshToken: function() {
-            return _refresh_token;
-        },
+    createParameter() {
+        return 'client_id=' + this.clientId + '&refresh_token=' + this.refreshToken;
+    }
 
-        createParameter: function() {
-            return 'client_id=' + this.getClientId() + '&refresh_token=' + this.getRefreshToken();
-        },
-
-        view: function(xmlHttpRequest) {
-            var responseText = xmlHttpRequest.responseText;
-            document.getElementById('againRefreshToken').value = responseText;
-        }
-    };
-
-    return IAMRefresh;
-})();
+    view(xmlHttpRequest) {
+        var responseText = xmlHttpRequest.responseText;
+        document.getElementById('againRefreshToken').value = responseText;
+    }
+}

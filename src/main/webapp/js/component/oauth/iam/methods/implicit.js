@@ -1,73 +1,69 @@
 /**
  * Created by Misaka on 2016-04-27.
  */
-var IAMImplicit = (function() {
-    function IAMImplicit() {
-    };
+class IAMImplicit extends OAuthComponent{
+    constructor() {
+        super();
+        this._client_id = '';
+        this._response_type = '';
+        this._redirect_uri = '';
+        this._scope = '';
+        this._state = '';
+    }
 
-    var _client_id = '';
-    var _response_type = '';
-    var _redirect_uri = '';
-    var _scope = '';
-    var _state = '';
+    set clientId(client_id) {
+        this._client_id = client_id;
+    }
 
-    IAMImplicit.prototype = {
-        setClientId: function(client_id) {
-            _client_id = client_id;
-        },
+    get clientId() {
+        return this._client_id;
+    }
 
-        getClientId: function() {
-            return _client_id;
-        },
+    set responseType(response_type) {
+        this._response_type = response_type;
+    }
 
-        setResponseType: function(response_type) {
-            _response_type = response_type;
-        },
+    get responseType() {
+        return this._response_type;
+    }
 
-        getResponseType: function() {
-            return _response_type;
-        },
+    set redirectUri(redirect_url) {
+        this._redirect_uri = redirect_url;
+    }
 
-        setRedirectUri: function(redirect_url) {
-            _redirect_uri = redirect_url;
-        },
+    get redirectUri() {
+        return this._redirect_uri;
+    }
 
-        getRedirectUri: function() {
-            return _redirect_uri;
-        },
+    set scope(scope) {
+        this._scope = scope;
+    }
 
-        setScope: function(scope) {
-            _scope = scope;
-        },
+    get scope() {
+        return this._scope;
+    }
 
-        getScope: function() {
-            return _scope;
-        },
+    set state(state) {
+        this._state = state;
+    }
 
-        setState: function(state) {
-            _state = state;
-        },
+    get state() {
+        return this._state;
+    }
 
-        getState: function() {
-            return _state;
-        },
+    createUri() {
+        this.uri = OAuthComponent.MANAGEMENT_SERVER + OAuthComponent.AUTHORIZE + '?client_id=' + this.clientId + '&response_type=' + this.responseType +
+            '&redirect_uri=' + this.redirectUri + '&scope=' + this.scope + '&state=' + this.state;
+    }
 
-        createUri: function() {
-            this.prototype.setUri(OAuthComponent.MANAGEMENT_SERVER + OAuthComponent.AUTHORIZE + '?client_id=' + this.getClientId() + '&response_type=' + this.getResponseType() +
-                '&redirect_uri=' + this.getRedirectUri() + '&scope=' + this.getScope() + '&state=' + this.getState());
-        },
+    view(implicitToken) {
+        var implicitTokenJSON = JSON.parse(implicitToken);
 
-        view: function(implicitToken) {
-            var implicitTokenJSON = JSON.parse(implicitToken);
+        var parent = window.opener;
+        parent.document.getElementById('accessToken').value = implicitTokenJSON.access_token;
+        parent.document.getElementById('refreshToken').value = implicitTokenJSON.refresh_token;
 
-            var parent = window.opener;
-            parent.document.getElementById('accessToken').value = implicitTokenJSON.access_token;
-            parent.document.getElementById('refreshToken').value = implicitTokenJSON.refresh_token;
-
-            window.opener = self;
-            window.close();
-        }
-    };
-
-    return IAMImplicit;
-})();
+        window.opener = self;
+        window.close();
+    }
+}

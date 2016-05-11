@@ -1,74 +1,69 @@
 /**
  * Created by Misaka on 2016-04-18.
  */
-var OAuthComponent = (function() {
-    function OAuthComponent() {
-    };
+class OAuthComponent {
+    constructor() {
+        this._uri = '';
+        this._type = '';
+        this._parameter = '';
+    }
 
-    var _uri = '';
-    var _type = '';
-    var _parameter = '';
+    set uri(uri) {
+        this._uri = uri;
+    }
 
-    OAuthComponent.prototype = {
-        setUri: function(uri) {
-            _uri = uri;
-        },
+    get uri() {
+        return this._uri;
+    }
 
-        getUri: function() {
-            return _uri;
-        },
+    set type(type) {
+        this._type = type;
+    }
 
-        setType: function(type) {
-            _type = type;
-        },
+    get type() {
+        return this._type;
+    }
 
-        getType: function() {
-            return _type;
-        },
+    set parameter(parameter) {
+        this._parameter = parameter;
+    }
 
-        setParameter: function(parameter) {
-            _parameter = parameter;
-        },
+    get parameter() {
+        return this._parameter;
+    }
 
-        getParameter: function() {
-            return _parameter;
-        },
+    verify() {
+        var form = document.form;
+        var width = '600';
+        var height = '600';
 
-        verify: function() {
-            var form = document.form;
-            var width = '600';
-            var height = '600';
+        var wTop = window.screenTop ? window.screenTop : window.screenY;
+        var wLeft = window.screenLeft ? window.screenLeft : window.screenX;
 
-            var wTop = window.screenTop ? window.screenTop : window.screenY;
-            var wLeft = window.screenLeft ? window.screenLeft : window.screenX;
+        var top = wTop + (window.innerHeight / 2) - (height / 2);
+        var left = wLeft + (window.innerWidth / 2) - (width / 2);
 
-            var top = wTop + (window.innerHeight / 2) - (height / 2);
-            var left = wLeft + (window.innerWidth / 2) - (width / 2);
+        var popUri = '/oauth/popup/authorization';
+        var popOption = 'width=' + width + ',height=' + height + ',top=' + top + ',left=' + left;
 
-            var popUri = '/oauth/popup/authorization';
-            var popOption = 'width=' + width + ',height=' + height + ',top=' + top + ',left=' + left;
+        window.open('','Authorize',popOption);
 
-            window.open('','Authorize',popOption);
+        form.target = 'Authorize';
+        form.action = popUri;
+        form.method = "post";
+        form.uri.value = this.uri;
+        form.submit();
+    }
 
-            form.target = 'Authorize';
-            form.action = popUri;
-            form.method = "post";
-            form.uri.value = this.getUri();
-            form.submit();
-        },
+    callRest(callback) {
+        var commonRequest = new CommonRequest();
 
-        callRest: function(callback) {
-            var commonRequest = new CommonRequest();
-
-            commonRequest.setType(this.getType());
-            commonRequest.setUri(this.getUri());
-            commonRequest.setParameter(this.getParameter());
-            commonRequest.load(callback);
-        }
-    };
-
-    return OAuthComponent;
-})();
+        commonRequest.type = this.type;
+        commonRequest.uri = this.uri;
+        commonRequest.parameter = this.parameter;
+        commonRequest.load(callback);
+    }
+}
 
 OAuthComponent.FACEBOOK_SERVER = 'https://graph.facebook.com/';
 

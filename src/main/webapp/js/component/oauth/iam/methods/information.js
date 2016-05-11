@@ -1,30 +1,26 @@
 /**
  * Created by Misaka on 2016-05-02.
  */
-var IAMInformation = (function() {
-    function IAMInformation() {
-    };
+class IAMInformation extends OAuthComponent{
+    constructor() {
+        super();
+        this._access_token = '';
+    }
 
-    var _access_token = '';
+    set accessToken(access_token) {
+        this._access_token = access_token;
+    }
 
-    IAMInformation.prototype = {
-        setAccessToken: function(access_token) {
-            _access_token = access_token;
-        },
+    get accessToken() {
+        return this._access_token;
+    }
 
-        getAccessToken: function() {
-            return _access_token;
-        },
+    createParameter(){
+        return 'access_token=' + this.accessToken;
+    }
 
-        view: function(xmlHttpRequest) {
-            var responseText = xmlHttpRequest.responseText;
-            document.getElementById('tokenInfo').value = responseText;
-        },
-
-        createParameter: function() {
-            return 'access_token=' + this.getAccessToken();
-        }
-    };
-
-    return IAMInformation;
-})();
+    view(xmlHttpRequest) {
+        var responseText = xmlHttpRequest.responseText;
+        document.getElementById('tokenInfo').value = responseText;
+    }
+}

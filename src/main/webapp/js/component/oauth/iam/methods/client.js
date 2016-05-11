@@ -1,42 +1,38 @@
 /**
  * Created by Misaka on 2016-04-27.
  */
-var IAMClient = (function() {
-    function IAMClient() {
-    };
+class IAMClient extends OAuthComponent{
+    constructor() {
+        super();
+        this._client_id = '';
+        this._scope = '';
+    }
 
-    var _client_id = '';
-    var _scope = '';
+    set clientId(client_id) {
+        this._client_id = client_id;
+    }
 
-    IAMClient.prototype = {
-        setClientId: function(client_id) {
-            _client_id = client_id;
-        },
+    get clientId() {
+        return this._client_id;
+    }
 
-        getClientId: function() {
-            return _client_id;
-        },
+    set scope(scope) {
+        this._scope = scope;
+    }
 
-        setScope: function(scope) {
-            _scope = scope;
-        },
+    get scope() {
+        return this._scope;
+    }
 
-        getScope: function() {
-            return _scope;
-        },
+    createParameter() {
+        return 'client_id=' + this.clientId + '&scope=' + this.scope;
+    }
 
-        createParameter: function() {
-            return 'client_id=' + this.getClientId() + '&scope=' + this.getScope();
-        },
+    view(xmlHttpRequest) {
+        var clientToken = xmlHttpRequest.responseText;
+        var clientTokenJSON = JSON.parse(clientToken);
 
-        view: function(xmlHttpRequest) {
-            var clientToken = xmlHttpRequest.responseText;
-            var clientTokenJSON = JSON.parse(clientToken);
-
-            document.getElementById('accessToken').value = clientTokenJSON.access_token;
-            document.getElementById('refreshToken').value = clientTokenJSON.refresh_token;
-        }
-    };
-
-    return IAMClient;
-})();
+        document.getElementById('accessToken').value = clientTokenJSON.access_token;
+        document.getElementById('refreshToken').value = clientTokenJSON.refresh_token;
+    }
+}
