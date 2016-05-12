@@ -13,8 +13,8 @@ import java.net.URLDecoder;
 /**
  * Created by Misaka on 2016-05-02.
  */
-@Controller(value = "apiGatewayController")
-@RequestMapping("/apiGateway")
+@Controller(value = "testController")
+@RequestMapping("/testGateway")
 public class TestController {
     @Resource(name = "testService")
     TestService testService;

@@ -15,7 +15,7 @@ import java.net.URL;
 /**
  * Created by Misaka on 2016-05-02.
  */
-@Service(value = "apiGatewayService")
+@Service(value = "testService")
 public class TestService {
     public static final String GET = "GET";
     public static final String POST = "POST";
