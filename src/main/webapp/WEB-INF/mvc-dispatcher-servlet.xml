@@ -14,8 +14,11 @@
     <mvc:annotation-driven />
     <mvc:resources mapping="/js/**" location="/js/" />
     <mvc:resources mapping="/css/**" location="/css/" />
-    <context:component-scan base-package="com.ryuha.blog" />
-    <util:properties id="conf" location="classpath:secret/secret.properties"/>
+    <context:component-scan base-package="com.misakamikoto" />
+
+    <!-- properties -->
+    <util:properties id="secretConf" location="classpath:secret/secret.properties"/>
+    <util:properties id="serverConf" location="classpath:server/server.properties"/>
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/view/"/>

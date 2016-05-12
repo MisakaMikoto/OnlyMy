@@ -185,7 +185,7 @@
     </dependencies>
 
     <build>
-        <finalName>myblog</finalName>
+        <finalName>ROOT</finalName>
         <plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>

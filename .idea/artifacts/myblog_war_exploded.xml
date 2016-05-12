@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" build-on-make="true" name="myblog:war exploded">
-    <output-path>$PROJECT_DIR$/target/myblog</output-path>
+    <output-path>$PROJECT_DIR$/target/ROOT</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
@@ -42,10 +42,13 @@
           <element id="library" level="project" name="Maven: ch.qos.logback:logback-classic:1.1.2" />
           <element id="library" level="project" name="Maven: ch.qos.logback:logback-core:1.1.2" />
           <element id="library" level="project" name="Maven: org.lazyluke:log4jdbc-remix:0.2.7" />
+          <element id="library" level="project" name="Maven: jstl:jstl:1.2" />
+          <element id="library" level="project" name="Maven: commons-io:commons-io:2.4" />
+          <element id="library" level="project" name="Maven: commons-codec:commons-codec:1.10" />
         </element>
       </element>
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/target/myblog/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/target/ROOT/META-INF/MANIFEST.MF" />
       </element>
       <element id="javaee-facet-resources" facet="myblog/web/Web" />
     </root>
