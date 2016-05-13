@@ -14,7 +14,7 @@
         FROM contents a
           LEFT OUTER JOIN code b
 	        ON a.categorycode = b.id
-        WHERE b.name = #{value};
+        WHERE b.id = #{value};
     </select>
 
     <select id="getNewestContent" resultType="com.misakamikoto.layout.contents.model.ContentsVO">
