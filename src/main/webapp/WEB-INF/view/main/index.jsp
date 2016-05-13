@@ -38,6 +38,9 @@
 	<script type="text/javascript" src="/js/component/layout/category.js"></script>
 	<script type="text/javascript" src="/js/component/layout/contents.js"></script>
 
+	<!-- render -->
+	<script type="text/javascript" src="/js/renderer/blog/render.js"></script>
+
 	<!-- util -->
 	<script type="text/javascript" src="/js/util/util.js"></script>
 
@@ -60,23 +63,26 @@
 
 	<script type="text/javascript">
 		$(document).ready(function() {
+			// create renderer
+			var renderer = new BlogRenderer();
+
 			// create title
-			var title = new Title();
+			var title = new Title(renderer, renderer.renderTitle);
 			title.type = 'GET';
 			title.uri = '/title';
-			title.callRest(title.create);
+			title.callRest(title);
 
 			// create category
-			var category = new Category();
+			var category = new Category(renderer, renderer.renderCategory);
 			category.type = 'GET';
 			category.uri = '/category/list';
-			category.callRest(category.create);
+			category.callRest(category);
 
 			// create contents
-			var contents = new Contents();
+			var contents = new Contents(renderer, renderer.renderContentViewer);
 			contents.type = 'GET';
 			contents.uri = '/contents/newest';
-			contents.callRest(contents.create.bind(contents));
+			contents.callRest(contents);
 		});
 	</script>
 </head>

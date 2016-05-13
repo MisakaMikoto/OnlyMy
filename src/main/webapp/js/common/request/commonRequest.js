@@ -42,7 +42,7 @@ class CommonRequest {
         return this._header;
     }
 
-    load(callback) {
+    load(reflectObject) {
         let xmlHttpRequest = new XMLHttpRequest();
 
         // type and uri setting
@@ -62,8 +62,13 @@ class CommonRequest {
         xmlHttpRequest.onreadystatechange = function() {
             if(xmlHttpRequest.readyState == 4) {
                 if (xmlHttpRequest.status == 200) {
-                    if(callback == null || typeof callback === 'function') {
-                        callback(xmlHttpRequest);
+                    if(reflectObject != null) {
+                        if(Reflect.has(reflectObject, 'create')) {
+                            Reflect.apply(reflectObject.create, reflectObject, [xmlHttpRequest]);
+
+                        } else {
+                            console.log('this object is not create function!! please make the create function!!');
+                        }
 
                     } else {
                         console.log('callback is not function!!');
