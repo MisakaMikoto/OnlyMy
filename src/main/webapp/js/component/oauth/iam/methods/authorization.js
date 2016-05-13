@@ -57,9 +57,9 @@ class IAMAuthorization extends OAuthComponent{
     }
 
     view(authorizationToken) {
-        var authorizationTokenJSON = JSON.parse(authorizationToken);
+        let authorizationTokenJSON = JSON.parse(authorizationToken);
 
-        var parent = window.opener;
+        let parent = window.opener;
         parent.document.getElementById('accessToken').value = authorizationTokenJSON.access_token;
         parent.document.getElementById('refreshToken').value = authorizationTokenJSON.refresh_token;
 

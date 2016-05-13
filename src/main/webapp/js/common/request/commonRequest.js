@@ -34,7 +34,7 @@ class CommonRequest {
     }
 
     addHeader(key, value) {
-        var headerJSON = JSON.parse('{\"' + key + '\" :\"' + value + '\"}');
+        let headerJSON = JSON.parse('{\"' + key + '\" :\"' + value + '\"}');
         this._header.push(headerJSON);
     }
 
@@ -43,7 +43,7 @@ class CommonRequest {
     }
 
     load(callback) {
-        var xmlHttpRequest = new XMLHttpRequest();
+        let xmlHttpRequest = new XMLHttpRequest();
 
         // type and uri setting
         if(this.type == 'GET') {
@@ -54,8 +54,8 @@ class CommonRequest {
         xmlHttpRequest.setRequestHeader('Content-type', 'application/x-www-form-urlencoded; charset=utf-8');
         // header setting
         if(this.header != '' && this.header.length > 0) {
-            for(var i in this.header()) {
-                var key = Util.getJSONKeys(this.header[i]);
+            for(let i in this.header()) {
+                let key = Util.getJSONKeys(this.header[i]);
                 xmlHttpRequest.setRequestHeader(key, this.header[i][key]);
             }
         }

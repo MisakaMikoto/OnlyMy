@@ -29,8 +29,8 @@ class IAMClient extends OAuthComponent{
     }
 
     view(xmlHttpRequest) {
-        var clientToken = xmlHttpRequest.responseText;
-        var clientTokenJSON = JSON.parse(clientToken);
+        let clientToken = xmlHttpRequest.responseText;
+        let clientTokenJSON = JSON.parse(clientToken);
 
         document.getElementById('accessToken').value = clientTokenJSON.access_token;
         document.getElementById('refreshToken').value = clientTokenJSON.refresh_token;

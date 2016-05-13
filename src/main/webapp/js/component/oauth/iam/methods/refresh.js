@@ -29,7 +29,7 @@ class IAMRefresh extends OAuthComponent{
     }
 
     view(xmlHttpRequest) {
-        var responseText = xmlHttpRequest.responseText;
+        let responseText = xmlHttpRequest.responseText;
         document.getElementById('againRefreshToken').value = responseText;
     }
 }

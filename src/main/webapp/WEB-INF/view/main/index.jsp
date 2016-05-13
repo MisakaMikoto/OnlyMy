@@ -29,22 +29,17 @@
 
 	<!-- common request -->
 	<script type="text/javascript" src="/js/common/request/commonRequest.js"></script>
-	<! -- layout request -->
-	<script type="text/javascript" src="/js/common/layout/layoutRequest.js"></script>
+
+	<!-- layout component -->
+	<script type="text/javascript" src="/js/common/layout/layoutComponent.js"></script>
 
 	<!-- component -->
 	<script type="text/javascript" src="/js/component/layout/title.js"></script>
 	<script type="text/javascript" src="/js/component/layout/category.js"></script>
 	<script type="text/javascript" src="/js/component/layout/contents.js"></script>
 
-	<!-- init -->
-	<script type="text/javascript" src="/js/init/mainInitScript.js"></script>
-
 	<!-- util -->
 	<script type="text/javascript" src="/js/util/util.js"></script>
-
-	<!-- extends -->
-	<script type="text/javascript" src="/js/common/inherit/commonExtends.js"></script>
 
 	<style type="text/css">
 		#left {
@@ -65,8 +60,23 @@
 
 	<script type="text/javascript">
 		$(document).ready(function() {
-			var mainInitScript = new MainInitScript();
-			mainInitScript.init(window.document.body, document.getElementById("left"), document.getElementById("center"));
+			// create title
+			var title = new Title();
+			title.type = 'GET';
+			title.uri = '/title';
+			title.callRest(title.create);
+
+			// create category
+			var category = new Category();
+			category.type = 'GET';
+			category.uri = '/category/list';
+			category.callRest(category.create);
+
+			// create contents
+			var contents = new Contents();
+			contents.type = 'GET';
+			contents.uri = '/contents/newest';
+			contents.callRest(contents.create.bind(contents));
 		});
 	</script>
 </head>

@@ -20,7 +20,7 @@ class IAMInformation extends OAuthComponent{
     }
 
     view(xmlHttpRequest) {
-        var responseText = xmlHttpRequest.responseText;
+        let responseText = xmlHttpRequest.responseText;
         document.getElementById('tokenInfo').value = responseText;
     }
 }

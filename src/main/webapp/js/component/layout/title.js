@@ -1,47 +1,26 @@
 /**
  * Created by Misaka on 2016-03-16.
  */
-var Title = (function() {
-    function Title() {
-    };
+class Title extends LayoutComponent{
+    constructor(){
+        super();
+    }
 
-    var _navigation = '';
+    create(xmlHttpRequest) {
+        let titleNameJSON = JSON.parse(xmlHttpRequest.responseText);
 
-    Title.prototype.setNavigation = function(navigation) {
-        _navigation = navigation;
-    };
-
-    function getNavigation() {
-        return _navigation;
-    };
-
-    Title.prototype.create = function(titleNameJSON, target) {
         // set and make ul
-        this.setNavigation(document.createElement('NAV'));
-
-        var nav = getNavigation();
+        let nav = document.createElement('NAV');
         nav.setAttribute('class', 'navbar navbar-default navbar-fixed-top');
 
-        var containerDiv = document.createElement('DIV');
+        let containerDiv = document.createElement('DIV');
         containerDiv.setAttribute('class', 'container');
-        var containerH2 = document.createElement('H2');
-        var containerH2TextNode = document.createTextNode(titleNameJSON.name);
+        let containerH2 = document.createElement('H2');
+        let containerH2TextNode = document.createTextNode(titleNameJSON.name);
         containerH2.appendChild(containerH2TextNode);
         containerDiv.appendChild(containerH2);
         nav.appendChild(containerDiv);
-        this.setNavigation(nav);
 
-        target.insertBefore(nav, window.document.body.firstChild);
+        document.getElementById('top').appendChild(nav);
     };
-
-    Title.prototype.load = function(target) {
-        // extends
-        var commonExtends = new CommonExtends();
-        var layoutRequest = commonExtends.doExtends(new LayoutRequest(), CommonRequest.prototype);
-
-        layoutRequest.prototype.setType('GET');
-        layoutRequest.prototype.setUri('/title');
-        layoutRequest.load(target, Title.prototype);
-    };
-    return Title;
-}());
+}

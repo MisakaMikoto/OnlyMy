@@ -57,9 +57,9 @@ class IAMImplicit extends OAuthComponent{
     }
 
     view(implicitToken) {
-        var implicitTokenJSON = JSON.parse(implicitToken);
+        let implicitTokenJSON = JSON.parse(implicitToken);
 
-        var parent = window.opener;
+        let parent = window.opener;
         parent.document.getElementById('accessToken').value = implicitTokenJSON.access_token;
         parent.document.getElementById('refreshToken').value = implicitTokenJSON.refresh_token;
 

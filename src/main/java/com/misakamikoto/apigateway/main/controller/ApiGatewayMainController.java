@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class ApiGatewayMainController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String load() {
-		return "apigateway/apis/index";
+		return "apigateway/index";
 	}
 }
