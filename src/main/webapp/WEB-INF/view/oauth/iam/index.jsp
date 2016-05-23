@@ -174,7 +174,7 @@
                 resource.scope = 'read';
                 resource.userName = userName;
                 resource.userPassword = userPassword;
-                resource.parameter = resource.createParameter();
+                resource.createParameter();
                 resource.callRest(resource.view);
             }
         };
