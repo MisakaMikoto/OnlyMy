@@ -2,10 +2,12 @@
  * Created by Misaka on 2016-04-18.
  */
 class OAuthComponent {
-    constructor() {
+    constructor(rendererClass, rendererFunction) {
         this._uri = '';
         this._type = '';
         this._parameter = '';
+        this._rendererClass = rendererClass;
+        this._rendererFunction = rendererFunction;
     }
 
     set uri(uri) {
@@ -24,8 +26,42 @@ class OAuthComponent {
         return this._type;
     }
 
+    set parameter(parameter) {
+        this._parameter = parameter;
+    }
+
     get parameter() {
         return this._parameter;
+    }
+
+    set rendererClass(rendererClass) {
+        this._rendererClass = rendererClass;
+    }
+
+    get rendererClass() {
+        return this._rendererClass;
+    }
+
+    set rendererFunction(rendererFunction) {
+        this._rendererFunction = rendererFunction;
+    }
+
+    get rendererFunction() {
+        return this._rendererFunction;
+    }
+
+    callRest(reflectObject) {
+        let commonRequest = new CommonRequest();
+
+        commonRequest.type = this.type;
+        commonRequest.uri = this.uri;
+        commonRequest.parameter = this.parameter;
+        commonRequest.load(reflectObject);
+    }
+
+    create(data) {
+        let render = this.rendererFunction.bind(this.rendererClass);
+        render(data);
     }
 
     verify() {
@@ -49,15 +85,6 @@ class OAuthComponent {
         form.method = "post";
         form.uri.value = this.uri;
         form.submit();
-    }
-
-    callRest(callback) {
-        let commonRequest = new CommonRequest();
-
-        commonRequest.type = this.type;
-        commonRequest.uri = this.uri;
-        commonRequest.parameter = this.parameter;
-        commonRequest.load(callback);
     }
 }
 

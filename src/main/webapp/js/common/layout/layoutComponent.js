@@ -47,7 +47,6 @@ class LayoutComponent {
         return this._rendererFunction;
     }
 
-
     callRest(reflectObject) {
         let commonRequest = new CommonRequest();
 
@@ -58,7 +57,7 @@ class LayoutComponent {
     }
 
     create(data) {
-        let lender = this.rendererFunction.bind(this.rendererClass);
-        lender(data);
+        let render = this.rendererFunction.bind(this.rendererClass);
+        render(data);
     }
 }
