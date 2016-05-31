@@ -61,27 +61,21 @@
     </style>
 
     <script type="text/javascript">
-        $(document).ready(function () {
-            // create title
-            var title = new Title();
-            title.target = document.getElementById('top');
-            title.type = 'GET';
-            title.uri = '/title';
-            title.callRest(title.create);
+        $(document).ready(function() {
+            // create renderer
+            var renderer = new APIGatewayRenderer();
 
             // create category
-            var category = new Category();
-            category.target = document.getElementById('left');
+            var category = new Category(renderer, renderer.renderCategory);
             category.type = 'GET';
             category.uri = '/category/list';
-            category.callRest(category.create);
+            category.callRest(category);
 
             // create contents
-            var contents = new Contents();
-            contents.target = document.getElementById('center');
+            var contents = new Contents(renderer, renderer.renderContentViewer);
             contents.type = 'GET';
             contents.uri = '/contents/newest';
-            contents.callRest(contents.create.bind(contents));
+            contents.callRest(contents);
         });
     </script>
 </head>
