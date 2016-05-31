@@ -73,13 +73,10 @@ public class OAuthController {
      */
     @RequestMapping(value = "/receive/authorization/code", method = RequestMethod.GET)
     public String receiveAuthorizationCode(@RequestParam String code, RedirectAttributes redirectAttributes) {
-
-        String ip = serverIp + ":" + serverPort;
-
         redirectAttributes.addFlashAttribute("code", code);
         redirectAttributes.addFlashAttribute("client_id", clientId);
 
-        return "redirect:" + ip + "/oauth/receive/token";
+        return "redirect:/oauth/receive/token";
     }
 
     /**
@@ -100,7 +97,7 @@ public class OAuthController {
 
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("implicitToken", token);
-        modelAndView.setViewName("/oauth/iam/index");
+        modelAndView.setViewName("oauth/iam/popup/authorize");
 
         return modelAndView;
     }
@@ -153,7 +150,7 @@ public class OAuthController {
 
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("authorizationToken", token);
-        modelAndView.setViewName("oauth/iam/index");
+        modelAndView.setViewName("oauth/iam/popup/authorize");
 
         return modelAndView;
     }
