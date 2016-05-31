@@ -55,15 +55,4 @@ class IAMAuthorization extends OAuthComponent{
         this.uri = OAuthComponent.MANAGEMENT_SERVER + OAuthComponent.AUTHORIZE + '?client_id=' + this.clientId + '&response_type=' + this.responseType +
             '&redirect_uri=' + this.redirectUri + '&scope=' + this.scope + '&state=' + this.state;
     }
-
-    view(authorizationToken) {
-        let authorizationTokenJSON = JSON.parse(authorizationToken);
-
-        let parent = window.opener;
-        parent.document.getElementById('accessToken').value = authorizationTokenJSON.access_token;
-        parent.document.getElementById('refreshToken').value = authorizationTokenJSON.refresh_token;
-
-        window.opener = self;
-        window.close();
-    }
 };

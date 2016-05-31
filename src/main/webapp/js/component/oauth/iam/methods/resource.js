@@ -2,8 +2,8 @@
  * Created by Misaka on 2016-04-27.
  */
 class IAMResource extends OAuthComponent {
-    constructor() {
-        super();
+    constructor(rendererClass, renderFunction) {
+        super(rendererClass, renderFunction);
         this._client_id = '';
         this._userName = '';
         this._userPassword = '';
@@ -44,13 +44,5 @@ class IAMResource extends OAuthComponent {
 
     createParameter() {
         return 'client_id=' + this.clientId + '&username=' + this.userName + '&password=' + this.userPassword + '&scope=' + this.scope;
-    }
-
-    view(xmlHttpRequest) {
-        let resourceToken = xmlHttpRequest.responseText;
-        let resourceTokenJSON = JSON.parse(resourceToken);
-
-        document.getElementById('accessToken').value = resourceTokenJSON.access_token;
-        document.getElementById('refreshToken').value = resourceTokenJSON.refresh_token;
     }
 }

@@ -2,8 +2,8 @@
  * Created by Misaka on 2016-05-02.
  */
 class IAMRefresh extends OAuthComponent{
-    constructor() {
-        super();
+    constructor(rendererClass, renderFunction) {
+        super(rendererClass, renderFunction);
         this._client_id = '';
         this._refresh_token = '';
     }
@@ -26,10 +26,5 @@ class IAMRefresh extends OAuthComponent{
 
     createParameter() {
         return 'client_id=' + this.clientId + '&refresh_token=' + this.refreshToken;
-    }
-
-    view(xmlHttpRequest) {
-        let responseText = xmlHttpRequest.responseText;
-        document.getElementById('againRefreshToken').value = responseText;
     }
 }

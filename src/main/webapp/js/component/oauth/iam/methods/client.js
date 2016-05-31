@@ -2,8 +2,8 @@
  * Created by Misaka on 2016-04-27.
  */
 class IAMClient extends OAuthComponent{
-    constructor() {
-        super();
+    constructor(rendererClass, renderFunction) {
+        super(rendererClass, renderFunction);
         this._client_id = '';
         this._scope = '';
     }
@@ -26,13 +26,5 @@ class IAMClient extends OAuthComponent{
 
     createParameter() {
         return 'client_id=' + this.clientId + '&scope=' + this.scope;
-    }
-
-    view(xmlHttpRequest) {
-        let clientToken = xmlHttpRequest.responseText;
-        let clientTokenJSON = JSON.parse(clientToken);
-
-        document.getElementById('accessToken').value = clientTokenJSON.access_token;
-        document.getElementById('refreshToken').value = clientTokenJSON.refresh_token;
     }
 }
