@@ -1,27 +1,12 @@
 /**
  * Created by Misaka on 2016-05-13.
  */
-class BlogRenderer {
+class BlogLayoutRenderer {
     constructor() {
-        this._category = new Category();
-        this._contents = new Contents();
-        this._title = new Title();
-    }
-
-    get category() {
-        return this._category;
-    }
-
-    get contents() {
-        return this._contents;
-    }
-
-    get title() {
-        return this._title;
     }
 
     // draw category
-    renderCategory(xmlHttpRequest) {
+    renderCategoryList(xmlHttpRequest) {
         let categoryListJSON = JSON.parse(xmlHttpRequest.responseText);
 
         // set and make ul
@@ -32,14 +17,30 @@ class BlogRenderer {
         for(let i in categoryListJSON) {
             let li = document.createElement('LI');
             li.setAttribute('class', 'list-group-item');
+            if(i == 0) {
+                li.setAttribute('selected', '');
+            }
 
             let nameSpan = document.createElement('SPAN');
             let a = document.createElement('a');
+            a.setAttribute('id', categoryListJSON[i].id);
             a.setAttribute('href', '#');
             a.addEventListener('click', () => {
-                    this.contents.rendererClass = this;
-                    this.contents.rendererFunction = this.renderContentsList;
-                    this.contents.loadList(categoryListJSON[i].id.toLowerCase());
+                    // find attribute select node and remove attribute
+                    let liNodes = document.getElementById('left').getElementsByTagName('ul')[0].getElementsByTagName('li');
+
+                    for(let i = 0; i < liNodes.length; i++) {
+                        if(liNodes[i].getAttribute('selected') != null) {
+                            liNodes[i].removeAttribute('selected');
+                            break;
+                        }
+                    };
+
+                    // clicked li set attribute selected
+                    a.parentNode.parentNode.setAttribute('selected', '');
+
+                    let contents = new Contents(this, this.renderContentsList);
+                    contents.loadList(a.getAttribute('id'));
                 }
             );
 
@@ -69,18 +70,15 @@ class BlogRenderer {
         panel.setAttribute('class', 'list-group');
 
         for(let i in contentsJSON) {
-            let key = Util.getJSONKeys(contentsJSON[i]);
-
             let li = document.createElement('LI');
             li.setAttribute('class', 'list-group-item');
 
             let a = document.createElement('A');
-            a.setAttribute('id', key.toString().toLowerCase());
+            a.setAttribute('id', contentsJSON[i].id);
             a.setAttribute('href', '#');
             a.addEventListener('click', () => {
-                    this.contents.rendererClass = this;
-                    this.contents.rendererFunction = this.renderContentViewer;
-                    this.contents.load(contentsJSON[i].id);
+                    let contents = new Contents(this, this.renderContentViewer);
+                    contents.load(contentsJSON[i].id);
                 }
             );
             let aTextNode = document.createTextNode(contentsJSON[i].subject);
@@ -90,6 +88,20 @@ class BlogRenderer {
             panel.appendChild(li);
         }
         document.getElementById('center').appendChild(panel);
+
+        // write button
+        let button = document.createElement('BUTTON');
+        button.setAttribute('class', 'btn btn-default');
+        button.style.float = 'right';
+        button.addEventListener('click', () => {
+                let renderer = new BlogModeRenderer();
+                renderer.renderWriteMode();
+            }
+        );
+        let buttonTextNode = document.createTextNode("Write");
+        button.appendChild(buttonTextNode);
+
+        document.getElementById('center').appendChild(button);
     }
 
     renderContentViewer(xmlHttpRequest) {
@@ -103,6 +115,17 @@ class BlogRenderer {
         let body = document.createElement('DIV');
         body.setAttribute('class', 'panel-body');
         body.innerText = contentsJSON.content;
+
+        if(contentsJSON.videoId != null) {
+            let iFrameDiv = document.createElement('DIV');
+            iFrameDiv.setAttribute('class', 'embed-responsive embed-responsive-4by3');
+            let iFrame = document.createElement('IFRAME');
+            iFrame.setAttribute('class', 'embed-responsive-item');
+            iFrame.setAttribute('src', 'http://youtube.com/v/' + contentsJSON.videoId);
+
+            iFrameDiv.appendChild(iFrame);
+            body.appendChild(iFrameDiv);
+        }
 
         let h3 = document.createElement('H3');
         h3.setAttribute('class', 'panel-title');
