@@ -12,11 +12,14 @@
         SELECT DISTINCT
           category.id as id,
           category.name as name,
-          count(contents.id) as count
+          IF(contentsCount.count IS NULL, 0, contentsCount.count) as count
         FROM
           category
-          LEFT OUTER JOIN contents
-            ON category.id = contents.categoryCode
+          LEFT OUTER JOIN
+            (SELECT categoryCode, count(id) as count
+               FROM contents
+               GROUP BY(categoryCode)) as contentsCount
+            ON category.id = contentsCount.categoryCode
         WHERE
           deleted = 1
     </select>
