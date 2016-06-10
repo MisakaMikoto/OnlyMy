@@ -7,6 +7,7 @@ class LayoutComponent {
         this._uri = '';
         this._type = '';
         this._parameter = '';
+        this._file = '';
         this._rendererClass = rendererClass;
         this._rendererFunction = rendererFunction;
     }
@@ -27,8 +28,20 @@ class LayoutComponent {
         return this._type;
     }
 
+    set parameter(parameter) {
+        this._parameter = parameter;
+    }
+
     get parameter() {
         return this._parameter;
+    }
+
+    set file(file) {
+        this._file = file;
+    }
+
+    get file() {
+        return this._file;
     }
 
     set rendererClass(rendererClass) {
@@ -53,11 +66,12 @@ class LayoutComponent {
         commonRequest.type = this.type;
         commonRequest.uri = this.uri;
         commonRequest.parameter = this.parameter;
+        commonRequest.file = this.file;
         commonRequest.load(reflectObject);
     }
 
-    create(data) {
+    create(xmlHttpRequest) {
         let render = this.rendererFunction.bind(this.rendererClass);
-        render(data);
+        render(xmlHttpRequest);
     }
 }

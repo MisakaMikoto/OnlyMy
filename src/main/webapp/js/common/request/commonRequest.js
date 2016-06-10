@@ -7,6 +7,8 @@ class CommonRequest {
         this._uri = '';
         this._parameter = '';
         this._header = [];
+        this._file = '';
+        this._data = '';
     }
 
     set type(type) {
@@ -42,23 +44,42 @@ class CommonRequest {
         return this._header;
     }
 
+    set file(file) {
+        this._file = file;
+    }
+
+    get file() {
+        return this._file;
+    }
+
+    set data(data) {
+        this._data = data;
+    }
+
+    get data() {
+        return this._data;
+    }
+
     load(reflectObject) {
         let xmlHttpRequest = new XMLHttpRequest();
 
-        // type and uri setting
-        if(this.type == 'GET') {
-            this.uri = (this.parameter != '' && this.parameter.length > 0) ? this.uri + '?' + this.parameter : this.uri;
-        }
-
-        xmlHttpRequest.open(this.type, this.uri, true);
-        xmlHttpRequest.setRequestHeader('Content-type', 'application/x-www-form-urlencoded; charset=utf-8');
-        // header setting
-        if(this.header != '' && this.header.length > 0) {
-            for(let i in this.header()) {
-                let key = Util.getJSONKeys(this.header[i]);
-                xmlHttpRequest.setRequestHeader(key, this.header[i][key]);
+        // progress
+        xmlHttpRequest.upload.onprogress = (e) => {
+            if (e.lengthComputable) {
+                document.getElementById('progressBar').max = e.total;
+                document.getElementById('progressBar').value = e.loaded;
+                document.getElementById('display').innerText = Math.floor((e.loaded / e.total) * 100) + '%';
             }
         }
+        xmlHttpRequest.upload.onloadstart = () => {
+            document.getElementById('progress').style.display = '';
+            document.getElementById('progressBar').value = 0;
+        }
+        xmlHttpRequest.upload.onloadend = (e) => {
+            document.getElementById('progress').style.display = 'none';
+            document.getElementById('progressBar').value = e.loaded;
+        }
+
         xmlHttpRequest.onreadystatechange = function() {
             if(xmlHttpRequest.readyState == 4) {
                 if (xmlHttpRequest.status == 200) {
@@ -77,11 +98,44 @@ class CommonRequest {
             }
         }
 
-        if(this.type == 'POST' && this.parameter != null && this.parameter.length > 0) {
-            xmlHttpRequest.send(this.parameter);
+        // header setting
+        if(this.header != '' && this.header.length > 0) {
+            for(let i in this.header()) {
+                let key = Util.getJSONKeys(this.header[i]);
+                xmlHttpRequest.setRequestHeader(key, this.header[i][key]);
+            }
+        }
 
-        } else {
+        // type and uri and parameter setting
+        if(this.type == 'GET') {
+            this.uri = (this.parameter != '' && this.parameter.length > 0) ? this.uri + '?' + this.parameter : this.uri;
+
+        } else if(this.type == 'POST' && this.parameter != null && this.parameter.length > 0) {
+            // create data
+            this.data = new FormData();
+
+            let parseParameter = this.parameter.split('&');
+            for(let i in parseParameter) {
+                let innerParseParameter = parseParameter[i].split('=');
+                this.data.append(innerParseParameter[0], innerParseParameter[1]);
+            }
+            // file upload?
+            if(this.file != '' && this.file != 'undefined') {
+                this.data.append('file', this.file);
+
+            } else {
+                ;
+            }
+        }
+
+        xmlHttpRequest.open(this.type, this.uri);
+
+        if(this.type == 'GET') {
             xmlHttpRequest.send();
+
+        // POST
+        } else {
+            xmlHttpRequest.send(this.data);
         }
     }
 }
