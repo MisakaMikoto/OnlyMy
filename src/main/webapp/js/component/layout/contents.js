@@ -6,20 +6,21 @@ class Contents extends LayoutComponent {
         super(rendererClass, renderFunction);
     }
 
-    clear() {
-        document.getElementById('center').innerHTML = '';
-        document.getElementById('center').innerText = '';
-    }
-
     load(contentId) {
-        this.clear();
+        let cleaner = new Cleaner();
+        cleaner.target = document.getElementById('center');
+        cleaner.clear();
+
         this.type = 'GET';
         this.uri = '/contents/' + contentId;
         this.callRest(this);
     }
 
     loadList(categoryCode) {
-        this.clear();
+        let cleaner = new Cleaner();
+        cleaner.target = document.getElementById('center');
+        cleaner.clear();
+
         this.type = 'GET';
         this.uri = '/contents/list/' + categoryCode;
         this.callRest(this);
