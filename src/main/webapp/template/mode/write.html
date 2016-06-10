@@ -1,0 +1,58 @@
+<html>
+    <body>
+        <div id="write" style="float: left">
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            <form class="form-inline">
+                                <div class="form-group has-success has-feedback">
+                                    <label class="control-label" for="videoTitle">제 목</label>
+                                    <input type="text" class="form-control" id="videoTitle" placeholder="영상의 제목을 적어주세요.">
+                                </div>
+                            </form>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <form class="form-inline">
+                                <div class="form-group has-success has-feedback">
+                                    <label class="control-label" for="videoDescription">설 명</label>
+                                    <input type="text" class="form-control" id="videoDescription" placeholder="영상의 설명을 적어주세요.">
+                                </div>
+                            </form>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            <form class="form-inline">
+                                <div class="form-group has-success has-feedback">
+                                    <label class="control-label" for="videoTags">태 그</label>
+                                    <input type="text" class="form-control" id="videoTags" placeholder="영상의 태그를 적어주세요. 구분자는 , 입니다.">
+                                </div>
+                            </form>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <div class="form-group has-success has-feedback">
+                                <input type="file" name="uploadFile" id="uploadFile" accept="video/*" onchange="new WriteMode().preview(this)"/> <br/>
+                                <input type="hidden" name="uploadCategoryCode" id="uploadCategoryCode"/>
+                                <input type="hidden" name="uploadTitle" id="uploadTitle"/>
+                                <input type="hidden" name="uploadDescription" id="uploadDescription"/>
+                                <input type="hidden" name="uploadTags" id="uploadTags"/>
+                                <button class="btn btn-primary" onClick="javascript: new WriteMode().upload()" >Upload</button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="preview" style="float: right">
+            <video width="100%"></video>
+        </div>
+    </body>
+</html>
