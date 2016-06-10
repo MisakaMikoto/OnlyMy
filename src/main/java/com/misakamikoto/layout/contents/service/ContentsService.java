@@ -5,6 +5,7 @@ import com.misakamikoto.layout.contents.model.ContentsVO;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -25,5 +26,16 @@ public class ContentsService {
 
     public ContentsVO getContent(int contentId) {
         return this.contentsMapper.getContent(contentId);
+    }
+
+    public void addContent(String categoryCode, String title, String description, String videoId) {
+        ContentsVO contentsVO = new ContentsVO();
+        contentsVO.setCategoryCode(categoryCode);
+        contentsVO.setSubject(title);
+        contentsVO.setContent(description);
+        contentsVO.setVideoId(videoId);
+
+        this.contentsMapper.addContent(contentsVO);
+
     }
 }

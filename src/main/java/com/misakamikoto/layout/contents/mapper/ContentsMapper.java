@@ -3,6 +3,7 @@ package com.misakamikoto.layout.contents.mapper;
 import com.misakamikoto.layout.contents.model.ContentsVO;
 import org.springframework.stereotype.Repository;
 
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -13,4 +14,5 @@ public interface ContentsMapper {
     List<ContentsVO> getContentsList(String categoryCode);
     ContentsVO getNewestContent();
     ContentsVO getContent(int contentId);
+    void addContent(ContentsVO contentsVO);
 }

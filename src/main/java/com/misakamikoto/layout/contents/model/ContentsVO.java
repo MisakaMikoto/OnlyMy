@@ -7,9 +7,10 @@ import java.io.Serializable;
  */
 public class ContentsVO implements Serializable{
     private int id;
-    private String category;
+    private String categoryCode;
     private String subject;
     private String content;
+    private String videoId;
 
     public int getId() {
         return id;
@@ -19,12 +20,12 @@ public class ContentsVO implements Serializable{
         this.id = id;
     }
 
-    public String getCategory() {
-        return category;
+    public String getCategoryCode() {
+        return categoryCode;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setCategoryCode(String categoryCode) {
+        this.categoryCode = categoryCode;
     }
 
     public String getSubject() {
@@ -41,5 +42,12 @@ public class ContentsVO implements Serializable{
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public String getVideoId() {
+        return videoId;
+    }
+    public void setVideoId(String videoId) {
+        this.videoId = videoId;
     }
 }
