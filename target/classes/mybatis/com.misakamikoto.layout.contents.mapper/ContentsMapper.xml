@@ -13,14 +13,15 @@
 	      a.subject as subject
         FROM contents a
           LEFT OUTER JOIN code b
-	        ON a.categorycode = b.id
-        WHERE b.name = #{value};
+	        ON a.categoryCode = b.id
+        WHERE b.id = #{value};
     </select>
 
     <select id="getNewestContent" resultType="com.misakamikoto.layout.contents.model.ContentsVO">
         SELECT
           subject,
-          content
+          content,
+          videoId
         FROM
           contents
         ORDER BY
@@ -32,10 +33,18 @@
     <select id="getContent" parameterType="java.lang.Integer" resultType="com.misakamikoto.layout.contents.model.ContentsVO">
         SELECT
           subject,
-          content
+          content,
+          videoId
         FROM
           contents
         WHERE
           id = #{value};
     </select>
+
+    <insert id="addContent" parameterType="com.misakamikoto.layout.contents.model.ContentsVO" useGeneratedKeys="true" keyProperty="id" >
+        INSERT INTO
+          contents (categoryCode, content, subject, videoId)
+        VALUES
+          (#{categoryCode}, #{content}, #{subject}, #{videoId})
+    </insert>
 </mapper>
