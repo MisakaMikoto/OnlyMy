@@ -1,19 +1,19 @@
 package com.misakamikoto.layout.contents.service;
 
-import com.misakamikoto.layout.contents.mapper.ContentsMapper;
-import com.misakamikoto.layout.contents.model.ContentsVO;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
-import java.util.HashMap;
-import java.util.List;
+import com.misakamikoto.layout.contents.mapper.ContentsMapper;
+import com.misakamikoto.layout.contents.model.ContentsVO;
 
 /**
  * Created by Misaka on 2016-03-16.
  */
 @Service(value = "contentsService")
 public class ContentsService {
-    @Resource(name = "contentsMapper")
+	@Autowired
     private ContentsMapper contentsMapper;
 
     public List<ContentsVO> getContentsList(String categoryCode) {

@@ -1,19 +1,20 @@
 package com.misakamikoto.layout.title.controller;
 
-import com.misakamikoto.layout.title.model.TitleVO;
-import com.misakamikoto.layout.title.service.TitleService;
-import org.springframework.stereotype.Controller;
+import javax.annotation.Resource;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
-import javax.annotation.Resource;
+import com.misakamikoto.layout.title.model.TitleVO;
+import com.misakamikoto.layout.title.service.TitleService;
 
 /**
  * Created by Misaka on 2016-03-16.
  */
 
-@Controller(value = "titleController")
+@RestController(value = "titleController")
 @RequestMapping("/title")
 public class TitleController {
     @Resource(name = "titleService")

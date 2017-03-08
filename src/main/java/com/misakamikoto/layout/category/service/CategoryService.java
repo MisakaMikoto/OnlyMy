@@ -1,11 +1,12 @@
 package com.misakamikoto.layout.category.service;
 
-import com.misakamikoto.layout.category.mapper.CategoryMapper;
-import com.misakamikoto.layout.category.model.CategoryVO;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
-import java.util.List;
+import com.misakamikoto.layout.category.mapper.CategoryMapper;
+import com.misakamikoto.layout.category.model.CategoryVO;
 
 /**
  * Created by Misaka on 2016-03-08.
@@ -13,7 +14,7 @@ import java.util.List;
 
 @Service(value = "categoryService")
 public class CategoryService {
-    @Resource(name = "categoryMapper")
+    @Autowired
     private CategoryMapper categoryMapper;
 
     public List<CategoryVO> getCategoryList() {

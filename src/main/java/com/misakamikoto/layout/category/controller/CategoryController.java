@@ -1,20 +1,22 @@
 package com.misakamikoto.layout.category.controller;
 
-import com.misakamikoto.layout.category.model.CategoryVO;
-import com.misakamikoto.layout.category.service.CategoryService;
-import org.springframework.stereotype.Controller;
+import java.util.List;
+
+import javax.annotation.Resource;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
-import javax.annotation.Resource;
-import java.util.List;
+import com.misakamikoto.layout.category.model.CategoryVO;
+import com.misakamikoto.layout.category.service.CategoryService;
 
 /**
  * Created by Misaka on 2016-03-08.
  */
 
-@Controller(value = "categoryController")
+@RestController(value = "categoryController")
 @RequestMapping("/category")
 public class CategoryController {
     @Resource(name = "categoryService")

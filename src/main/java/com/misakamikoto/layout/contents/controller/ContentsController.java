@@ -1,22 +1,28 @@
 package com.misakamikoto.layout.contents.controller;
 
+import java.util.List;
+
+import javax.annotation.Resource;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
+
 import com.misakamikoto.layout.contents.model.ContentsVO;
 import com.misakamikoto.layout.contents.service.ContentsService;
 import com.misakamikoto.layout.contents.service.YoutubeUploadService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.messaging.simp.SimpMessagingTemplate;
-import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
-
-import javax.annotation.Resource;
-import java.util.List;
 
 /**
  * Created by Misaka on 2016-03-16.
  */
-@Controller(value = "contentsController")
+@RestController(value = "contentsController")
 @RequestMapping("/contents")
 public class ContentsController {
     @Autowired
