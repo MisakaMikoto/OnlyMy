@@ -12,7 +12,7 @@ import java.net.*;
 /**
  * Created by Misaka on 2016-04-22.
  */
-@Service(value = "iamOAuthService")
+@Service
 public class IAMOAuthService {
     public static final String GET = "GET";
     public static final String POST = "POST";

@@ -13,7 +13,7 @@ import java.util.Scanner;
 /**
  * Created by Misaka on 2016-04-18.
  */
-@Service(value = "facebookOAuthService")
+@Service
 public class FacebookOAuthService {
     private static FacebookOAuthService facebookOAuthService = null;
 

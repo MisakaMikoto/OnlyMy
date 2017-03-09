@@ -12,7 +12,7 @@ import com.misakamikoto.layout.category.model.CategoryVO;
  * Created by Misaka on 2016-03-08.
  */
 
-@Service(value = "categoryService")
+@Service
 public class CategoryService {
     @Autowired
     private CategoryMapper categoryMapper;

@@ -9,7 +9,7 @@ import com.misakamikoto.layout.title.model.TitleVO;
 /**
  * Created by Misaka on 2016-03-16.
  */
-@Service(value = "titleService")
+@Service
 public class TitleService {
 	@Autowired
     private TitleMapper titleMapper;

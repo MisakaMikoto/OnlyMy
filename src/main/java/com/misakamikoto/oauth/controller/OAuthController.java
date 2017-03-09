@@ -1,26 +1,30 @@
 package com.misakamikoto.oauth.controller;
 
-import com.misakamikoto.oauth.service.IAMOAuthService;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.annotation.Resource;
+import com.misakamikoto.oauth.service.IAMOAuthService;
 
 /**
  * Created by Misaka on 2016-04-22.
  */
-@Controller(value = "oauthController")
+@RestController
 @RequestMapping("/oauth")
 public class OAuthController {
     /**
      * The Iam oauth service.
      */
-    @Resource(name = "iamOAuthService")
+    @Autowired
     public IAMOAuthService iamOAuthService;
 
     @Value("#{secretConf['iam.client_id']}")

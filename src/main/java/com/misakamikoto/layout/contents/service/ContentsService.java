@@ -11,7 +11,7 @@ import com.misakamikoto.layout.contents.model.ContentsVO;
 /**
  * Created by Misaka on 2016-03-16.
  */
-@Service(value = "contentsService")
+@Service
 public class ContentsService {
 	@Autowired
     private ContentsMapper contentsMapper;

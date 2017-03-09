@@ -2,10 +2,7 @@ package com.misakamikoto.layout.contents.controller;
 
 import java.util.List;
 
-import javax.annotation.Resource;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,16 +19,14 @@ import com.misakamikoto.layout.contents.service.YoutubeUploadService;
 /**
  * Created by Misaka on 2016-03-16.
  */
-@RestController(value = "contentsController")
+@RestController
 @RequestMapping("/contents")
 public class ContentsController {
-    @Autowired
-    private SimpMessagingTemplate template;
 
-    @Resource(name = "contentsService")
+    @Autowired
     public ContentsService contentsService;
 
-    @Resource(name = "youtubeUploadService")
+    @Autowired
     public YoutubeUploadService youtubeUploadService;
 
     @RequestMapping(value = "/list/{categoryCode}", method = RequestMethod.GET)

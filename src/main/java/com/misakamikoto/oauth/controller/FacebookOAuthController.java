@@ -1,23 +1,23 @@
 package com.misakamikoto.oauth.controller;
 
-import com.misakamikoto.oauth.service.FacebookOAuthService;
 import org.json.JSONObject;
-import org.springframework.stereotype.Controller;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
-import javax.annotation.Resource;
+import com.misakamikoto.oauth.service.FacebookOAuthService;
 
 /**
  * Created by Misaka on 2016-04-18.
  */
 
-@Controller(value = "facebookOAuthController")
+@RestController
 @RequestMapping("/facebookOAuth")
 public class FacebookOAuthController {
-    @Resource(name = "facebookOAuthService")
+    @Autowired
     public FacebookOAuthService facebookOAuthService;
 
     @RequestMapping(method = RequestMethod.GET)

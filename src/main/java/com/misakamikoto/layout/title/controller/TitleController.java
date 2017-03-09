@@ -1,7 +1,6 @@
 package com.misakamikoto.layout.title.controller;
 
-import javax.annotation.Resource;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -14,10 +13,10 @@ import com.misakamikoto.layout.title.service.TitleService;
  * Created by Misaka on 2016-03-16.
  */
 
-@RestController(value = "titleController")
+@RestController
 @RequestMapping("/title")
 public class TitleController {
-    @Resource(name = "titleService")
+    @Autowired
     public TitleService titleService;
 
     @RequestMapping(method = RequestMethod.GET)
