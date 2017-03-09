@@ -2,8 +2,8 @@
  * Created by Misaka on 2016-05-02.
  */
 class IAMInformation extends OAuthComponent{
-    constructor() {
-        super();
+    constructor(rendererClass, renderFunction) {
+        super(rendererClass, renderFunction);
         this._access_token = '';
     }
 
@@ -17,10 +17,5 @@ class IAMInformation extends OAuthComponent{
 
     createParameter(){
         return 'access_token=' + this.accessToken;
-    }
-
-    view(xmlHttpRequest) {
-        var responseText = xmlHttpRequest.responseText;
-        document.getElementById('tokenInfo').value = responseText;
     }
 }

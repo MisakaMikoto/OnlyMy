@@ -77,6 +77,9 @@
     <!-- information -->
     <script type="text/javascript" src="/js/component/oauth/iam/methods/information.js"></script>
 
+    <!-- OAuth Renderer -->
+    <script type="text/javascript" src="/js/renderer/oauth/render.js"></script>
+
     <!-- base64 -->
     <script type="text/javascript" src="/js/common/encryption/base64.js"></script>
 
@@ -131,7 +134,7 @@
         };
 
         function callIAMAuthorization() {
-            var authorization = new IAMAuthorization();
+            let authorization = new IAMAuthorization();
             authorization.clientId = '${client_id}';
             authorization.responseType = 'code';
             // controllers request mapping uri
@@ -144,7 +147,7 @@
         };
 
         function callIAMImplicit() {
-            var implicit = new IAMImplicit();
+            let implicit = new IAMImplicit();
             implicit.clientId = '${client_id}';
             implicit.responseType = 'token';
             // controllers request mapping uri
@@ -167,7 +170,9 @@
                 var userName = base64.encode(document.getElementById('userName').value);
                 var userPassword = base64.encode(document.getElementById('userPassword').value);
 
-                var resource = new IAMResource();
+                let renderer = new OAuthRenderer();
+                let resource = new IAMResource(renderer, renderer.renderResource);
+
                 resource.type = 'POST';
                 resource.uri = '/oauth/receive/resource/token';
                 resource.clientId = '${client_id}';
@@ -175,42 +180,48 @@
                 resource.userName = userName;
                 resource.userPassword = userPassword;
                 resource.parameter = resource.createParameter();
-                resource.callRest(resource.view);
+                resource.callRest(resource);
             }
         };
 
         function callIAMClient() {
-            var client = new IAMClient();
+            let renderer = new OAuthRenderer();
+            let client = new IAMClient(renderer, renderer.renderClient);
+
             client.type = 'POST';
             client.uri = '/oauth/receive/client/token';
             client.clientId = '${client_id}';
             client.scope = 'read';
             client.parameter = client.createParameter();
-            client.callRest(client.view);
+            client.callRest(client);
         };
 
         function callTokenInfo() {
-            var access_token = document.getElementById('accessToken').value;
+            let access_token = document.getElementById('accessToken').value;
 
-            var information = new IAMInformation();
+            let renderer = new OAuthRenderer();
+            let information = new IAMInformation(renderer, renderer.renderInformation);
+
             information.type = 'POST';
             information.uri = '/oauth/receive/tokenInfo';
             information.accessToken = access_token;
             information.parameter = information.createParameter();
-            information.callRest(information.view);
+            information.callRest(information);
         };
 
         function callRefreshToken() {
-            var client_id = '${client_id}';
-            var refresh_token = document.getElementById('refreshToken').value;
+            let client_id = '${client_id}';
+            let refresh_token = document.getElementById('refreshToken').value;
 
-            var refresh = new IAMRefresh();
+            let renderer = new OAuthRenderer();
+            let refresh = new IAMRefresh(renderer, renderer.renderRefresh);
+
             refresh.type = 'POST';
             refresh.uri = '/oauth/receive/refreshToken';
             refresh.clientId = client_id;
             refresh.refreshToken = refresh_token;
             refresh.parameter = refresh.createParameter();
-            refresh.callRest(refresh.view);
+            refresh.callRest(refresh);
         };
 
         $(document).ready(function () {
@@ -308,7 +319,7 @@
 
 <div>
     <form name="form">
-        <input type=text id="uri" name="uri"><br>
+        <input type=hidden id="uri" name="uri"><br>
     </form>
 </div>
 

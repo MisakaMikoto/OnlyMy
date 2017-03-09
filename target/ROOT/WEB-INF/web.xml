@@ -8,8 +8,12 @@
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
-			/WEB-INF/config/mybatis-context.xml
-			/WEB-INF/config/mysql-context.xml
+			/WEB-INF/config/service/service-context.xml
+			/WEB-INF/config/mybatis/mybatis-context.xml
+			/WEB-INF/config/mysql/mysql-context.xml
+			/WEB-INF/config/interceptor/interceptor-context.xml
+			/WEB-INF/config/aop/aop-context.xml
+			/WEB-INF/config/security/security-context.xml
 		</param-value>
 	</context-param>
 

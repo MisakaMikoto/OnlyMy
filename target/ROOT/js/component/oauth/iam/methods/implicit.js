@@ -55,15 +55,4 @@ class IAMImplicit extends OAuthComponent{
         this.uri = OAuthComponent.MANAGEMENT_SERVER + OAuthComponent.AUTHORIZE + '?client_id=' + this.clientId + '&response_type=' + this.responseType +
             '&redirect_uri=' + this.redirectUri + '&scope=' + this.scope + '&state=' + this.state;
     }
-
-    view(implicitToken) {
-        var implicitTokenJSON = JSON.parse(implicitToken);
-
-        var parent = window.opener;
-        parent.document.getElementById('accessToken').value = implicitTokenJSON.access_token;
-        parent.document.getElementById('refreshToken').value = implicitTokenJSON.refresh_token;
-
-        window.opener = self;
-        window.close();
-    }
 }
