@@ -14,13 +14,20 @@ import com.misakamikoto.layout.category.service.CategoryService;
 /**
  * Created by Misaka on 2016-03-08.
  */
-
 @RestController
 @RequestMapping("/category")
 public class CategoryController {
+    /**
+     * The Category service.
+     */
     @Autowired
     public CategoryService categoryService;
 
+    /**
+     * Load list list.
+     *
+     * @return the list
+     */
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public @ResponseBody List<CategoryVO> loadList() {
         return this.categoryService.getCategoryList();

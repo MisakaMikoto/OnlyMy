@@ -11,12 +11,18 @@ import com.misakamikoto.layout.category.model.CategoryVO;
 /**
  * Created by Misaka on 2016-03-08.
  */
-
 @Service
 public class CategoryService {
-    @Autowired
-    private CategoryMapper categoryMapper;
+    /**
+     * The Category mapper.
+     */
+    CategoryMapper categoryMapper;
 
+    /**
+     * Gets category list.
+     *
+     * @return the category list
+     */
     public List<CategoryVO> getCategoryList() {
         return this.categoryMapper.getCategoryList();
     }
