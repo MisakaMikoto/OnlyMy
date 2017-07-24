@@ -16,6 +16,7 @@ public class ContentsService {
     /**
      * The Contents mapper.
      */
+    @Autowired
     ContentsMapper contentsMapper;
 
     /**

@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 /**
  * Created by Misaka on 2016-03-16.
  */
+@Repository
 public interface TitleMapper {
     /**
      * Gets name.

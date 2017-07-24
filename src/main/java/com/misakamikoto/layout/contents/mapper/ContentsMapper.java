@@ -9,6 +9,7 @@ import com.misakamikoto.layout.contents.model.ContentsVO;
 /**
  * Created by Misaka on 2016-03-16.
  */
+@Repository
 public interface ContentsMapper {
 
     /**

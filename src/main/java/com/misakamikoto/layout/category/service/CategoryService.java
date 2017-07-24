@@ -16,6 +16,7 @@ public class CategoryService {
     /**
      * The Category mapper.
      */
+    @Autowired
     CategoryMapper categoryMapper;
 
     /**

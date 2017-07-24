@@ -14,6 +14,7 @@ public class TitleService {
     /**
      * The Title mapper.
      */
+    @Autowired
     TitleMapper titleMapper;
 
     /**
