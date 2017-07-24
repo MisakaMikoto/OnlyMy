@@ -11,9 +11,16 @@ import com.misakamikoto.layout.title.model.TitleVO;
  */
 @Service
 public class TitleService {
-	@Autowired
-    private TitleMapper titleMapper;
+    /**
+     * The Title mapper.
+     */
+    TitleMapper titleMapper;
 
+    /**
+     * Gets name.
+     *
+     * @return the name
+     */
     public TitleVO getName() {
         return this.titleMapper.getName();
     }

@@ -12,13 +12,20 @@ import com.misakamikoto.layout.title.service.TitleService;
 /**
  * Created by Misaka on 2016-03-16.
  */
-
 @RestController
 @RequestMapping("/title")
 public class TitleController {
+    /**
+     * The Title service.
+     */
     @Autowired
     public TitleService titleService;
 
+    /**
+     * Gets name.
+     *
+     * @return the name
+     */
     @RequestMapping(method = RequestMethod.GET)
     public @ResponseBody TitleVO getName() {
         return this.titleService.getName();
