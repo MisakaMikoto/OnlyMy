@@ -10,8 +10,9 @@
      	http://www.springframework.org/schema/tx/spring-tx-4.1.xsd
      	http://www.springframework.org/schema/util
      	http://www.springframework.org/schema/util/spring-util-4.1.xsd">
-     	
-   	<mvc:annotation-driven />
+
+	<!-- Enables the Spring MVC @Controller programming model -->
+	<mvc:annotation-driven />
 
     <mvc:resources mapping="/js/**" location="/js/" />
     <mvc:resources mapping="/css/**" location="/css/" />
@@ -23,7 +24,7 @@
 		location="classpath:/META-INF/resources/webjars/ " />
     
     <!-- scan only controller -->
-	<context:component-scan base-package="com.misakamikoto" use-default-filters="false">
+	<context:component-scan base-package="com.misakamikoto.*" use-default-filters="false">
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
     

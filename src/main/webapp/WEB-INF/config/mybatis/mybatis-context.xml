@@ -1,29 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans:beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jdbc="http://www.springframework.org/schema/jdbc"
-	xmlns:context="http://www.springframework.org/schema/context" xmlns:beans="http://www.springframework.org/schema/beans"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans
-       http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
-       http://www.springframework.org/schema/jdbc
-       http://www.springframework.org/schema/jdbc/spring-jdbc-4.1.xsd
-       http://www.springframework.org/schema/context 
-       http://www.springframework.org/schema/context/spring-context-4.1.xsd">
-       
-	<!-- mybatis sql session template -->
+			 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			 xmlns:beans="http://www.springframework.org/schema/beans"
+			 xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+
+	<!-- mybatis sql session factory -->
 	<beans:bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<beans:property name="dataSource" ref="dataSource" />
+		<beans:property name="configLocation" value="/WEB-INF/config/mybatis/mybatis-config.xml"/>
 		<beans:property name="mapperLocations" value="classpath*:/mybatis/*/*Mapper.xml" />
 	</beans:bean>
 
 	<!-- mybatis mapper auto scanning -->
-	<beans:bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+	<beans:bean id="scanner" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<beans:property name="basePackage" value="com.misakamikoto" />
+		<beans:property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
 	</beans:bean>
 
 	<!-- session -->
 	<beans:bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate"  destroy-method="clearCache">
-		<constructor-arg index="0" ref="sqlSessionFactory" />
-		<constructor-arg index="1" value="BATCH" />
+		<beans:constructor-arg index="0" ref="sqlSessionFactory" />
+		<beans:constructor-arg index="1" value="BATCH" />
 	</beans:bean>
 
 	<!-- Transaction -->
