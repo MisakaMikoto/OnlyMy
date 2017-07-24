@@ -2,6 +2,7 @@ package com.misakamikoto.layout.contents;
 
 import com.misakamikoto.layout.contents.controller.ContentsController;
 import com.misakamikoto.layout.contents.service.ContentsService;
+import com.misakamikoto.layout.contents.service.YoutubeUploadService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -40,6 +41,12 @@ public class ContentsControllerTest {
 	@Mock
 	ContentsService contentsService;
 
+	/**
+	 * The Youtube upload service.
+	 */
+	@Mock
+	YoutubeUploadService youtubeUploadService;
+
 	@InjectMocks
 	private ContentsController contentsController;
 
@@ -68,8 +75,10 @@ public class ContentsControllerTest {
 		when(mockMvc.perform(get("/contents/list/{categoryCode}", testCategoryCode))
 				.andExpect(status().isOk()));
 
+		verify(contentsService, times(1)).getContentsList(testCategoryCode);
 		verifyNoMoreInteractions(contentsService);
 	}
+
 	/**
 	 * Test get newest content.
 	 *
@@ -80,6 +89,7 @@ public class ContentsControllerTest {
 		when(mockMvc.perform(get("/contents/newest"))
 				.andExpect(status().isOk()));
 
+		verify(contentsService, times(1)).getNewestContent();
 		verifyNoMoreInteractions(contentsService);
 	}
 
@@ -94,6 +104,7 @@ public class ContentsControllerTest {
 		when(mockMvc.perform(get("/contents/{contentId}", testContentId))
 				.andExpect(status().isOk()));
 
+		verify(contentsService, times(1)).getContent(testContentId);
 		verifyNoMoreInteractions(contentsService);
 	}
 
@@ -103,19 +114,43 @@ public class ContentsControllerTest {
 	 * @throws Exception the exception
 	 */
 	@Test
-	public void addContent() throws Exception {
+	public void testAddContent() throws Exception {
+		String testCategoryCode = "testCetagoryCode";
+		String testTitle = "testTitle";
+		String testDescription = "testDescription";
+		String testVideoId = "testVideoId";
+
+		mockMvc.perform(MockMvcRequestBuilders.fileUpload("/upload")
+				.param("categoryCode", testCategoryCode)
+				.param("title", testTitle)
+				.param("description", testDescription)
+				.param("videoId", testVideoId))
+				.andExpect(status().isOk());
+
+		verify(contentsService, times(1)).addContent(testCategoryCode, testTitle, testDescription, testVideoId);
+		verifyNoMoreInteractions(contentsService);
+	}
+
+	/**
+	 * Test youtube upload.
+	 *
+	 * @throws Exception the exception
+	 */
+	@Test
+	public void testYoutubeUpload() throws Exception {
 		MockMultipartFile testFile = new MockMultipartFile("data", "filename.txt", "text/plain", "some xml".getBytes());
-		String exampleTitle = "exampleTitle";
-		String exampleDesc = "exampleDesc";
-		String exampleTag = "exampleTag";
+		String testCategoryCode = "testCategoryCode";
+		String testTitle = "testTitle";
+		String testDescription = "testDescription";
 
 		mockMvc.perform(MockMvcRequestBuilders.fileUpload("/upload")
 				.file(testFile)
-				.param("uploadTitle", exampleTitle)
-				.param("uploadDescription", exampleDesc)
-				.param("uploadTag", exampleTag))
+				.param("categoryCode", testCategoryCode)
+				.param("title", testTitle)
+				.param("description", testDescription))
 				.andExpect(status().isOk());
 
-		verifyNoMoreInteractions(contentsService);
+		verify(youtubeUploadService, times(1)).upload(testFile, testCategoryCode, testTitle, testDescription);
+		verifyNoMoreInteractions(youtubeUploadService);
 	}
 }

@@ -1,7 +1,6 @@
-package com.misakamikoto.layout.title;
+package com.misakamikoto.layout.category.controller;
 
-import com.misakamikoto.layout.title.controller.TitleController;
-import com.misakamikoto.layout.title.service.TitleService;
+import com.misakamikoto.layout.category.service.CategoryService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,26 +15,28 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 /**
- * The type Title controller test.
+ * The type Category controller test.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"file:src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml",
 		"file:src/main/webapp/WEB-INF/config/mybatis/mybatis-context.xml"})
 @WebAppConfiguration
-public class TitleControllerTest {
+public class CategoryControllerTest {
 	/**
-	 * The Title service.
+	 * The Category service.
 	 */
 	@Mock
-	TitleService titleService;
+	CategoryService categoryService;
 
 	@InjectMocks
-	private TitleController titleController;
+	private CategoryController categoryController;
 
 	@Autowired
 	private WebApplicationContext webApplicationContext;
@@ -48,20 +49,19 @@ public class TitleControllerTest {
 	@Before
 	public void setUp() {
 		MockitoAnnotations.initMocks(this);
-		mockMvc = MockMvcBuilders.standaloneSetup(titleController).build();
+		mockMvc = MockMvcBuilders.standaloneSetup(categoryController).build();
 	}
 
 
 	/**
-	 * Test get name.
+	 * Test get category list.
 	 *
 	 * @throws Exception the exception
 	 */
 	@Test
-	public void testGetName() throws Exception {
-		mockMvc.perform(get("/title")).andExpect(status().isOk());
-
-		verify(titleService, times(1)).getName();
-		verifyNoMoreInteractions(titleService);
+	public void testGetCategoryList() throws Exception {
+		mockMvc.perform(get("/category/list")).andExpect(status().isOk());
+		verify(categoryService, times(1)).getCategoryList();
+		verifyNoMoreInteractions(categoryService);
 	}
 }
