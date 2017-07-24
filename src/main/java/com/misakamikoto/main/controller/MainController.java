@@ -12,9 +12,9 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/")
 public class MainController {
 	/**
-	 * Load string.
+	 * Load model and view.
 	 *
-	 * @return the string
+	 * @return the model and view
 	 */
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView load() {
