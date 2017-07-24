@@ -32,7 +32,6 @@
     <mvc:resources mapping="/youtube/**" location="classpath*:youtube/" />
 
     <!-- properties -->
-    <util:properties id="secretConf" location="classpath:secret/secret.properties"/>
     <util:properties id="serverConf" location="classpath:server/server.properties"/>
 
     <beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
