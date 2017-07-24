@@ -8,9 +8,9 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.google.api.client.auth.oauth2.Credential;
@@ -81,6 +81,17 @@ public class YoutubeUploadService {
         return new AuthorizationCodeInstalledApp(flow, localReceiver).authorize("user");
     }
 
+
+    /**
+     * Upload string.
+     *
+     * @param file        the file
+     * @param title       the title
+     * @param description the description
+     * @param tags        the tags
+     * @return the string
+     */
+    @Transactional
     public String upload(MultipartFile file, String title, String description, String tags) {
         Video returnedVideo = null;
 

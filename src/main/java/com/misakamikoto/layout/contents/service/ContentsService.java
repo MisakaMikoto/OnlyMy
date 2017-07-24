@@ -13,21 +13,50 @@ import com.misakamikoto.layout.contents.model.ContentsVO;
  */
 @Service
 public class ContentsService {
-	@Autowired
-    private ContentsMapper contentsMapper;
+    /**
+     * The Contents mapper.
+     */
+    ContentsMapper contentsMapper;
 
+    /**
+     * Gets contents list.
+     *
+     * @param categoryCode the category code
+     * @return the contents list
+     */
     public List<ContentsVO> getContentsList(String categoryCode) {
         return this.contentsMapper.getContentsList(categoryCode);
     }
 
+    /**
+     * Gets newest content.
+     *
+     * @return the newest content
+     */
     public ContentsVO getNewestContent() {
         return this.contentsMapper.getNewestContent();
     }
 
+
+    /**
+     * Gets content.
+     *
+     * @param contentId the content id
+     * @return the content
+     */
     public ContentsVO getContent(int contentId) {
         return this.contentsMapper.getContent(contentId);
     }
 
+
+    /**
+     * Add content.
+     *
+     * @param categoryCode the category code
+     * @param title        the title
+     * @param description  the description
+     * @param videoId      the video id
+     */
     public void addContent(String categoryCode, String title, String description, String videoId) {
         ContentsVO contentsVO = new ContentsVO();
         contentsVO.setCategoryCode(categoryCode);
