@@ -16,6 +16,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
+import static junit.framework.TestCase.assertTrue;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -63,5 +64,7 @@ public class TitleControllerTest {
 
 		verify(titleService, times(1)).getName();
 		verifyNoMoreInteractions(titleService);
+
+		assertTrue(titleService.getName() != null);
 	}
 }

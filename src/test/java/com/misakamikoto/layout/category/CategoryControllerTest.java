@@ -15,6 +15,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
+import static junit.framework.TestCase.assertTrue;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
@@ -63,5 +64,7 @@ public class CategoryControllerTest {
 		mockMvc.perform(get("/category/list")).andExpect(status().isOk());
 		verify(categoryService, times(1)).getCategoryList();
 		verifyNoMoreInteractions(categoryService);
+
+		assertTrue(categoryService.getCategoryList() != null);
 	}
 }

@@ -23,6 +23,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.multipart.MultipartFile;
 
+import static junit.framework.TestCase.assertTrue;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -77,6 +78,8 @@ public class ContentsControllerTest {
 
 		verify(contentsService, times(1)).getContentsList(testCategoryCode);
 		verifyNoMoreInteractions(contentsService);
+
+		assertTrue(contentsService.getContentsList(testCategoryCode) != null);
 	}
 
 	/**
@@ -91,6 +94,8 @@ public class ContentsControllerTest {
 
 		verify(contentsService, times(1)).getNewestContent();
 		verifyNoMoreInteractions(contentsService);
+
+		assertTrue(contentsService.getNewestContent() != null);
 	}
 
 	/**
@@ -106,6 +111,8 @@ public class ContentsControllerTest {
 
 		verify(contentsService, times(1)).getContent(testContentId);
 		verifyNoMoreInteractions(contentsService);
+
+		assertTrue(contentsService.getContent(testContentId) != null);
 	}
 
 	/**
@@ -120,12 +127,12 @@ public class ContentsControllerTest {
 		String testDescription = "testDescription";
 		String testVideoId = "testVideoId";
 
-		mockMvc.perform(MockMvcRequestBuilders.fileUpload("/upload")
+		doNothing().when(mockMvc.perform(MockMvcRequestBuilders.fileUpload("/upload")
 				.param("categoryCode", testCategoryCode)
 				.param("title", testTitle)
 				.param("description", testDescription)
 				.param("videoId", testVideoId))
-				.andExpect(status().isOk());
+				.andExpect(status().isOk()));
 
 		verify(contentsService, times(1)).addContent(testCategoryCode, testTitle, testDescription, testVideoId);
 		verifyNoMoreInteractions(contentsService);
@@ -143,12 +150,12 @@ public class ContentsControllerTest {
 		String testTitle = "testTitle";
 		String testDescription = "testDescription";
 
-		mockMvc.perform(MockMvcRequestBuilders.fileUpload("/upload")
+		doNothing().when(mockMvc.perform(MockMvcRequestBuilders.fileUpload("/upload")
 				.file(testFile)
 				.param("categoryCode", testCategoryCode)
 				.param("title", testTitle)
 				.param("description", testDescription))
-				.andExpect(status().isOk());
+				.andExpect(status().isOk()));
 
 		verify(youtubeUploadService, times(1)).upload(testFile, testCategoryCode, testTitle, testDescription);
 		verifyNoMoreInteractions(youtubeUploadService);
