@@ -22,7 +22,6 @@ CREATE TABLE `contents` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `title` (
-  `id` varchar(3) CHARACTER SET latin1 NOT NULL,
-  `name` varchar(45) CHARACTER SET latin1 DEFAULT NULL,
-  PRIMARY KEY (`id`)
+   `name` varchar(45) CHARACTER SET latin1 DEFAULT NULL,
+  PRIMARY KEY (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;

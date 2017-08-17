@@ -34,9 +34,22 @@
     <!-- properties -->
     <util:properties id="serverConf" location="classpath:server/server.properties"/>
 
+	<!-- tiles -->
+	<beans:bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<beans:property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView"/>
+		<beans:property name="order" value="0" />
+	</beans:bean>
+
+	<beans:bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+		<beans:property name="definitions">
+			<beans:value>/WEB-INF/config/tiles/tiles.xml</beans:value>
+		</beans:property>
+	</beans:bean>
+
     <beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <beans:property name="prefix" value="/WEB-INF/view/"/>
         <beans:property name="suffix" value=".jsp"/>
+		<beans:property name="order" value="1"></beans:property>
         <beans:property name="contentType" value="text/html;charset=UTF-8" />
     </beans:bean>
     
@@ -49,7 +62,7 @@
         <beans:property name="maxInMemorySize" value="10485760" /> <!-- 10MB -->
     </beans:bean>
 
-    <!-- jaskson json -->
+    <!-- jackson json -->
     <beans:bean id="jsonHttpMessageConverter" 
     	class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
    	</beans:bean>
@@ -58,4 +71,5 @@
 	<beans:bean id="swagger2Config"
 		class="springfox.documentation.swagger2.configuration.Swagger2DocumentationConfiguration">
 	</beans:bean>
+
 </beans:beans>

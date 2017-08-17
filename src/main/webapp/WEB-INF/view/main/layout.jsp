@@ -1,3 +1,4 @@
+<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 <%--
   Created by IntelliJ IDEA.
   User: Misaka
@@ -9,6 +10,10 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	<!-- create angular app -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
 	<!-- jQuery -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 
@@ -33,9 +38,6 @@
 	<link rel="stylesheet" type="text/css" href="/css/component/layout/contents.css">
 	<link rel="stylesheet" type="text/css" href="/css/component/mode/write.css">
 
-	<!-- common request -->
-	<script type="text/javascript" src="/js/common/request/commonRequest.js"></script>
-
 	<!-- common websocket -->
 	<script type="text/javascript" src="/js/common/websocket/commonWebSocket.js"></script>
 
@@ -47,6 +49,14 @@
 	<script type="text/javascript" src="/js/component/layout/category.js"></script>
 	<script type="text/javascript" src="/js/component/layout/contents.js"></script>
 	<script type="text/javascript" src="/js/component/mode/write.js"></script>
+
+	<!-- app -->
+	<script type="text/javascript" src="/js/module/app.js"></script>
+
+	<!-- controller -->
+	<script type="text/javascript" src="/js/controller/layout/titleController.js"></script>
+	<script type="text/javascript" src="/js/controller/layout/categoryController.js"></script>
+	<script type="text/javascript" src="/js/controller/layout/contentsController.js"></script>
 
 	<!-- render -->
 	<script type="text/javascript" src="/js/renderer/blog/layout/render.js"></script>
@@ -87,43 +97,57 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 			// webSocket
-			let webSocket = new CommonWebSocket();
-			webSocket.endPoint = 'http://localhost:8080/webSocket/contents/upload/progress';
-			webSocket.connect();
+//			let webSocket = new CommonWebSocket();
+//			webSocket.endPoint = 'http://localhost:8080/webSocket/contents/upload/progress';
+//			webSocket.connect();
 
 
 			// create renderer
-			let renderer = new BlogLayoutRenderer();
+			//let renderer = new BlogLayoutRenderer();
 
 			// create title
-			let title = new Title(renderer, renderer.renderTitle);
-			title.type = 'GET';
-			title.uri = '/title';
-			title.callRest(title);
+//			let title = new Title();
+//			title.type = 'GET';
+//			title.uri = '/title';
+//			title.callRest(title);
 
 			// create category
-			let category = new Category(renderer, renderer.renderCategoryList);
-			category.type = 'GET';
-			category.uri = '/category/list';
-			category.callRest(category);
+//			let category = new Category(renderer, renderer.renderCategoryList);
+//			category.type = 'GET';
+//			category.uri = '/category/list';
+//			category.callRest(category);
 
 			// create contents
-			let contents = new Contents(renderer, renderer.renderContentViewer);
-			contents.type = 'GET';
-			contents.uri = '/contents/newest';
-			contents.callRest(contents);
+//			let contents = new Contents(renderer, renderer.renderContentViewer);
+//			contents.type = 'GET';
+//			contents.uri = '/contents/newest';
+//			contents.callRest(contents);
 		});
 	</script>
 </head>
-<body>
+
+<body ng-app="onlyMy">
 	<div id="progress" style="display: none">
 		<progress id="progressBar" value="0"></progress>
 		<span id="display"></span>
 	</div>
+
 	<div id="container">
-		<div id="top"></div>
-		<div id="left"></div>
-		<div id="center"></div>
+		<div id="title">
+			<tiles:insertAttribute name="title"/>
+		</div>
+
+		<div id="left">
+			<tiles:insertAttribute name="left"/>
+		</div>
+
+		<div id="center">
+			<tiles:insertAttribute name="center"/>
+		</div>
+
+		<div id="footer">
+			<tiles:insertAttribute name="footer"/>
+		</div>
 	</div>
 </body>
 </html>

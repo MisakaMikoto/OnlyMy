@@ -18,6 +18,6 @@ public class MainController {
 	 */
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView load() {
-		return new ModelAndView("main/index");
+		return new ModelAndView("layout");
 	}
 }
