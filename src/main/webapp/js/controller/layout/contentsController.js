@@ -2,15 +2,14 @@
  * Created by Misaka on 2017-08-16.
  */
 
-app.controller('loadNewestContentsController', function($scope, $http) {
-    $http({
-        method : "GET",
-        url : '/contents/newest'
-
-    }).then(function success(response) {
-        $scope.contents = response.data;
-
-    }, function fail() {
-        console.log("fail load title");
+app.controller('ContentsController', ['$scope', '$location', 'ContentsService', function ($scope, $location, ContentsService) {
+    $scope.$on('loadList', function (event, args) {
+        var vv = ContentsService.loadList(args.codeId);
+        console.log(vv);
     });
-});
+
+    // init 1
+    ContentsService.loadList(1).then(function(data) {
+        $scope.contents = data;
+    });
+}]);

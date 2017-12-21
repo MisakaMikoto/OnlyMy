@@ -7,5 +7,9 @@
           name
         FROM
           title
+       WHERE
+          deleted = 1
+        AND
+          used = 0
     </select>
 </mapper>

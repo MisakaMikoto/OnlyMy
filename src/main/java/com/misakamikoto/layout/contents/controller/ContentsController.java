@@ -36,26 +36,16 @@ public class ContentsController {
     public YoutubeUploadService youtubeUploadService;
 
 
+
     /**
      * Gets contents list.
      *
-     * @param categoryCode the category code
+     * @param codeId the category code
      * @return the contents list
      */
-    @RequestMapping(value = "/list/{categoryCode}", method = RequestMethod.GET)
-    public @ResponseBody List<ContentsVO> getContentsList(@PathVariable("categoryCode") String categoryCode) {
-        return this.contentsService.getContentsList(categoryCode);
-    }
-
-
-    /**
-     * Gets newest content.
-     *
-     * @return the newest content
-     */
-    @RequestMapping(value = "/newest", method = RequestMethod.GET)
-    public @ResponseBody ContentsVO getNewestContent() {
-        return this.contentsService.getNewestContent();
+    @RequestMapping(value = "/list/{codeId}", method = RequestMethod.GET)
+    public @ResponseBody List<ContentsVO> getContentsList(@PathVariable("codeId") int codeId) {
+        return this.contentsService.getContentsList(codeId);
     }
 
 

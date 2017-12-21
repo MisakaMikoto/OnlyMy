@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" class="csstransforms csstransforms3d csstransitions">
+<head>
+    <title>Welcome</title>
+
+    <meta charset="UTF-8">
+
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <link href="/css/main/animate.min.css" rel="stylesheet">
+    <link href="/css/main/style.min.css" rel="stylesheet">
+    <link href="/css/main/style-responsive.min.css" rel="stylesheet">
+    <link href="/css/main/theme/default.css" rel="stylesheet" id="theme">
+    <link href="/css/gallery/font-awesome.min.css" rel="stylesheet">
+
+    <style type="text/css">
+        #left {
+            float: left;
+            width: 19%;
+            height: 100%;
+            margin: 0px 10px 0px 0px;
+            padding-left: 10px;
+        }
+
+        #center {
+            display: inline-block;
+            width: 79%;
+            height: 100%;
+            margin: 0px 0px 10px 0px;
+        }
+
+        #title {
+            height: 100px;
+        }
+
+        #progress {
+            width: 97%;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="container" ng-controller="LayoutController">
+        <div id="title">
+            <div id="header" class="header navbar navbar-default navbar-fixed-top">
+                <!-- begin container-fluid -->
+                <div class="container-fluid">
+                    <!-- begin mobile sidebar expand / collapse button -->
+                    <div class="navbar-header">
+                        <a ui-sref="Index" class="navbar-brand">
+                            <span class="navbar-logo"></span>
+                            {{ title.name }}
+                        </a>
+                        <button type="button" class="navbar-toggle" data-click="sidebar-toggled">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <!-- end mobile sidebar expand / collapse button -->
+                </div>
+                <!-- end container-fluid -->
+            </div>
+        </div>
+
+        <div id="left">
+            <div id="sidebar" class="sidebar">
+                <!-- begin sidebar scrollbar -->
+                <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 100%;">
+                    <div data-scrollbar="true" data-height="100%" style="overflow: hidden; width: auto; height: 100%;">
+                        <!-- begin sidebar user -->
+                        <ul class="nav">
+                            <li class="nav-profile">
+                                <div class="info">
+                                    Only My
+                                    <small> open source blog </small>
+                                </div>
+                            </li>
+                        </ul>
+                        <!-- end sidebar user -->
+                        <!-- begin sidebar nav -->
+                        <ul class="nav">
+                            <li class="nav-header">Navigation</li>
+                            <li ng-repeat="category in categories">
+                                <a ui-sref="{{ category.name }}">
+                                    <i class="fa fa-calendar"></i>
+                                    <span> {{ category.name }} </span>
+                                </a>
+                            </li>
+                        </ul>
+                        <!-- end sidebar nav -->
+                    </div>
+                    <div class="slimScrollBar ui-draggable" style="background: rgb(0, 0, 0); width: 7px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 880px;"></div><div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div>
+                </div>
+                <!-- end sidebar scrollbar -->
+            </div>
+        </div>
+
+        <div id="center">
+            <div ui-view></div>
+        </div>
+
+        <div id="footer">
+        </div>
+    </div>
+</body>
+</html>

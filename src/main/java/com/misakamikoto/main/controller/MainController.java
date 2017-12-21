@@ -1,5 +1,7 @@
 package com.misakamikoto.main.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 @RestController
 @RequestMapping("/")
 public class MainController {
+	private static Logger logger = LoggerFactory.getLogger(MainController.class);
 	/**
 	 * Load model and view.
 	 *
@@ -18,6 +21,16 @@ public class MainController {
 	 */
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView load() {
-		return new ModelAndView("layout");
+		ModelAndView modelAndView = new ModelAndView();
+		try {
+			modelAndView.setViewName("/main/layout");
+
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+
+		} finally {
+			return modelAndView;
+		}
+
 	}
 }

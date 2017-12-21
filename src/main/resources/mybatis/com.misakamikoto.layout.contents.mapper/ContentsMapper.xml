@@ -7,32 +7,18 @@
         <result property="subject" column="subject"/>
     </resultMap>
 
-    <select id="getContentsList" parameterType="java.lang.String" resultMap="contentJoinCode">
+    <select id="getContentsList" parameterType="java.lang.Integer" resultType="com.misakamikoto.layout.contents.model.ContentsVO">
         SELECT
-          a.id as id,
-	      a.subject as subject
-        FROM contents a
-          LEFT OUTER JOIN code b
-	        ON a.categoryCode = b.id
-        WHERE b.id = #{value};
-    </select>
-
-    <select id="getNewestContent" resultType="com.misakamikoto.layout.contents.model.ContentsVO">
-        SELECT
-          subject,
-          content
-        FROM
-          contents
-        ORDER BY
-          id
-        DESC
-          LIMIT 1
+            id,
+            subject
+          FROM contents
+         WHERE code_id = #{value};
     </select>
 
     <select id="getContent" parameterType="java.lang.Integer" resultType="com.misakamikoto.layout.contents.model.ContentsVO">
         SELECT
           subject,
-          content
+          text
         FROM
           contents
         WHERE

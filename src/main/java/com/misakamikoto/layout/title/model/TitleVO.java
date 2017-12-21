@@ -1,30 +1,13 @@
 package com.misakamikoto.layout.title.model;
 
-import java.io.Serializable;
+import lombok.Data;
 
 /**
  * Created by Misaka on 2016-03-16.
  */
-public class TitleVO implements Serializable {
-    private static final long serialVersionUID = 1L;
-
+@Data
+public class TitleVO {
+    private String id;
     private String name;
 
-    /**
-     * Gets name.
-     *
-     * @return the name
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * Sets name.
-     *
-     * @param name the name
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
 }

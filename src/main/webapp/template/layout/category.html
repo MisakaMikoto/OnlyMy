@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <div id="category" ng-controller="CategoryController">
+        <ul class="'list-group" ng-repeat="category in categories">
+            <li class="list-group-item">
+                <span class="label label-default label-pill pull-xs-right"> {{ category.count }} </span>
+                <span>
+                  <a href="{{ category.url }}"> {{ category.name }} </a>
+              </span>
+            </li>
+        </ul>
+    </div>
+</body>

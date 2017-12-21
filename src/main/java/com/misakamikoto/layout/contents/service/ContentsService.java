@@ -22,11 +22,11 @@ public class ContentsService {
     /**
      * Gets contents list.
      *
-     * @param categoryCode the category code
+     * @param codeId the category code
      * @return the contents list
      */
-    public List<ContentsVO> getContentsList(String categoryCode) {
-        return this.contentsMapper.getContentsList(categoryCode);
+    public List<ContentsVO> getContentsList(int codeId) {
+        return this.contentsMapper.getContentsList(codeId);
     }
 
     /**
@@ -60,9 +60,9 @@ public class ContentsService {
      */
     public void addContent(String categoryCode, String title, String description, String videoId) {
         ContentsVO contentsVO = new ContentsVO();
-        contentsVO.setCategoryCode(categoryCode);
+        contentsVO.setCodeId(categoryCode);
         contentsVO.setSubject(title);
-        contentsVO.setContent(description);
+        contentsVO.setText(description);
         contentsVO.setVideoId(videoId);
 
         this.contentsMapper.addContent(contentsVO);

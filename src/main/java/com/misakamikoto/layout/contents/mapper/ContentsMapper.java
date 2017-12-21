@@ -18,7 +18,7 @@ public interface ContentsMapper {
      * @param categoryCode the category code
      * @return the contents list
      */
-    List<ContentsVO> getContentsList(String categoryCode);
+    List<ContentsVO> getContentsList(int categoryCode);
 
     /**
      * Gets newest content.

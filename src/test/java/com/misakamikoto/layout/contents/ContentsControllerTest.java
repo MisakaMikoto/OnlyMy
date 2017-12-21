@@ -72,7 +72,7 @@ public class ContentsControllerTest {
 	 */
 	@Test
 	public void testGetContentsList() throws Exception {
-		String testCategoryCode = "a";
+		int testCategoryCode = 1;
 		when(mockMvc.perform(get("/contents/list/{categoryCode}", testCategoryCode))
 				.andExpect(status().isOk()));
 

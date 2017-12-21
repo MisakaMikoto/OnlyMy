@@ -2,15 +2,14 @@
  * Created by Misaka on 2017-08-16.
  */
 
-app.controller('loadCategoryController', function($scope, $http) {
-    $http({
-        method : "GET",
-        url : '/category/list'
+app.controller('CategoryController', ['$scope', '$location', 'AjaxService',
+    function ($scope, $location, AjaxService) {
 
-    }).then(function success(response) {
-        $scope.categories = response.data;
+        AjaxService.callGet('/category/list').then(function(data) {
+            $scope.categories = data;
+        });
 
-    }, function fail() {
-        console.log("fail load title");
-    });
-});
+        $scope.loadContentsList = function(codeId) {
+            $scope.$broadcast('loadList', { codeId: codeId });
+        };
+}]);
