@@ -1,20 +1,15 @@
 package com.misakamikoto.layout.contents.controller;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.multipart.MultipartFile;
-
 import com.misakamikoto.layout.contents.model.ContentsVO;
 import com.misakamikoto.layout.contents.service.ContentsService;
 import com.misakamikoto.layout.contents.service.YoutubeUploadService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.util.List;
 
 /**
  * Created by Misaka on 2016-03-08.
@@ -22,6 +17,7 @@ import com.misakamikoto.layout.contents.service.YoutubeUploadService;
 @RestController
 @RequestMapping("/contents")
 public class ContentsController {
+    private static Logger logger = LoggerFactory.getLogger(ContentsController.class);
 
     /**
      * The Contents service.
@@ -34,8 +30,6 @@ public class ContentsController {
      */
     @Autowired
     public YoutubeUploadService youtubeUploadService;
-
-
 
     /**
      * Gets contents list.
@@ -70,7 +64,7 @@ public class ContentsController {
      * @param tags        the tags
      * @return the string
      */
-    @RequestMapping(value = "/upload", method = RequestMethod.POST)
+    @RequestMapping(value = "/youtube/upload/insert", method = RequestMethod.POST)
     public @ResponseBody String upload(@RequestParam("file") final MultipartFile file,
                        @RequestParam("uploadTitle") String title,
                        @RequestParam("uploadDescription") String description,
@@ -79,6 +73,15 @@ public class ContentsController {
         return this.youtubeUploadService.upload(file, title, description, tags);
     }
 
+    /**
+     * Upload string.
+     *
+     * @return the string
+     */
+    @RequestMapping(value = "/youtube/upload/list", method = RequestMethod.GET)
+    public @ResponseBody List<ContentsVO> uploadList() {
+        return this.youtubeUploadService.myUploads();
+    }
 
     /**
      * Add.

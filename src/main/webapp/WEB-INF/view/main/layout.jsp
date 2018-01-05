@@ -21,33 +21,34 @@
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
-	<!-- sockJS -->
-	<script src="//cdn.jsdelivr.net/sockjs/1/sockjs.min.js"></script>
-	<!-- stomp -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+	<%--<!-- util -->--%>
+	<%--<script type="text/javascript" src="/js/util/util.js"></script>--%>
 
-	<!-- common css -->
-	<link rel="stylesheet" type="text/css" href="/css/component/mode/write.css">
+	<%--<!-- html import -->--%>
+	<%--<script src="http://www.w3schools.com/lib/w3data.js"></script>--%>
 
-	<!-- common websocket -->
-	<script type="text/javascript" src="/js/common/websocket/commonWebSocket.js"></script>
-
-	<!-- util -->
-	<script type="text/javascript" src="/js/util/util.js"></script>
-
-	<!-- html import -->
-	<script src="http://www.w3schools.com/lib/w3data.js"></script>
-
-	<!-- clear -->
-	<script type="text/javascript" src="/js/component/util/cleaner.js"></script>
+	<%--<!-- clear -->--%>
+	<%--<script type="text/javascript" src="/js/component/util/cleaner.js"></script>--%>
 
 	<!-- app -->
 	<script type="text/javascript" src="/js/module/app.js"></script>
+
+	<!-- sockJS -->
+	<script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+	<!-- stomp -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+
+	<!-- common websocket -->
+	<script type="text/javascript" src="/js/service/common/progressWebSocketService.js"></script>
+
 	<!-- service -->
 	<script type="text/javascript" src="/js/service/common/ajaxService.js"></script>
-	<!-- route -->
+
 	<script type="text/javascript" src="/js/controller/main/layoutController.js"></script>
 	<script type="text/javascript" src="/js/service/main/layoutService.js"></script>
+
+	<script type="text/javascript" src="/js/controller/category/gameController.js"></script>
+	<script type="text/javascript" src="/js/service/category/gameService.js"></script>
 </head>
 
 <body>

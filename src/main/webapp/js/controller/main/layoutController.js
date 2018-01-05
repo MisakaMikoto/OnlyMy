@@ -11,7 +11,7 @@ app.controller('LayoutController', ['$scope', '$location', '$log', 'LayoutServic
         let mainPromises = LayoutService.loadMain();
         mainPromises.then(function success(responses) {
             for(let i = 0; i < responses.length; i++) {
-                if(responses[i].config.url.indexOf('title') > -1) {
+                if(responses[i].config.url.indexOf('/title') > -1) {
                     $scope.title = responses[i].data;
 
                 } else if(responses[i].config.url.indexOf('/category') > -1) {

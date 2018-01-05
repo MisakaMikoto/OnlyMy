@@ -5,7 +5,13 @@
     <link href="/css/gallery/font-awesome.min.css" rel="stylesheet">
 </head>
 <body>
-    <h1 class="page-header">Gallery <small>header small text goes here...</small></h1>
+    <div>
+        <h1 class="page-header"> Gallery <small>header small text goes here...</small></h1>
+        <button type="button" class="btn btn-success">
+            <i class="fa fa-edit"></i>
+            사진 등록
+        </button>
+    </div>
     <div id="gallery" class="gallery isotope" style="position: relative; overflow: hidden; height: 1047px;">
         <div class="image gallery-group-1 isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate3d(0px, 0px, 0px);">
             <div class="image-inner">
@@ -268,9 +274,5 @@
             </div>
         </div>
     </div>
-
-    <div>
-        <a ui-sref="WritePicture"> 얕얕얕얕얕얕
-   </div>
 </body>
 </html>

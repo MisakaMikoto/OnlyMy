@@ -2,8 +2,70 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link href="/css/gallery/font-awesome.min.css" rel="stylesheet">
 </head>
 <body>
+<div>
+    <h1 class="page-header"> Gallery <small>header small text goes here...</small></h1>
+    <a ui-sref="WriteGame">
+        <button type="button" class="btn btn-success">
+            <i class="fa fa-edit"></i>
+            동영상 등록
+        </button>
+    </a>
+</div>
+<div id="gallery" class="gallery isotope" style="position: relative; overflow: hidden; height: 1047px;" ng-controller="GameController">
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
 
+            <!-- Modal content-->
+            <div class="modal-content" style="width: 1024px; height: 768px;">
+                <!--<div class="modal-header">-->
+                    <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
+                    <!--<h4 class="modal-title"></h4>-->
+                <!--</div>-->
+                <div class="modal-body">
+                    <iframe style="width: 100%; height: 88%;" frameborder="0" allowfullscreen></iframe>
+                    <!--<p>Some text in the modal.</p>-->
+                </div>
+                <div class="modal-footer">
+                    <button ng-click="popupClose()"type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div ng-repeat="video in videos">
+        <div class="image gallery-group-{{ video.group }}  isotope-item" ng-style="video.style">
+            <div class="image-inner">
+                <a ng-click="popupOpen(video.subject, video.videoId)" data-toggle="modal" data-target="#myModal" style="cursor: pointer;">
+                    <img src="https://img.youtube.com/vi/{{ video.videoId }}/hqdefault.jpg" alt="">
+                    <!-- https://www.youtube.com/watch?v={{ video.videoId }} -->
+                </a>
+                <p class="image-caption">
+                    {{ video.subject }}
+                </p>
+            </div>
+            <div class="image-info">
+                <h5 class="title"> {{ video.subject }} </h5>
+                <div class="pull-right">
+                    <small>by</small> <a href="javascript:;"> Misaka Mikoto </a>
+                </div>
+                <div class="rating">
+                    <!--<span class="star active"></span>-->
+                    <!--<span class="star active"></span>-->
+                    <!--<span class="star active"></span>-->
+                    <!--<span class="star"></span>-->
+                    <!--<span class="star"></span>-->
+                </div>
+                <div class="desc" >
+                    This video is video
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

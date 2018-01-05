@@ -1,5 +1,5 @@
-var app = angular.module('onlyMy', ['ui.router']).
-    config(function($stateProvider, $qProvider) {
+var app = angular.module('onlyMy', ['ui.router'] )
+    .config(function($stateProvider, $qProvider) {
         // $qProvider.errorOnUnhandledRejections(false);
 
         $stateProvider
@@ -23,10 +23,13 @@ var app = angular.module('onlyMy', ['ui.router']).
                 templateUrl: '/template/category/read/game.html'
             })
 
+            .state('WriteGame', {
+                url: '/game/write',
+                templateUrl: '/template/category/write/game.html'
+            })
+
             .state('Animation', {
                 url: '/animation',
                 templateUrl: '/template/category/read/animation.html'
             })
 });
-
-

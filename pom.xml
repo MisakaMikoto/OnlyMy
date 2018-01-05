@@ -10,9 +10,9 @@
     <properties>
         <spring.version>4.1.1.RELEASE</spring.version>
         <!-- youtube property -->
-        <project.youtube.version>v3-rev24-1.13.2-beta</project.youtube.version>
-        <project.http.version>1.13.1-beta</project.http.version>
-        <project.oauth.version>1.13.1-beta</project.oauth.version>
+        <project.youtube.version>v3-rev189-1.23.0</project.youtube.version>
+        <project.http.version>1.23.0</project.http.version>
+        <project.oauth.version>1.23.0</project.oauth.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -68,6 +68,14 @@
             <scope>provided</scope>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/javax.websocket/javax.websocket-api -->
+        <dependency>
+            <groupId>javax.websocket</groupId>
+            <artifactId>javax.websocket-api</artifactId>
+            <version>1.1</version>
+            <scope>provided</scope>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
@@ -93,12 +101,12 @@
             <version>${spring.version}</version>
             <scope>test</scope>
         </dependency>
-        
-		<dependency>
-		    <groupId>org.mockito</groupId>
-		    <artifactId>mockito-all</artifactId>
-		    <version>1.8.4</version>
-		</dependency>
+
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-all</artifactId>
+            <version>1.8.4</version>
+        </dependency>
 
         <dependency>
             <groupId>junit</groupId>
@@ -162,7 +170,7 @@
             <version>1.7.1.RELEASE</version>
         </dependency>
 
-        <!-- jsckson -->
+        <!-- jackson -->
         <dependency>
             <groupId>org.codehaus.jackson</groupId>
             <artifactId>jackson-mapper-asl</artifactId>
@@ -270,43 +278,24 @@
             <artifactId>google-oauth-client-jetty</artifactId>
             <version>${project.oauth.version}</version>
         </dependency>
-        
+
         <!-- swagger -->
-		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-swagger2</artifactId>
-			<version>2.2.2</version>
-		</dependency>
-
-		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-swagger-ui</artifactId>
-			<version>2.2.2</version>
-		</dependency>
-
-		<dependency>
-			<groupId>io.swagger</groupId>
-			<artifactId>swagger-core</artifactId>
-			<version>1.5.0</version>
-		</dependency>
-
-        <!-- tiles -->
         <dependency>
-            <groupId>org.apache.tiles</groupId>
-            <artifactId>tiles-jsp</artifactId>
-            <version>3.0.7</version>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.7.0</version>
         </dependency>
 
         <dependency>
-            <groupId>org.apache.tiles</groupId>
-            <artifactId>tiles-core</artifactId>
-            <version>3.0.7</version>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>2.7.0</version>
         </dependency>
 
         <dependency>
-            <groupId>org.apache.tiles</groupId>
-            <artifactId>tiles-servlet</artifactId>
-            <version>3.0.7</version>
+            <groupId>io.swagger</groupId>
+            <artifactId>swagger-core</artifactId>
+            <version>1.5.0</version>
         </dependency>
 
         <!-- angular -->
@@ -331,17 +320,32 @@
             <scope>provided</scope>
         </dependency>
 
+        <!-- aspectj -->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.6.11</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+            <version>1.6.8</version>
+        </dependency>
 
     </dependencies>
 
     <build>
         <finalName>ROOT</finalName>
         <plugins>
+            <!-- Forces Maven to use Java 1.6 -->
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
                 <configuration>
                     <source>1.6</source>
                     <target>1.6</target>
+                    <compilerArgument></compilerArgument>
                 </configuration>
             </plugin>
             <plugin>

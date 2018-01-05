@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="/css/game/jquery.fileupload.css" rel="stylesheet">
+</head>
+<body>
+    <h1 class="page-header"> 영상 업로드 <small> Youtube Channel Upload </small></h1>
+
+    <div class="panel panel-inverse">
+        <div class="panel-heading">
+            <h4 class="panel-title">Youtube File Upload</h4>
+        </div>
+        <div class="panel-body">
+            <form class="form-horizontal" method="post" action="/contents/youtube/upload/insert" enctype="multipart/form-data">
+                <div class="form-group has-success has-feedback">
+                    <label class="col-md-3 control-label"> 영상 제목 </label>
+                    <div class="col-md-9">
+                        <input type="text" name="uploadTitle" class="form-control">
+                        <span class="fa fa-check form-control-feedback"></span>
+                    </div>
+                </div>
+                <div class="form-group has-warning has-feedback">
+                    <label class="col-md-3 control-label"> 영상에 대한 설명 </label>
+                    <div class="col-md-9">
+                        <input type="text" name="uploadDescription" class="form-control">
+                        <span class="fa fa-warning form-control-feedback"></span>
+                    </div>
+                </div>
+                <div class="form-group has-error has-feedback">
+                    <label class="col-md-3 control-label"> 영상에 대한 태그 </label>
+                    <div class="col-md-9">
+                        <input type="text" name="uploadTags" class="form-control">
+                        <span class="fa fa-times form-control-feedback"></span>
+                    </div>
+                </div>
+                <div class="row fileupload-buttonbar">
+                    <div class="col-md-7" style="float: right;">
+                        <span class="">
+                            <i class="fa fa-plus"></i>
+                            <span>Add files...</span>
+                                <input type="file" name="file" accept="video/*"/>
+                        </span>
+
+                        <button type="submit" class="btn btn-primary start">
+                            <i class="fa fa-upload"></i>
+                            <span>Start upload</span>
+                        </button>
+                        <!-- The global file processing state -->
+                        <span class="fileupload-process"></span>
+                    </div>
+                </div>
+            </form>
+
+            <div class="note note-info" style="margin-top: 10px;">
+                <h4> 영상 미리보기 </h4>
+                    <video width="1024" height="768" controls>
+                        <source src="" type="video/mp4">
+                    </video>
+                    <!--<li>The maximum file size for uploads in this demo is <strong>5 MB</strong> (default file size is unlimited).</li>-->
+                    <!--<li>Only image files (<strong>JPG, GIF, PNG</strong>) are allowed in this demo (by default there is no file type restriction).</li>-->
+                    <!--<li>Uploaded files will be deleted automatically after <strong>5 minutes</strong> (demo setting).</li>-->
+            </div>
+        </div>
+    </div>
+</body>
+</html>

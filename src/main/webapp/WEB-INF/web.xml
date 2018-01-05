@@ -15,6 +15,7 @@
 			/WEB-INF/config/interceptor/interceptor-context.xml
 			/WEB-INF/config/aop/aop-context.xml
 			/WEB-INF/config/security/security-context.xml
+			/WEB-INF/config/websocket/websocket-context.xml
 		</param-value>
 	</context-param>
 

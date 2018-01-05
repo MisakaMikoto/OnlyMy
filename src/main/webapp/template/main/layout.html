@@ -15,7 +15,7 @@
     <style type="text/css">
         #left {
             float: left;
-            width: 19%;
+            width: 15%;
             height: 100%;
             margin: 0px 10px 0px 0px;
             padding-left: 10px;
@@ -23,7 +23,7 @@
 
         #center {
             display: inline-block;
-            width: 79%;
+            width: 75%;
             height: 100%;
             margin: 0px 0px 10px 0px;
         }
@@ -31,18 +31,13 @@
         #title {
             height: 100px;
         }
-
-        #progress {
-            width: 97%;
-        }
-
     </style>
 </head>
 
 <body>
     <div id="container" ng-controller="LayoutController">
         <div id="title">
-            <div id="header" class="header navbar navbar-default navbar-fixed-top">
+            <div id="header" class="header navbar navbar-default navbar-fixed-top" style="position: relative;">
                 <!-- begin container-fluid -->
                 <div class="container-fluid">
                     <!-- begin mobile sidebar expand / collapse button -->
@@ -61,10 +56,14 @@
                 </div>
                 <!-- end container-fluid -->
             </div>
+            <div class="progress">
+                <div id="progress" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%">
+                </div>
+            </div>
         </div>
 
         <div id="left">
-            <div id="sidebar" class="sidebar">
+            <div id="sidebar" class="sidebar" style="position: relative; width: 75%;">
                 <!-- begin sidebar scrollbar -->
                 <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 100%;">
                     <div data-scrollbar="true" data-height="100%" style="overflow: hidden; width: auto; height: 100%;">

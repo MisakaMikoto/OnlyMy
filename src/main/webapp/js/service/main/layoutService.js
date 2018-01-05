@@ -1,7 +1,7 @@
 /**
  * Created by misaka_mikoto on 2017. 12. 13..
  */
-app.service('LayoutService', ['$log', '$q', 'AjaxService',  function ($log, $q, AjaxService) {
+app.service('LayoutService', ['AjaxService',  function (AjaxService) {
     this.loadMain = function() {
         let httpArray = [];
 
