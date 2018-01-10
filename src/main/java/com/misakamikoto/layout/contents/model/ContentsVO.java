@@ -11,5 +11,7 @@ public class ContentsVO {
     private String codeId;
     private String subject;
     private String text;
+    private String imageUrl;
+
     private String videoId;
 }

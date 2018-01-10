@@ -2,8 +2,7 @@
  * Created by Misaka on 2016-03-14.
  */
 class Contents extends LayoutComponent {
-    constructor(rendererClass, renderFunction){
-        super(rendererClass, renderFunction);
+    constructor(){
     }
 
     load(contentId) {

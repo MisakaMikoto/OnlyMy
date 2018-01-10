@@ -32,4 +32,5 @@ var app = angular.module('onlyMy', ['ui.router'] )
                 url: '/animation',
                 templateUrl: '/template/category/read/animation.html'
             })
+
 });

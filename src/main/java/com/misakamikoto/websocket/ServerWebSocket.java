@@ -46,7 +46,6 @@ public class ServerWebSocket {
      */
     @OnClose
     public void close(){
-//        messageHandler.destroy();
         logger.debug("closing server websocket");
     }
 

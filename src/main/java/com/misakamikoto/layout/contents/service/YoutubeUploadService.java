@@ -92,7 +92,6 @@ public class YoutubeUploadService {
      * @param tags        the tags
      * @return the string
      */
-    @Transactional
     public String upload(MultipartFile file, String title, String description, String tags) {
         Video returnedVideo = null;
 
@@ -181,13 +180,15 @@ public class YoutubeUploadService {
                             break;
 
                         case MEDIA_IN_PROGRESS:
+                            double substringDouble = Double.parseDouble(String.valueOf(uploader.getProgress()).substring(0, 6));
+                            double percentage = Double.parseDouble(String.format("%.3f", substringDouble * 100));
+                            clientWebSocket.sendMessage(String.valueOf(percentage));
                             System.out.println("Upload in progress");
-                            System.out.println("Upload percentage: " + uploader.getProgress());
-                            clientWebSocket.sendMessage(String.valueOf(uploader.getProgress()));
-
+                            System.out.println("Upload percentage: " + percentage);
                             break;
 
                         case MEDIA_COMPLETE:
+                            clientWebSocket.sendMessage("100");
                             System.out.println("Upload Completed!");
                             break;
 
@@ -220,11 +221,10 @@ public class YoutubeUploadService {
             System.err.println("Throwable: " + t.getMessage());
             t.printStackTrace();
         }
-
         return returnedVideo.getId();
     }
 
-    public List<ContentsVO> myUploads() {
+    public List<ContentsVO> getUploadList() {
         List<ContentsVO> contentsVOList = null;
 
         // Scope required to upload to YouTube.

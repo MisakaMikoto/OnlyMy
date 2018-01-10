@@ -33,11 +33,6 @@
 	<!-- app -->
 	<script type="text/javascript" src="/js/module/app.js"></script>
 
-	<!-- sockJS -->
-	<script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
-	<!-- stomp -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
-
 	<!-- common websocket -->
 	<script type="text/javascript" src="/js/service/common/progressWebSocketService.js"></script>
 

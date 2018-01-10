@@ -2,6 +2,7 @@ package com.misakamikoto.layout.contents.controller;
 
 import com.misakamikoto.layout.contents.model.ContentsVO;
 import com.misakamikoto.layout.contents.service.ContentsService;
+import com.misakamikoto.layout.contents.service.PictureUploadService;
 import com.misakamikoto.layout.contents.service.YoutubeUploadService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,7 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.List;
 
 /**
- * Created by Misaka on 2016-03-08.
+ * The type Contents controller.
  */
 @RestController
 @RequestMapping("/contents")
@@ -31,10 +32,13 @@ public class ContentsController {
     @Autowired
     public YoutubeUploadService youtubeUploadService;
 
+    @Autowired
+    public PictureUploadService pictureUploadService;
+
     /**
      * Gets contents list.
      *
-     * @param codeId the category code
+     * @param codeId the code id
      * @return the contents list
      */
     @RequestMapping(value = "/list/{codeId}", method = RequestMethod.GET)
@@ -56,7 +60,7 @@ public class ContentsController {
 
 
     /**
-     * Upload string.
+     * Upload youtube string.
      *
      * @param file        the file
      * @param title       the title
@@ -65,22 +69,35 @@ public class ContentsController {
      * @return the string
      */
     @RequestMapping(value = "/youtube/upload/insert", method = RequestMethod.POST)
-    public @ResponseBody String upload(@RequestParam("file") final MultipartFile file,
-                       @RequestParam("uploadTitle") String title,
-                       @RequestParam("uploadDescription") String description,
-                       @RequestParam("uploadTags") String tags) {
+    public @ResponseBody String uploadYoutube(@RequestParam("file") MultipartFile file,
+                                              @RequestParam("uploadTitle") String title,
+                                              @RequestParam("uploadDescription") String description,
+                                              @RequestParam("uploadTags") String tags) {
 
         return this.youtubeUploadService.upload(file, title, description, tags);
     }
 
     /**
-     * Upload string.
+     * Upload list list.
      *
-     * @return the string
+     * @return the list
      */
     @RequestMapping(value = "/youtube/upload/list", method = RequestMethod.GET)
-    public @ResponseBody List<ContentsVO> uploadList() {
-        return this.youtubeUploadService.myUploads();
+    public @ResponseBody List<ContentsVO> listYoutube() {
+        return this.youtubeUploadService.getUploadList();
+    }
+
+    @RequestMapping(value = "/picture/upload/insert", method = RequestMethod.POST)
+    public void uploadPicture(@RequestParam("file") MultipartFile file,
+                                              @RequestParam("uploadTitle") String title,
+                                              @RequestParam("uploadDescription") String description) {
+
+        this.pictureUploadService.upload(file, title, description);
+    }
+
+    @RequestMapping(value = "/picture/upload/list", method = RequestMethod.GET)
+    public @ResponseBody List<ContentsVO> listPicture() {
+        return this.pictureUploadService.getUploadList();
     }
 
     /**

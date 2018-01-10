@@ -3,10 +3,16 @@
  */
 
 class Category extends LayoutComponent {
-    constructor(rendererClass, renderFunction){
-        super(rendererClass, renderFunction);
+    constructor(){
+        super();
     }
 
+    draw(data) {
+        angular.forEach(data, function(value){
+            let li = angular.element(value);
+            li.addClass("list-group-item");
+        });
+    }
     refresh() {
         let cleaner = new Cleaner();
         cleaner.target = document.getElementById('left');

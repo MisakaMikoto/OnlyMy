@@ -12,6 +12,7 @@
         	       WHERE co.code_id = ca.id
                ) AS count
           FROM category AS ca
-         WHERE ca.deleted = 1;
+         WHERE ca.deleted = 1
+      ORDER BY ca.display_order;
     </select>
 </mapper>

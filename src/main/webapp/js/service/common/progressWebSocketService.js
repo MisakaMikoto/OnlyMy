@@ -19,13 +19,28 @@ app.service('ProgressWebSocketService', ['$http', '$q', '$log',
             };
             //웹 소켓에서 메시지가 날라왔을 때 호출되는 이벤트
             webSocket.onmessage = function(message){
-                let percentage = Number(message.data);
-                percentage.toFixed(1);
-                console.log(percentage);
-
-                angular.element(document.querySelector('#progress'))[0].style.width = percentage;
-                angular.element(document.querySelector('#progress')).attr('aria-valuenow', percentage.toString());
-                angular.element(document.querySelector('#progress')).html(percentage.toString());
+                setDisableUpload();
+                drawProgressBar(message);
             };
-        }
+            return webSocket;
+        };
+
+        function setDisableUpload() {
+            // disable add files and upload button
+            angular.element(document.querySelector('#uploadButton')).attr('disabled', 'disabled');
+
+            angular.element(document.querySelector('#file')).parent().attr('disabled', 'disabled');
+            angular.element(document.querySelector('#file')).parent()[0].style.cursor = 'not-allowed';
+
+            angular.element(document.querySelector('#file')).attr('disabled', 'disabled');
+            angular.element(document.querySelector('#file'))[0].style.cursor = 'not-allowed';
+        };
+
+        function drawProgressBar(message) {
+            // draw progressbar
+            let percentage = Number(message.data);
+            angular.element(document.querySelector('#progress'))[0].style.width = percentage + '%';
+            angular.element(document.querySelector('#progress')).attr('aria-valuenow', percentage.toString());
+            angular.element(document.querySelector('#progress')).html(percentage.toString() + ' %');
+        };
 }]);

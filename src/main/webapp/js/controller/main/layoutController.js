@@ -2,8 +2,11 @@
  * Created by Misaka on 2017-08-16.
  */
 
-app.controller('LayoutController', ['$scope', '$location', '$log', 'LayoutService',
-    function ($scope, $location, $log, LayoutService) {
+app.controller('LayoutController', ['$scope', '$location', '$log', 'LayoutService', 'ProgressWebSocketService',
+    function ($scope, $location, $log, LayoutService, ProgressWebSocketService) {
+        // create web socket
+        ProgressWebSocketService.connect();
+
         $scope.loadPicture = function() {
             loadPicture();
         };

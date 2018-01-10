@@ -55,7 +55,6 @@ public class ClientWebSocket {
      */
     @OnClose
     public void close(){
-        this.session = null;
         logger.debug("closing client websocket");
     }
 
@@ -66,7 +65,6 @@ public class ClientWebSocket {
      */
     @OnError
     public void error(Throwable t){
-        this.session = null;
         logger.debug(t.getMessage());
     }
 

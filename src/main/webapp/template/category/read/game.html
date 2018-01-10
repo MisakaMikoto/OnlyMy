@@ -38,7 +38,7 @@
     </div>
 
     <div ng-repeat="video in videos">
-        <div class="image gallery-group-{{ video.group }}  isotope-item" ng-style="video.style">
+        <div class="image gallery-group-{{ video.group }} isotope-item" ng-style="video.style">
             <div class="image-inner">
                 <a ng-click="popupOpen(video.subject, video.videoId)" data-toggle="modal" data-target="#myModal" style="cursor: pointer;">
                     <img src="https://img.youtube.com/vi/{{ video.videoId }}/hqdefault.jpg" alt="">
