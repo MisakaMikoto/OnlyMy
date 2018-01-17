@@ -7,10 +7,8 @@ app.controller('LayoutController', ['$scope', '$location', '$log', 'LayoutServic
         // create web socket
         ProgressWebSocketService.connect();
 
-        $scope.loadPicture = function() {
-            loadPicture();
-        };
-
+        // default category
+        // $location.path('/picture');
         let mainPromises = LayoutService.loadMain();
         mainPromises.then(function success(responses) {
             for(let i = 0; i < responses.length; i++) {
@@ -33,10 +31,5 @@ app.controller('LayoutController', ['$scope', '$location', '$log', 'LayoutServic
             $log.error('ERROR: ', error);
             throw error;
         });
-
-
-        function loadPicture() {
-            $location.path("/picture");
-        };
     }
 ]);

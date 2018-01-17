@@ -30,7 +30,7 @@
 	</context:component-scan>
 
     <!-- youtube -->
-    <mvc:resources mapping="/youtube/**" location="classpath*:youtube/" />
+    <mvc:resources mapping="/youtube/**" location="google" />
 
     <!-- properties -->
     <util:properties id="serverConf" location="classpath:server/server.properties"/>

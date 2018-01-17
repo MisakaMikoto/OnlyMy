@@ -44,6 +44,9 @@
 
 	<script type="text/javascript" src="/js/controller/category/gameController.js"></script>
 	<script type="text/javascript" src="/js/service/category/gameService.js"></script>
+
+	<script type="text/javascript" src="/js/controller/category/pictureController.js"></script>
+	<script type="text/javascript" src="/js/service/category/pictureService.js"></script>
 </head>
 
 <body>

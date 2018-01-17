@@ -9,26 +9,22 @@
 
     <select id="getContentsList" parameterType="java.lang.Integer" resultType="com.misakamikoto.layout.contents.model.ContentsVO">
         SELECT
-            id,
-            subject
-          FROM contents
-         WHERE code_id = #{value};
-    </select>
-
-    <select id="getContent" parameterType="java.lang.Integer" resultType="com.misakamikoto.layout.contents.model.ContentsVO">
-        SELECT
+          id,
+          code_id AS codeId,
           subject,
-          text
+          text,
+          view_url AS viewUrl,
+          uploaded_id AS uploadedId
         FROM
           contents
         WHERE
-          id = #{value};
+          code_id = #{value};
     </select>
 
-    <insert id="addContent" parameterType="com.misakamikoto.layout.contents.model.ContentsVO" useGeneratedKeys="true" keyProperty="id" >
+    <insert id="addPicture" parameterType="com.misakamikoto.layout.contents.model.ContentsVO" useGeneratedKeys="true" keyProperty="id" >
         INSERT INTO
-          contents (categoryCode, content, subject, videoId)
+          contents (code_id, subject, text, view_url, uploaded_id)
         VALUES
-          (#{categoryCode}, #{content}, #{subject}, #{videoId})
+          (#{codeId}, #{subject}, #{text}, #{viewUrl}, #{uploadedId})
     </insert>
 </mapper>

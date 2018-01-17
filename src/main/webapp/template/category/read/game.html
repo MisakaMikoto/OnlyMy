@@ -30,7 +30,7 @@
                     <!--<p>Some text in the modal.</p>-->
                 </div>
                 <div class="modal-footer">
-                    <button ng-click="popupClose()"type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
             </div>
 
@@ -40,8 +40,8 @@
     <div ng-repeat="video in videos">
         <div class="image gallery-group-{{ video.group }} isotope-item" ng-style="video.style">
             <div class="image-inner">
-                <a ng-click="popupOpen(video.subject, video.videoId)" data-toggle="modal" data-target="#myModal" style="cursor: pointer;">
-                    <img src="https://img.youtube.com/vi/{{ video.videoId }}/hqdefault.jpg" alt="">
+                <a ng-click="popupOpen(video.subject, video.uploadedId)" data-toggle="modal" data-target="#myModal" style="cursor: pointer;">
+                    <img src="{{ video.viewUrl }}" alt="">
                     <!-- https://www.youtube.com/watch?v={{ video.videoId }} -->
                 </a>
                 <p class="image-caption">

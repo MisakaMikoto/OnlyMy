@@ -12,14 +12,9 @@ app.service('LayoutService', ['AjaxService',  function (AjaxService) {
 
         httpArray.push({
             method: 'get',
+            async: false,
             url: '/category/list',
         });
-
-        httpArray.push({
-            method: 'get',
-            url: '/contents/list/' + 1,
-        });
-
         return AjaxService.run(httpArray);
     };
 }]);

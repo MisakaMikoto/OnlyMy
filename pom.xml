@@ -11,6 +11,7 @@
         <spring.version>4.1.1.RELEASE</spring.version>
         <!-- youtube property -->
         <project.youtube.version>v3-rev189-1.23.0</project.youtube.version>
+        <project.drive.version>v3-rev97-1.23.0</project.drive.version>
         <project.http.version>1.23.0</project.http.version>
         <project.oauth.version>1.23.0</project.oauth.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -268,6 +269,12 @@
         </dependency>
 
         <dependency>
+            <groupId>com.google.apis</groupId>
+            <artifactId>google-api-services-drive</artifactId>
+            <version>${project.drive.version}</version>
+        </dependency>
+
+        <dependency>
             <groupId>com.google.http-client</groupId>
             <artifactId>google-http-client-jackson2</artifactId>
             <version>${project.http.version}</version>
@@ -305,12 +312,13 @@
             <version>1.6.4</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/postgresql/postgresql -->
+        <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
         <dependency>
-            <groupId>postgresql</groupId>
+            <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <version>9.1-901-1.jdbc4</version>
+            <version>42.1.4</version>
         </dependency>
+
 
         <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
         <dependency>

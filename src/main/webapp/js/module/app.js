@@ -4,7 +4,7 @@ var app = angular.module('onlyMy', ['ui.router'] )
 
         $stateProvider
             .state('Index', {
-                url: '',
+                url: '/',
                 templateUrl: '/template/category/read/picture.html'
             })
 
@@ -28,9 +28,9 @@ var app = angular.module('onlyMy', ['ui.router'] )
                 templateUrl: '/template/category/write/game.html'
             })
 
-            .state('Animation', {
-                url: '/animation',
-                templateUrl: '/template/category/read/animation.html'
+            .state('Communication', {
+                url: '/communication',
+                templateUrl: '/template/category/read/communication.html'
             })
 
 });

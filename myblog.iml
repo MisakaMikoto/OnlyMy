@@ -158,6 +158,7 @@
     <orderEntry type="library" name="Maven: com.google.api-client:google-api-client:1.23.0" level="project" />
     <orderEntry type="library" name="Maven: com.google.oauth-client:google-oauth-client:1.23.0" level="project" />
     <orderEntry type="library" name="Maven: com.google.guava:guava-jdk5:17.0" level="project" />
+    <orderEntry type="library" name="Maven: com.google.apis:google-api-services-drive:v3-rev97-1.23.0" level="project" />
     <orderEntry type="library" name="Maven: com.google.http-client:google-http-client-jackson2:1.23.0" level="project" />
     <orderEntry type="library" name="Maven: com.google.http-client:google-http-client:1.23.0" level="project" />
     <orderEntry type="library" name="Maven: com.google.code.findbugs:jsr305:1.3.9" level="project" />
@@ -192,7 +193,7 @@
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.4.2" level="project" />
     <orderEntry type="library" name="Maven: javax.validation:validation-api:1.1.0.Final" level="project" />
     <orderEntry type="library" name="Maven: org.webjars:angularjs:1.6.4" level="project" />
-    <orderEntry type="library" name="Maven: postgresql:postgresql:9.1-901-1.jdbc4" level="project" />
+    <orderEntry type="library" name="Maven: org.postgresql:postgresql:42.1.4" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.projectlombok:lombok:1.16.18" level="project" />
     <orderEntry type="library" name="Maven: org.aspectj:aspectjweaver:1.6.11" level="project" />
     <orderEntry type="library" name="Maven: org.aspectj:aspectjrt:1.6.8" level="project" />

@@ -2,14 +2,16 @@ package com.misakamikoto.layout.contents.controller;
 
 import com.misakamikoto.layout.contents.model.ContentsVO;
 import com.misakamikoto.layout.contents.service.ContentsService;
-import com.misakamikoto.layout.contents.service.PictureUploadService;
-import com.misakamikoto.layout.contents.service.YoutubeUploadService;
+import com.misakamikoto.layout.contents.service.GoogleDriveService;
+import com.misakamikoto.layout.contents.service.GoogleYoutubeService;
+import com.misakamikoto.websocket.ClientWebSocket;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -20,49 +22,22 @@ import java.util.List;
 public class ContentsController {
     private static Logger logger = LoggerFactory.getLogger(ContentsController.class);
 
-    /**
-     * The Contents service.
-     */
-    @Autowired
-    public ContentsService contentsService;
-
-    /**
-     * The Youtube upload service.
-     */
-    @Autowired
-    public YoutubeUploadService youtubeUploadService;
+    private static final ClientWebSocket uploadWebSocket = new ClientWebSocket("ws://127.0.0.1:8080/serverWebsocket");
 
     @Autowired
-    public PictureUploadService pictureUploadService;
+    private ContentsService contentsService;
 
-    /**
-     * Gets contents list.
-     *
-     * @param codeId the code id
-     * @return the contents list
-     */
-    @RequestMapping(value = "/list/{codeId}", method = RequestMethod.GET)
-    public @ResponseBody List<ContentsVO> getContentsList(@PathVariable("codeId") int codeId) {
-        return this.contentsService.getContentsList(codeId);
-    }
+    @Autowired
+    private GoogleYoutubeService googleYoutubeService;
 
-
-    /**
-     * Gets content.
-     *
-     * @param contentId the content id
-     * @return the content
-     */
-    @RequestMapping(value = "/{contentId}", method = RequestMethod.GET)
-    public @ResponseBody ContentsVO getContent(@PathVariable("contentId") int contentId) {
-        return this.contentsService.getContent(contentId);
-    }
-
+    @Autowired
+    private GoogleDriveService googleDriveService;
 
     /**
      * Upload youtube string.
      *
      * @param file        the file
+     * @param codeId      the code id
      * @param title       the title
      * @param description the description
      * @param tags        the tags
@@ -70,50 +45,51 @@ public class ContentsController {
      */
     @RequestMapping(value = "/youtube/upload/insert", method = RequestMethod.POST)
     public @ResponseBody String uploadYoutube(@RequestParam("file") MultipartFile file,
+                                              @RequestParam("codeId") int codeId,
                                               @RequestParam("uploadTitle") String title,
                                               @RequestParam("uploadDescription") String description,
                                               @RequestParam("uploadTags") String tags) {
 
-        return this.youtubeUploadService.upload(file, title, description, tags);
+        return this.googleYoutubeService.upload(file, codeId, title, description, tags, uploadWebSocket);
     }
 
     /**
-     * Upload list list.
+     * Upload picture.
+     *
+     * @param files       the files
+     * @param codeId      the code id
+     * @param subject     the subject
+     * @param description the description
+     * @throws IOException the io exception
+     */
+    @RequestMapping(value = "/drive/upload/insert", method = RequestMethod.POST)
+    public void uploadPicture(@RequestParam("file") MultipartFile[] files,
+                              @RequestParam("codeId") int codeId,
+                              @RequestParam("uploadTitle") String subject,
+                              @RequestParam("uploadDescription") String description) throws IOException {
+
+        this.googleDriveService.upload(files, codeId, subject, description, uploadWebSocket);
+    }
+
+    /**
+     * List youtube list.
      *
      * @return the list
      */
     @RequestMapping(value = "/youtube/upload/list", method = RequestMethod.GET)
     public @ResponseBody List<ContentsVO> listYoutube() {
-        return this.youtubeUploadService.getUploadList();
-    }
-
-    @RequestMapping(value = "/picture/upload/insert", method = RequestMethod.POST)
-    public void uploadPicture(@RequestParam("file") MultipartFile file,
-                                              @RequestParam("uploadTitle") String title,
-                                              @RequestParam("uploadDescription") String description) {
-
-        this.pictureUploadService.upload(file, title, description);
-    }
-
-    @RequestMapping(value = "/picture/upload/list", method = RequestMethod.GET)
-    public @ResponseBody List<ContentsVO> listPicture() {
-        return this.pictureUploadService.getUploadList();
+        return this.googleYoutubeService.getUploadList();
     }
 
     /**
-     * Add.
+     * List picture list.
      *
-     * @param categoryCode the category code
-     * @param title        the title
-     * @param description  the description
-     * @param videoId      the video id
+     * @param codeId the code id
+     * @return the list
+     * @throws IOException the io exception
      */
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public void add(@RequestParam("categoryCode") String categoryCode,
-                      @RequestParam("title") String title,
-                      @RequestParam("description") String description,
-                      @RequestParam("videoId") String videoId) {
-
-        this.contentsService.addContent(categoryCode, title, description, videoId);
+    @RequestMapping(value = "/upload/list/{codeId}", method = RequestMethod.GET)
+    public @ResponseBody List<ContentsVO> listPicture(@PathVariable("codeId") int codeId) throws IOException {
+        return this.contentsService.getContentsList(codeId);
     }
 }

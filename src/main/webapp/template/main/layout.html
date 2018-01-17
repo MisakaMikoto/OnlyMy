@@ -82,9 +82,9 @@
                         <ul class="nav">
                             <li class="nav-header">Navigation</li>
                             <li ng-repeat="category in categories">
-                                <a ui-sref="{{ category.name }}">
+                                <a id="{{ category.name }}" ui-sref="{{ category.name }}">
                                     <i class="fa fa-calendar"></i>
-                                    <span> {{ category.name }} </span>
+                                    <span id="{{ category.id }}"> {{ category.name }} </span>
                                 </a>
                             </li>
                         </ul>

@@ -8,10 +8,9 @@ import lombok.Data;
 @Data
 public class ContentsVO {
     private int id;
-    private String codeId;
+    private int codeId;
     private String subject;
     private String text;
-    private String imageUrl;
-
-    private String videoId;
+    private String viewUrl;
+    private String uploadedId;
 }
