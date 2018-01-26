@@ -4,7 +4,6 @@ import com.misakamikoto.layout.contents.model.ContentsVO;
 import com.misakamikoto.layout.contents.service.ContentsService;
 import com.misakamikoto.layout.contents.service.GoogleDriveService;
 import com.misakamikoto.layout.contents.service.GoogleYoutubeService;
-import com.misakamikoto.websocket.ClientWebSocket;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +21,6 @@ import java.util.List;
 public class ContentsController {
     private static Logger logger = LoggerFactory.getLogger(ContentsController.class);
 
-    private static final ClientWebSocket uploadWebSocket = new ClientWebSocket("ws://127.0.0.1:8080/serverWebsocket");
-
     @Autowired
     private ContentsService contentsService;
 
@@ -37,7 +34,6 @@ public class ContentsController {
      * Upload youtube string.
      *
      * @param file        the file
-     * @param codeId      the code id
      * @param title       the title
      * @param description the description
      * @param tags        the tags
@@ -45,12 +41,11 @@ public class ContentsController {
      */
     @RequestMapping(value = "/youtube/upload/insert", method = RequestMethod.POST)
     public @ResponseBody String uploadYoutube(@RequestParam("file") MultipartFile file,
-                                              @RequestParam("codeId") int codeId,
                                               @RequestParam("uploadTitle") String title,
                                               @RequestParam("uploadDescription") String description,
                                               @RequestParam("uploadTags") String tags) {
 
-        return this.googleYoutubeService.upload(file, codeId, title, description, tags, uploadWebSocket);
+        return this.googleYoutubeService.upload(file, title, description, tags);
     }
 
     /**
@@ -68,7 +63,7 @@ public class ContentsController {
                               @RequestParam("uploadTitle") String subject,
                               @RequestParam("uploadDescription") String description) throws IOException {
 
-        this.googleDriveService.upload(files, codeId, subject, description, uploadWebSocket);
+        this.googleDriveService.upload(files, codeId, subject, description);
     }
 
     /**

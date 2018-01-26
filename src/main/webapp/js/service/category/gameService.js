@@ -4,6 +4,9 @@
 app.service('GameService', ['AjaxService',
     function (AjaxService) {
         this.upload = function(formData) {
+            alert(formData.get('file').name + ' 파일의 업로드를 시작합니다.');
+            setDisableUpload();
+
             $.ajax({
                 url: '/contents/youtube/upload/insert',
                 data: formData,
@@ -13,7 +16,7 @@ app.service('GameService', ['AjaxService',
                 type: 'post',
                 cache: false,
                 success: function() {
-                    alert(formData.get('file').name + '파일의 업로드가 완료 되었습니다.');
+                    alert(formData.get('file').name + ' 파일의 업로드가 완료 되었습니다.');
 
                     initProgressBar();
                     if(window.location.href.indexOf('/game/write') > -1) {
@@ -26,6 +29,12 @@ app.service('GameService', ['AjaxService',
                 },
                 error: function() {
                     alert('파일 업로드에 실패하였습니다.');
+
+                    initVideoInformation();
+                    initVideoPreview();
+                    initUploadForm();
+
+                    setEnableUpload();
                 }
             });
         };
@@ -60,6 +69,17 @@ app.service('GameService', ['AjaxService',
             angular.forEach(inputs, function(input){
                 input.value = '';
             });
+        };
+
+        function setDisableUpload() {
+            // disable add files and upload button
+            angular.element(document.querySelector('#uploadButton')).attr('disabled', 'disabled');
+
+            angular.element(document.querySelector('#file')).parent().attr('disabled', 'disabled');
+            angular.element(document.querySelector('#file')).parent()[0].style.cursor = 'not-allowed';
+
+            angular.element(document.querySelector('#file')).attr('disabled', 'disabled');
+            angular.element(document.querySelector('#file'))[0].style.cursor = 'not-allowed';
         };
 
         function setEnableUpload() {

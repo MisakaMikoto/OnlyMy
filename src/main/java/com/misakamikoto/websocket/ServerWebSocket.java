@@ -14,7 +14,7 @@ import javax.websocket.server.ServerEndpoint;
  * The type Server web socket.
  */
 @Component
-@ServerEndpoint("/serverWebsocket")
+@ServerEndpoint("/serverWebSocket")
 public class ServerWebSocket {
     private static Logger logger = LoggerFactory.getLogger(ServerWebSocket.class);
 
@@ -46,6 +46,7 @@ public class ServerWebSocket {
      */
     @OnClose
     public void close(){
+//        messageHandler.destroy();
         logger.debug("closing server websocket");
     }
 

@@ -69,7 +69,9 @@ public class GoogleDriveService {
 //    plain text (special MIME type), JSON	Google Apps Script
 
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor=IOException.class)
-    public void upload(MultipartFile[] files, int codeId, String subject, String description, final ClientWebSocket clientWebSocket) throws IOException {
+    public void upload(MultipartFile[] files, int codeId, String subject, String description) throws IOException {
+        ClientWebSocket clientWebSocket = new ClientWebSocket("ws://127.0.0.1:8080/serverWebSocket");
+
         // Authorize the request.
         Credential credential = googleAuthorizeService.authorizeDrive();
         Drive driveService = this.getDriveService(credential);
@@ -97,7 +99,8 @@ public class GoogleDriveService {
 
             this.save(contentsVO);
 
-            double progress = 100 * (i / files.length);
+            double progress = 100 * ((double)(i + 1) / files.length);
+            System.out.println("**********************************" + progress + "% *************************");
             clientWebSocket.sendMessage(String.valueOf(progress));
         }
     }

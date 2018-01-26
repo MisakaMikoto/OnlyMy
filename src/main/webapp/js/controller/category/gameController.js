@@ -68,14 +68,19 @@ app.controller('GameController', ['$scope', '$location', '$log', 'GameService',
         };
 
         function setVideoInformation(file) {
-            angular.element(document.querySelector('#uploadFileNames')).html("");
-            angular.element(document.querySelector('#uploadFileNames')).html("파일 이름: " + file[0].files[0].name);
+            let information = '파일 이름 : ' + file[0].files[0].name;
+            information += '</br>';
 
+            let fileInformation = '';
             let fileSize = file[0].files[0].size;
             let fileSizeMb = fileSize / (1000 * 1000).toFixed(2);
             let fileSizeGb = (fileSizeMb / 1000).toFixed(2);
-            fileSizeMb < 1000 ? angular.element(document.querySelector('#uploadFileSizes')).html("파일 크기 : " + fileSizeMb + " (MB)") :
-                angular.element(document.querySelector('#uploadFileSizes')).html("파일 크기 : " + fileSizeGb + " (GB)");
+
+            fileSizeMb < 1000 ? fileInformation += '파일 크기 : ' + fileSizeMb + ' (MB)':
+                                fileInformation += '파일 크기 : ' + fileSizeGb + ' (GB)';
+            information += fileInformation;
+
+            angular.element(document.querySelector('#uploadInformation').getElementsByTagName('span')).html(information);
         };
 
         function setVideoPreview(file) {

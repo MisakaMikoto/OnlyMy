@@ -18,9 +18,6 @@ app.controller('LayoutController', ['$scope', '$location', '$log', 'LayoutServic
                 } else if(responses[i].config.url.indexOf('/category') > -1) {
                     $scope.categories = responses[i].data;
 
-                } else if(responses[i].config.url.indexOf('/contents') > -1) {
-                    $scope.contents = responses[i].data;
-
                 } else {
                     ;
                     // another conditions..

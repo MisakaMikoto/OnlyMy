@@ -19,17 +19,15 @@ public class MessageHandler {
         this.sessionList = new ArrayList<Session>();
     }
 
-    protected void destroy() {
-        this.sessionList = null;
-    }
-
     protected void addSession(Session session) {
         this.sessionList.add(session);
     }
 
     protected void sendMessage(String message) {
         for(Session session : sessionList) {
-            session.getAsyncRemote().sendText(message);
+            if(session.isOpen()) {
+                session.getAsyncRemote().sendText(message);
+            }
         }
     }
 }

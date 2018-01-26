@@ -63,7 +63,9 @@ public class GoogleYoutubeService {
      */
 
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor=IOException.class)
-    public String upload(MultipartFile file, int codeId, String title, String description, String tags, final ClientWebSocket clientWebSocket) {
+    public String upload(MultipartFile file, String title, String description, String tags) {
+        final ClientWebSocket clientWebSocket = new ClientWebSocket("ws://127.0.0.1:8080/serverWebSocket");
+
         Video returnedVideo = null;
 
         try {

@@ -60,9 +60,16 @@ app.controller('PictureController', ['$scope', '$location', '$log', 'PictureServ
         });
 
         $scope.upload = function() {
-            let codeId = angular.element(document.querySelector('#Picture').getElementsByTagName('span')).attr('id');
-
             let formData = new FormData(angular.element(document.querySelector('#uploadForm'))[0]);
+
+            let fileNames = [];
+            let files = angular.element(document.querySelector('#uploadForm'))[0].file.files;
+            for(let i = 0; i < files.length; i++) {
+                fileNames.push(files[i].name  + '\r\n');
+            }
+            formData.append('files', fileNames);
+
+            let codeId = angular.element(document.querySelector('#Picture').getElementsByTagName('span')).attr('id');
             formData.append('codeId', codeId);
 
             PictureService.upload(formData);
@@ -75,8 +82,7 @@ app.controller('PictureController', ['$scope', '$location', '$log', 'PictureServ
         };
 
         function setImageInformation(file) {
-            angular.element(document.querySelector('#uploadInformation').getElementsByTagName('span')).html("");
-            let information = angular.element(document.querySelector('#uploadInformation').getElementsByTagName('span')).html();
+            let information = '';
 
             for(let i = 0; i < file[0].files.length; i++) {
                 let nameInformation = '파일 이름 : ' + file[0].files[i].name;

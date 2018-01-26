@@ -29,9 +29,6 @@
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
 
-    <!-- youtube -->
-    <mvc:resources mapping="/youtube/**" location="google" />
-
     <!-- properties -->
     <util:properties id="serverConf" location="classpath:server/server.properties"/>
 
