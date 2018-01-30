@@ -148,15 +148,15 @@ public class GoogleYoutubeService {
                             break;
 
                         case MEDIA_IN_PROGRESS:
-                            double substringDouble = Double.parseDouble(String.valueOf(uploader.getProgress()).substring(0, 6));
-                            double percentage = Double.parseDouble(String.format("%.3f", substringDouble * 100));
-                            clientWebSocket.sendMessage(String.valueOf(percentage));
+                            double percentage = Math.floor(uploader.getProgress());
+                            clientWebSocket.sendMessage("game@" + String.valueOf(percentage));
+
                             System.out.println("Upload in progress");
                             System.out.println("Upload percentage: " + percentage);
                             break;
 
                         case MEDIA_COMPLETE:
-                            clientWebSocket.sendMessage("100");
+                            clientWebSocket.sendMessage("game@100");
                             System.out.println("Upload Completed!");
                             break;
 

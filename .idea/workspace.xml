@@ -1,31 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b57daee9-33ff-4464-8a6e-633e2c0afe12" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/ROOT.war" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/com/misakamikoto/layout/contents/controller/ContentsController.class" afterPath="$PROJECT_DIR$/target/ROOT/WEB-INF/classes/com/misakamikoto/layout/contents/controller/ContentsController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/misakamikoto/layout/contents/controller/ContentsController.class" afterPath="$PROJECT_DIR$/target/classes/com/misakamikoto/layout/contents/controller/ContentsController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/myblog_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/myblog_war_exploded.xml" />
+    <list default="true" id="b57daee9-33ff-4464-8a6e-633e2c0afe12" name="Default" comment="1. proress area picture, game 나누기 완료&#10;3. picture upload progress 소수점 절삭 필요&#10;4. 자잘한 화면 작업 필요">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ROOT.war" afterPath="$PROJECT_DIR$/target/ROOT.war" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myblog.iml" afterPath="$PROJECT_DIR$/myblog.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/misakamikoto/layout/contents/controller/ContentsController.java" afterPath="$PROJECT_DIR$/src/main/java/com/misakamikoto/layout/contents/controller/ContentsController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/misakamikoto/layout/contents/service/GoogleDriveService.java" afterPath="$PROJECT_DIR$/src/main/java/com/misakamikoto/layout/contents/service/GoogleDriveService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/misakamikoto/layout/contents/service/GoogleYoutubeService.java" afterPath="$PROJECT_DIR$/src/main/java/com/misakamikoto/layout/contents/service/GoogleYoutubeService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/misakamikoto/websocket/MessageHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/misakamikoto/websocket/MessageHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/misakamikoto/websocket/ServerWebSocket.java" afterPath="$PROJECT_DIR$/src/main/java/com/misakamikoto/websocket/ServerWebSocket.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/config/websocket/websocket-context.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/config/websocket/websocket-context.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/postgres/sql/create-database.sql" afterPath="$PROJECT_DIR$/src/main/resources/postgres/sql/create-database.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/postgres/sql/create-table.sql" afterPath="$PROJECT_DIR$/src/main/resources/postgres/sql/create-table.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/postgres/sql/insert-data.sql" afterPath="$PROJECT_DIR$/src/main/resources/postgres/sql/insert-data.sql" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/js/controller/category/gameController.js" afterPath="$PROJECT_DIR$/src/main/webapp/js/controller/category/gameController.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/js/controller/category/pictureController.js" afterPath="$PROJECT_DIR$/src/main/webapp/js/controller/category/pictureController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/js/controller/main/layoutController.js" afterPath="$PROJECT_DIR$/src/main/webapp/js/controller/main/layoutController.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/js/service/category/gameService.js" afterPath="$PROJECT_DIR$/src/main/webapp/js/service/category/gameService.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/js/service/category/pictureService.js" afterPath="$PROJECT_DIR$/src/main/webapp/js/service/category/pictureService.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/js/service/common/progressWebSocketService.js" afterPath="$PROJECT_DIR$/src/main/webapp/js/service/common/progressWebSocketService.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/template/category/write/game.html" afterPath="$PROJECT_DIR$/src/main/webapp/template/category/write/game.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/mvc-dispatcher-servlet.xml" afterPath="$PROJECT_DIR$/target/ROOT/WEB-INF/mvc-dispatcher-servlet.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ROOT/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/target/ROOT/WEB-INF/web.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/template/main/layout.html" afterPath="$PROJECT_DIR$/src/main/webapp/template/main/layout.html" />
     </list>
     <ignored path="myblog.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -53,74 +42,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ClientWebSocket.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/misakamikoto/websocket/ClientWebSocket.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-              <folding>
-                <element signature="e#1558#1559#0" expanded="true" />
-                <element signature="e#1621#1622#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="GoogleDriveService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/misakamikoto/layout/contents/service/GoogleDriveService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="101" column="44" selection-start-line="101" selection-start-column="38" selection-end-line="101" selection-end-column="44" />
+            <state relative-caret-position="305">
+              <caret line="105" column="78" selection-start-line="105" selection-start-column="78" selection-end-line="105" selection-end-column="78" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mvc-dispatcher-servlet.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml">
+      <file leaf-file-name="gameService.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/js/service/category/gameService.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="1" column="62" selection-start-line="1" selection-start-column="62" selection-end-line="1" selection-end-column="62" />
+            <state relative-caret-position="608">
+              <caret line="32" column="20" selection-start-line="32" selection-start-column="20" selection-end-line="36" selection-end-column="38" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
+      <file leaf-file-name="gameController.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/js/controller/category/gameController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="12" column="18" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
+            <state relative-caret-position="380">
+              <caret line="46" column="20" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="46" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="web.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
+      <file leaf-file-name="pictureController.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/js/controller/category/pictureController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-18">
-              <caret line="12" column="12" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="security-context.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/config/security/security-context.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="107">
-              <caret line="22" column="44" selection-start-line="22" selection-start-column="40" selection-end-line="22" selection-end-column="44" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ContentsController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/misakamikoto/layout/contents/controller/ContentsController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="665">
-              <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+            <state relative-caret-position="209">
+              <caret line="30" column="33" selection-start-line="30" selection-start-column="33" selection-end-line="30" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -129,38 +85,59 @@
       <file leaf-file-name="GoogleYoutubeService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/misakamikoto/layout/contents/service/GoogleYoutubeService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="151" column="111" selection-start-line="151" selection-start-column="67" selection-end-line="151" selection-end-column="111" />
+            <state relative-caret-position="343">
+              <caret line="152" column="0" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MessageHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/misakamikoto/websocket/MessageHandler.java">
+      <file leaf-file-name="create-database.sql" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/postgres/sql/create-database.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="494">
-              <caret line="31" column="5" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
-              <folding>
-                <element signature="e#411#412#0" expanded="true" />
-                <element signature="e#470#471#0" expanded="true" />
-                <element signature="e#520#521#0" expanded="true" />
-                <element signature="e#565#566#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="266">
+              <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ServerWebSocket.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/misakamikoto/websocket/ServerWebSocket.java">
+      <file leaf-file-name="create-table.sql" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/postgres/sql/create-table.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-208">
-              <caret line="20" column="61" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="61" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#934#935#0" expanded="true" />
-                <element signature="e#992#993#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="602">
+              <caret line="81" column="22" selection-start-line="81" selection-start-column="22" selection-end-line="81" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="insert-data.sql" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/postgres/sql/insert-data.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="399">
+              <caret line="21" column="21" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="progressWebSocketService.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/js/service/common/progressWebSocketService.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="409">
+              <caret line="26" column="36" selection-start-line="26" selection-start-column="36" selection-end-line="26" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pictureService.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/js/service/category/pictureService.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="231">
+              <caret line="52" column="8" selection-start-line="52" selection-start-column="8" selection-end-line="52" selection-end-column="8" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -198,9 +175,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/misakamikoto/apigateway/test/controller/TestController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/misakamikoto/apigateway/main/controller/MainController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/misakamikoto/apigateway/main/controller/ApiGatewayMainController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/apigateway/apis/index.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/js/component/layout/category.js" />
         <option value="$PROJECT_DIR$/src/main/resources/youtube/client_secrets.json" />
@@ -211,7 +185,6 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/main/layout.jsp" />
         <option value="$PROJECT_DIR$/src/main/resources/picture/picture.properties" />
         <option value="$PROJECT_DIR$/src/main/webapp/js/controller/category/common/galleryService.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/template/main/layout.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/misakamikoto/layout/contents/service/PictureUploadService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/misakamikoto/layout/contents/service/YoutubeUploadService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/misakamikoto/layout/contents/service/GoogleDriveUploadService.java" />
@@ -236,19 +209,23 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/template/category/write/picture.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/template/category/write/game.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/js/controller/category/gameController.js" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/js/service/common/ajaxService.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/js/controller/category/pictureController.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/js/service/common/progressWebSocketService.js" />
-        <option value="$PROJECT_DIR$/src/main/java/com/misakamikoto/layout/contents/service/GoogleDriveService.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/js/service/category/pictureService.js" />
         <option value="$PROJECT_DIR$/src/main/java/com/misakamikoto/websocket/ServerWebSocket.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/js/service/category/gameService.js" />
-        <option value="$PROJECT_DIR$/src/main/java/com/misakamikoto/layout/contents/service/GoogleYoutubeService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/misakamikoto/websocket/MessageHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/misakamikoto/layout/contents/controller/ContentsController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/config/security/security-context.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/js/service/common/progressWebSocketService.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/template/main/layout.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/js/service/category/gameService.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/js/controller/category/gameController.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/js/service/category/pictureService.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/js/controller/category/pictureController.js" />
+        <option value="$PROJECT_DIR$/src/main/java/com/misakamikoto/layout/contents/service/GoogleDriveService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/misakamikoto/layout/contents/service/GoogleYoutubeService.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/postgres/sql/create-database.sql" />
+        <option value="$PROJECT_DIR$/src/main/resources/postgres/sql/create-table.sql" />
+        <option value="$PROJECT_DIR$/src/main/resources/postgres/sql/insert-data.sql" />
       </list>
     </option>
   </component>
@@ -568,6 +545,7 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="Scope">
         <subPane subId="Changed Files">
           <PATH>
@@ -610,9 +588,594 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OnlyMy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OnlyMy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OnlyMy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OnlyMy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OnlyMy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OnlyMy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OnlyMy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OnlyMy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="view" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OnlyMy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OnlyMy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="template" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OnlyMy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OnlyMy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="template" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OnlyMy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OnlyMy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="template" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OnlyMy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OnlyMy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OnlyMy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OnlyMy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OnlyMy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OnlyMy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OnlyMy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OnlyMy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="category" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OnlyMy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OnlyMy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OnlyMy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OnlyMy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="category" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OnlyMy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OnlyMy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OnlyMy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OnlyMy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OnlyMy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OnlyMy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="postgres" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OnlyMy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OnlyMy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="postgres" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sql" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OnlyMy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OnlyMy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="misakamikoto" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OnlyMy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OnlyMy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="misakamikoto" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layout" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OnlyMy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OnlyMy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="misakamikoto" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layout" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="contents" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OnlyMy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="OnlyMy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="misakamikoto" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layout" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="contents" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -622,7 +1185,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="SearchEverywhereHistoryKey" value="security&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/webapp/WEB-INF/config/security/security-context.xml&#10;gameSer&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/webapp/js/service/category/gameService.js&#10;pictureS&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/webapp/js/service/category/pictureService.js&#10;ㅔㄱㅐㅎㄱㄷㄴㄴ&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/webapp/js/service/common/progressWebSocketService.js&#10;mainC&#9;PSI&#9;JAVA://com.misakamikoto.main.controller.MainController&#10;game.html&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/webapp/template/category/read/game.html&#10;plugins&#9;ACTION&#9;WelcomeScreen.Plugins&#10;plugin&#9;ACTION&#9;WelcomeScreen.Plugins&#10;pro&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/webapp/js/service/common/progressWebSocketService.js&#10;progress&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/webapp/js/service/common/progressWebSocketService.js&#10;message&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/java/com/misakamikoto/websocket/MessageHandler.java&#10;pictureSer&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/webapp/js/service/category/pictureService.js&#10;content&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/java/com/misakamikoto/layout/contents/controller/ContentsController.java&#10;layout.html&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/webapp/template/main/layout.html&#10;layout.jsp&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/webapp/WEB-INF/view/main/layout.jsp&#10;pom&#9;FILE&#9;file:///Users/we/project/OnlyMy/pom.xml&#10;picture.html&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/webapp/template/category/read/picture.html&#10;gameService&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/webapp/js/service/category/gameService.js&#10;picture&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/webapp/js/service/category/pictureService.js&#10;mvc&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml&#10;websoc&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/java/com/misakamikoto/websocket/ServerWebSocket.java&#10;Contents&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/java/com/misakamikoto/layout/contents/controller/ContentsController.java&#10;layout&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/webapp/js/controller/main/layoutController.js&#10;category.html&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/webapp/template/layout/category.html&#10;layoutC&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/webapp/js/controller/main/layoutController.js&#10;layoutCon&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/webapp/js/controller/main/layoutController.js&#10;layoutc&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/webapp/js/controller/main/layoutController.js&#10;app.js&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/webapp/js/module/app.js&#10;contentsMapper&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/java/com/misakamikoto/layout/contents/mapper/ContentsMapper.java&#10;contentsmapp&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/resources/mybatis/com.misakamikoto.layout.contents.mapper/ContentsMapper.xml&#10;contentsVO&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/java/com/misakamikoto/layout/contents/model/ContentsVO.java&#10;gameCo&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/webapp/js/controller/category/gameController.js&#10;pictureServ&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/webapp/js/service/category/pictureService.js&#10;gameServi&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/webapp/js/service/category/gameService.js&#10;gameCont&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/webapp/js/controller/category/gameController.js&#10;pictureCon&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/webapp/js/controller/category/pictureController.js&#10;contentsmap&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/resources/mybatis/com.misakamikoto.layout.contents.mapper/ContentsMapper.xml&#10;pom.xml&#9;FILE&#9;file:///Users/we/project/OnlyMy/pom.xml&#10;gamecon&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/webapp/js/controller/category/gameController.js&#10;layoutCont&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/webapp/js/controller/main/layoutController.js&#10;contentsVo&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/java/com/misakamikoto/layout/contents/model/ContentsVO.java&#10;ContentsMApper&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/java/com/misakamikoto/layout/contents/mapper/ContentsMapper.java&#10;ContentsVo&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/java/com/misakamikoto/layout/contents/model/ContentsVO.java&#10;properti&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/resources/picture/picture.properties&#10;contentController&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/java/com/misakamikoto/layout/contents/controller/ContentsController.java&#10;gameCon&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/webapp/js/controller/category/gameController.js&#10;layoutcon&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/webapp/js/controller/main/layoutController.js&#10;gameser&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/webapp/js/service/category/gameService.js&#10;game.&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/webapp/template/category/write/game.html&#10;categoryMa&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/resources/mybatis/com.misakamikoto.layout.category.mapper/CategoryMapper.xml" />
+    <property name="SearchEverywhereHistoryKey" value="pictureService&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/webapp/js/service/category/pictureService.js&#10;picture&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/webapp/js/service/category/pictureService.js&#10;Drive&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/java/com/misakamikoto/layout/contents/service/GoogleDriveService.java&#10;progress&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/webapp/js/service/common/progressWebSocketService.js&#10;gameController&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/webapp/js/controller/category/gameController.js&#10;gameService&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/webapp/js/service/category/gameService.js&#10;layout&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/webapp/template/main/layout.html&#10;layout.jsp&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/webapp/WEB-INF/view/main/layout.jsp&#10;security&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/webapp/WEB-INF/config/security/security-context.xml&#10;gameSer&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/webapp/js/service/category/gameService.js&#10;pictureS&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/webapp/js/service/category/pictureService.js&#10;ㅔㄱㅐㅎㄱㄷㄴㄴ&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/webapp/js/service/common/progressWebSocketService.js&#10;mainC&#9;PSI&#9;JAVA://com.misakamikoto.main.controller.MainController&#10;game.html&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/webapp/template/category/read/game.html&#10;plugins&#9;ACTION&#9;WelcomeScreen.Plugins&#10;plugin&#9;ACTION&#9;WelcomeScreen.Plugins&#10;pro&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/webapp/js/service/common/progressWebSocketService.js&#10;message&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/java/com/misakamikoto/websocket/MessageHandler.java&#10;pictureSer&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/webapp/js/service/category/pictureService.js&#10;content&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/java/com/misakamikoto/layout/contents/controller/ContentsController.java&#10;layout.html&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/webapp/template/main/layout.html&#10;pom&#9;FILE&#9;file:///Users/we/project/OnlyMy/pom.xml&#10;picture.html&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/webapp/template/category/read/picture.html&#10;mvc&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml&#10;websoc&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/java/com/misakamikoto/websocket/ServerWebSocket.java&#10;Contents&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/java/com/misakamikoto/layout/contents/controller/ContentsController.java&#10;category.html&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/webapp/template/layout/category.html&#10;layoutC&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/webapp/js/controller/main/layoutController.js&#10;layoutCon&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/webapp/js/controller/main/layoutController.js&#10;layoutc&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/webapp/js/controller/main/layoutController.js&#10;app.js&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/webapp/js/module/app.js&#10;contentsMapper&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/java/com/misakamikoto/layout/contents/mapper/ContentsMapper.java&#10;contentsmapp&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/resources/mybatis/com.misakamikoto.layout.contents.mapper/ContentsMapper.xml&#10;contentsVO&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/java/com/misakamikoto/layout/contents/model/ContentsVO.java&#10;gameCo&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/webapp/js/controller/category/gameController.js&#10;pictureServ&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/webapp/js/service/category/pictureService.js&#10;gameServi&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/webapp/js/service/category/gameService.js&#10;gameCont&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/webapp/js/controller/category/gameController.js&#10;pictureCon&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/webapp/js/controller/category/pictureController.js&#10;contentsmap&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/resources/mybatis/com.misakamikoto.layout.contents.mapper/ContentsMapper.xml&#10;pom.xml&#9;FILE&#9;file:///Users/we/project/OnlyMy/pom.xml&#10;gamecon&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/webapp/js/controller/category/gameController.js&#10;layoutCont&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/webapp/js/controller/main/layoutController.js&#10;contentsVo&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/java/com/misakamikoto/layout/contents/model/ContentsVO.java&#10;ContentsMApper&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/java/com/misakamikoto/layout/contents/mapper/ContentsMapper.java&#10;ContentsVo&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/java/com/misakamikoto/layout/contents/model/ContentsVO.java&#10;properti&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/resources/picture/picture.properties&#10;contentController&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/java/com/misakamikoto/layout/contents/controller/ContentsController.java&#10;gameCon&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/webapp/js/controller/category/gameController.js&#10;layoutcon&#9;FILE&#9;file:///Users/we/project/OnlyMy/src/main/webapp/js/controller/main/layoutController.js" />
     <property name="OverrideImplement.combined" value="true" />
     <property name="OverrideImplement.overriding.sorted" value="false" />
     <property name="restartRequiresConfirmation" value="true" />
@@ -1242,14 +1805,8 @@
       <workItem from="1516763318083" duration="25632000" />
       <workItem from="1516930079918" duration="46000" />
       <workItem from="1516930876837" duration="1550000" />
-      <workItem from="1516934538105" duration="16652000" />
-    </task>
-    <task id="LOCAL-00012" summary="client clientid 및 clientsecret 관리 properties 추가">
-      <created>1461753302955</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1461753302955</updated>
+      <workItem from="1516934538105" duration="16762000" />
+      <workItem from="1517189024822" duration="36637000" />
     </task>
     <task id="LOCAL-00013" summary="css folder 변경">
       <created>1461753330912</created>
@@ -1587,11 +2144,18 @@
       <option name="project" value="LOCAL" />
       <updated>1516182248077</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="1. websocket 수정 완료&#10;2. proress area picture, game 으로 나누는 작업 필요&#10;3. picture upload progress 소수점 절삭 필요&#10;4. 자잘한 화면 작업 필요">
+      <created>1516960405687</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1516960405688</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="770734000" />
+    <option name="totallyTimeSpent" value="807481000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1614,9 +2178,9 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5181237" sideWeight="0.43123668" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32942432" sideWeight="0.49573562" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20969023" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31084338" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.09968229" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3283582" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31084338" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32771084" sideWeight="0.49573562" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32931727" sideWeight="0.4978678" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1651,7 +2215,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="authorization js 수정" />
     <MESSAGE value="iam index 수정" />
     <MESSAGE value="줄맞춤" />
     <MESSAGE value="methods 들의 오브젝트명 변경 및 index.jsp 수정" />
@@ -1676,7 +2239,8 @@
     <MESSAGE value="server properties 파일 추가" />
     <MESSAGE value="1. youtube upload 정리&#10;2. picture upload 시작" />
     <MESSAGE value="1. picture upload 를 위한 google drive api 연동&#10;2. websocket 수정 필요. codeId load 수정 필요" />
-    <option name="LAST_COMMIT_MESSAGE" value="1. picture upload 를 위한 google drive api 연동&#10;2. websocket 수정 필요. codeId load 수정 필요" />
+    <MESSAGE value="1. websocket 수정 완료&#10;2. proress area picture, game 으로 나누는 작업 필요&#10;3. picture upload progress 소수점 절삭 필요&#10;4. 자잘한 화면 작업 필요" />
+    <option name="LAST_COMMIT_MESSAGE" value="1. websocket 수정 완료&#10;2. proress area picture, game 으로 나누는 작업 필요&#10;3. picture upload progress 소수점 절삭 필요&#10;4. 자잘한 화면 작업 필요" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1697,21 +2261,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/com.misakamikoto.layout.category.mapper/CategoryMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="9" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.2.8/mybatis-3.2.8.jar!/org/apache/ibatis/session/defaults/DefaultSqlSession.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="131" column="0" selection-start-line="131" selection-start-column="0" selection-end-line="131" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/picture/picture.properties" />
     <entry file="jar://$MAVEN_REPOSITORY$/com/google/apis/google-api-services-drive/v3-rev97-1.23.0/google-api-services-drive-v3-rev97-1.23.0.jar!/com/google/api/services/drive/Drive.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="232">
@@ -1868,22 +2417,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/misakamikoto/layout/contents/service/GoogleAuthorizeService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1179">
-          <caret line="115" column="29" selection-start-line="115" selection-start-column="29" selection-end-line="115" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/misakamikoto/layout/contents/service/ContentsService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="31" column="59" selection-start-line="31" selection-start-column="59" selection-end-line="31" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/js/service/category/common/galleryService.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19">
@@ -1905,29 +2438,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/service/common/ajaxService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="23" column="24" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/controller/category/pictureController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1216">
-          <caret line="64" column="31" selection-start-line="64" selection-start-column="31" selection-end-line="64" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/controller/category/gameController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/lib/ant-javafx.jar!/resources/web-files/dtjava.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19">
@@ -1939,7 +2449,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="589">
           <caret line="31" column="42" selection-start-line="31" selection-start-column="42" selection-end-line="31" selection-end-column="42" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1951,78 +2460,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/template/main/layout.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="703">
-          <caret line="37" column="55" selection-start-line="37" selection-start-column="39" selection-end-line="37" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/main/layout.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="741">
-          <caret line="39" column="84" selection-start-line="39" selection-start-column="84" selection-end-line="39" selection-end-column="84" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/service/common/progressWebSocketService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="78" selection-start-line="6" selection-start-column="63" selection-end-line="6" selection-end-column="78" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/service/category/gameService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="656">
-          <caret line="48" column="10" selection-start-line="48" selection-start-column="10" selection-end-line="48" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/service/category/pictureService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="15" column="15" selection-start-line="15" selection-start-column="15" selection-end-line="15" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/misakamikoto/websocket/ClientWebSocket.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
+        <state relative-caret-position="494">
           <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
           <folding>
-            <element signature="e#1558#1559#0" expanded="true" />
-            <element signature="e#1621#1622#0" expanded="true" />
+            <element signature="e#1558#1559#0" expanded="false" />
+            <element signature="e#1621#1622#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/misakamikoto/websocket/ServerWebSocket.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-208">
+        <state relative-caret-position="285">
           <caret line="20" column="61" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="61" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#934#935#0" expanded="true" />
-            <element signature="e#992#993#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#934#935#0" expanded="false" />
+            <element signature="e#992#993#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/misakamikoto/websocket/MessageHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
+        <state relative-caret-position="418">
           <caret line="31" column="5" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
           <folding>
-            <element signature="e#411#412#0" expanded="true" />
-            <element signature="e#470#471#0" expanded="true" />
-            <element signature="e#520#521#0" expanded="true" />
-            <element signature="e#565#566#0" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2035,25 +2501,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/misakamikoto/layout/contents/service/GoogleYoutubeService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="151" column="111" selection-start-line="151" selection-start-column="67" selection-end-line="151" selection-end-column="111" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/misakamikoto/layout/contents/service/GoogleDriveService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="101" column="44" selection-start-line="101" selection-start-column="38" selection-end-line="101" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/config/security/security-context.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="107">
+        <state relative-caret-position="418">
           <caret line="22" column="44" selection-start-line="22" selection-start-column="40" selection-end-line="22" selection-end-column="44" />
           <folding />
         </state>
@@ -2061,7 +2511,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-18">
+        <state relative-caret-position="228">
           <caret line="12" column="12" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
           <folding />
         </state>
@@ -2077,8 +2527,135 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="12" column="18" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
+        <state relative-caret-position="1102">
+          <caret line="61" column="36" selection-start-line="61" selection-start-column="36" selection-end-line="61" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/main/layout.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="23" column="25" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/misakamikoto/layout/contents/service/GoogleAuthorizeService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1179">
+          <caret line="115" column="29" selection-start-line="115" selection-start-column="29" selection-end-line="115" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/misakamikoto/layout/contents/service/ContentsService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="24" column="33" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/service/common/ajaxService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="23" column="24" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/template/main/layout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-342">
+          <caret line="47" column="28" selection-start-line="47" selection-start-column="28" selection-end-line="47" selection-end-column="28" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/service/category/gameService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="608">
+          <caret line="32" column="20" selection-start-line="32" selection-start-column="20" selection-end-line="36" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/controller/category/gameController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="46" column="20" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/service/category/pictureService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="52" column="8" selection-start-line="52" selection-start-column="8" selection-end-line="52" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/controller/category/pictureController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="30" column="33" selection-start-line="30" selection-start-column="33" selection-end-line="30" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/service/common/progressWebSocketService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="409">
+          <caret line="26" column="36" selection-start-line="26" selection-start-column="36" selection-end-line="26" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/misakamikoto/layout/contents/service/GoogleDriveService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="105" column="78" selection-start-line="105" selection-start-column="78" selection-end-line="105" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/misakamikoto/layout/contents/service/GoogleYoutubeService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="343">
+          <caret line="152" column="0" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/postgres/sql/create-database.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/postgres/sql/create-table.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="602">
+          <caret line="81" column="22" selection-start-line="81" selection-start-column="22" selection-end-line="81" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/postgres/sql/insert-data.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="21" column="21" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
           <folding />
         </state>
       </provider>

@@ -3,12 +3,9 @@
  */
 app.controller('PictureController', ['$scope', '$location', '$log', 'PictureService',
     function ($scope, $location, $log, PictureService) {
-        $scope.$on('$viewContentLoaded', function() {
-            alert(1);
-        });
-
         angular.element(document).ready(function() {
             let gallery = angular.element(document.querySelector('#gallery'));
+            // read
             if(gallery.length > 0) {
                 let getUploadListPromise = PictureService.getUploadList();
                 getUploadListPromise.then(function success(response) {
@@ -42,7 +39,13 @@ app.controller('PictureController', ['$scope', '$location', '$log', 'PictureServ
                     throw error;
                 });
 
+            // write
             } else {
+                if(angular.element(document.querySelector('#pictureProgress')).attr('aria-valuenow') != '0') {
+                    PictureService.setDisableUpload();
+                    alert('사진 업로드가 진행중입니다.');
+                }
+
                 $('#file').on("change", function(){
                     setImageInformation($(this));
                     setImagePreview($(this))

@@ -6,6 +6,7 @@ app.controller('GameController', ['$scope', '$location', '$log', 'GameService',
 
         angular.element(document).ready(function() {
             let gallery = angular.element(document.querySelector('#gallery'));
+            // read
             if(gallery.length > 0) {
                 let getUploadListPromise = GameService.getUploadList();
                 getUploadListPromise.then(function success(response) {
@@ -39,7 +40,13 @@ app.controller('GameController', ['$scope', '$location', '$log', 'GameService',
                     throw error;
                 });
 
+            // write
             } else {
+                if(angular.element(document.querySelector('#gameProgress')).attr('aria-valuenow') != '0') {
+                    GameService.setDisableUpload();
+                    alert('동영상 업로드가 진행중입니다.');
+                }
+
                 $('#file').on("change", function(){
                     setVideoInformation($(this));
                     setVideoPreview($(this))

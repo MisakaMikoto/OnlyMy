@@ -25,12 +25,12 @@ app.service('ProgressWebSocketService', ['$http', '$q', '$log',
         };
 
         function drawProgressBar(message) {
-            console.log(message);
-
             // draw progressbar
-            let percentage = Number(message.data);
-            angular.element(document.querySelector('#progress'))[0].style.width = percentage + '%';
-            angular.element(document.querySelector('#progress')).attr('aria-valuenow', percentage.toString());
-            angular.element(document.querySelector('#progress')).html(percentage.toString() + ' %');
+            let type = message.data.split('@')[0];
+            let percentage = Number(message.data.split('@')[1]);
+
+            angular.element(document.querySelector('#' + type + 'Progress'))[0].style.width = percentage + '%';
+            angular.element(document.querySelector('#' + type + 'Progress')).attr('aria-valuenow', percentage.toString());
+            angular.element(document.querySelector('#' + type + 'Progress')).html(percentage.toString() + ' %');
         };
 }]);

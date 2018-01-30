@@ -99,9 +99,11 @@ public class GoogleDriveService {
 
             this.save(contentsVO);
 
-            double progress = 100 * ((double)(i + 1) / files.length);
-            System.out.println("**********************************" + progress + "% *************************");
-            clientWebSocket.sendMessage(String.valueOf(progress));
+            double percentage = 100 * ((double)(i + 1) / files.length);
+            percentage = Math.floor(percentage);
+
+            System.out.println("**********************************" + percentage + "% *************************");
+            clientWebSocket.sendMessage("picture@" + String.valueOf(percentage));
         }
     }
 

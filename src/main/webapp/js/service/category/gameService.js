@@ -5,7 +5,7 @@ app.service('GameService', ['AjaxService',
     function (AjaxService) {
         this.upload = function(formData) {
             alert(formData.get('file').name + ' 파일의 업로드를 시작합니다.');
-            setDisableUpload();
+            this.setDisableUpload();
 
             $.ajax({
                 url: '/contents/youtube/upload/insert',
@@ -48,10 +48,21 @@ app.service('GameService', ['AjaxService',
             return AjaxService.run(httpArray);
         };
 
+        this.setDisableUpload = function() {
+            // disable add files and upload button
+            angular.element(document.querySelector('#uploadButton')).attr('disabled', 'disabled');
+
+            angular.element(document.querySelector('#file')).parent().attr('disabled', 'disabled');
+            angular.element(document.querySelector('#file')).parent()[0].style.cursor = 'not-allowed';
+
+            angular.element(document.querySelector('#file')).attr('disabled', 'disabled');
+            angular.element(document.querySelector('#file'))[0].style.cursor = 'not-allowed';
+        };
+
         function initProgressBar() {
-            angular.element(document.querySelector('#progress'))[0].style.width = '0%';
-            angular.element(document.querySelector('#progress')).attr('aria-valuenow', '0');
-            angular.element(document.querySelector('#progress')).html('');
+            angular.element(document.querySelector('#gameProgress'))[0].style.width = '0%';
+            angular.element(document.querySelector('#gameProgress')).attr('aria-valuenow', '0');
+            angular.element(document.querySelector('#gameProgress')).html('');
 
         };
 
@@ -69,17 +80,6 @@ app.service('GameService', ['AjaxService',
             angular.forEach(inputs, function(input){
                 input.value = '';
             });
-        };
-
-        function setDisableUpload() {
-            // disable add files and upload button
-            angular.element(document.querySelector('#uploadButton')).attr('disabled', 'disabled');
-
-            angular.element(document.querySelector('#file')).parent().attr('disabled', 'disabled');
-            angular.element(document.querySelector('#file')).parent()[0].style.cursor = 'not-allowed';
-
-            angular.element(document.querySelector('#file')).attr('disabled', 'disabled');
-            angular.element(document.querySelector('#file'))[0].style.cursor = 'not-allowed';
         };
 
         function setEnableUpload() {
