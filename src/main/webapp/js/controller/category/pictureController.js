@@ -1,8 +1,8 @@
 /**
  * Created by MisakaMikoto on 2018. 1. 11..
  */
-app.controller('PictureController', ['$scope', '$location', '$log', 'PictureService',
-    function ($scope, $location, $log, PictureService) {
+app.controller('PictureController', ['$scope', '$location', '$log', 'PictureService', '$stateParams',
+    function ($scope, $location, $log, PictureService, $stateParams) {
         angular.element(document).ready(function() {
             let gallery = angular.element(document.querySelector('#gallery'));
             // read
@@ -63,6 +63,7 @@ app.controller('PictureController', ['$scope', '$location', '$log', 'PictureServ
         });
 
         $scope.upload = function() {
+            let codeId = $stateParams.codeId;
             let formData = new FormData(angular.element(document.querySelector('#uploadForm'))[0]);
 
             let fileNames = [];
@@ -70,9 +71,8 @@ app.controller('PictureController', ['$scope', '$location', '$log', 'PictureServ
             for(let i = 0; i < files.length; i++) {
                 fileNames.push(files[i].name  + '\r\n');
             }
-            formData.append('files', fileNames);
 
-            let codeId = angular.element(document.querySelector('#Picture').getElementsByTagName('span')).attr('id');
+            formData.append('files', fileNames);
             formData.append('codeId', codeId);
 
             PictureService.upload(formData);

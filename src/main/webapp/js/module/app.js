@@ -9,7 +9,7 @@ var app = angular.module('onlyMy', ['ui.router'] )
             })
 
             .state('Picture', {
-                url: '/picture',
+                url: '/picture/:codeId',
                 templateUrl: '/template/category/read/picture.html'
             })
 

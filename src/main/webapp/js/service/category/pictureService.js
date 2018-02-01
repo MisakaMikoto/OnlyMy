@@ -1,8 +1,8 @@
 /**
  * Created by MisakaMikoto on 2018. 1. 11..
  */
-app.service('PictureService', ['AjaxService',
-    function (AjaxService) {
+app.service('PictureService', ['$stateParams', 'AjaxService',
+    function ($stateParams, AjaxService) {
         this.upload = function(formData) {
             alert(formData.get('files') + ' 파일의 업로드를 시작합니다.');
             this.setDisableUpload();
@@ -40,7 +40,7 @@ app.service('PictureService', ['AjaxService',
         };
 
         this.getUploadList = function() {
-            let codeId = angular.element(document.querySelector('#Picture').getElementsByTagName('span')).attr('id');
+            let codeId = $stateParams.codeId;
 
             let httpArray = [];
             httpArray.push({
